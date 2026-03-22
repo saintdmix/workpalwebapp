@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>WorkPal | Create Post</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            background: "#191022",
+            primary: "#7f13ec",
+            secondary: "#2d1b4d",
+            surface: "#191022",
+            "surface-container": "#231b2e",
+            "surface-container-high": "#2d2438",
+            "surface-container-low": "#1c1426",
+            "surface-container-lowest": "#0d0814",
+            "surface-container-highest": "#382f44",
+            "on-background": "#f7f6f8",
+            "on-surface": "#f7f6f8",
+            "on-surface-variant": "#cec2d8",
+            tertiary: "#ffb68b",
+            error: "#ffb4ab",
+          },
+          fontFamily: {
+            body: ["Inter"],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    body {
+      font-family: Inter, sans-serif;
+      background:
+        radial-gradient(1000px 520px at 0% -10%, rgba(127, 19, 236, 0.22), transparent 48%),
+        radial-gradient(900px 480px at 100% -16%, rgba(255, 182, 139, 0.12), transparent 54%),
+        #0d0815;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+    }
+    .glass-card {
+      background: rgba(24, 17, 38, 0.88);
+      border: 1px solid rgba(127, 19, 236, 0.18);
+      backdrop-filter: blur(18px);
+    }
+    .chip-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(127, 19, 236, 0.25);
+      background: rgba(127, 19, 236, 0.12);
+      padding: 0.45rem 0.75rem;
+      color: #e9ddff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .preview-scroll::-webkit-scrollbar {
+      width: 7px;
+    }
+    .preview-scroll::-webkit-scrollbar-thumb {
+      background: rgba(127, 19, 236, 0.35);
+      border-radius: 9999px;
+    }
+    @media (max-width: 767px) {
+      [data-app-shell-shift] {
+        margin-left: 0 !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface">
+  <aside class="fixed left-0 top-16 hidden h-[calc(100vh-64px)] md:flex" data-app-sidebar></aside>
+
+  <main class="mx-auto max-w-7xl px-4 py-8 md:px-6" data-app-shell-shift>
+    <div class="mb-6 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+      <div>
+        <a class="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.18em] text-violet-200 hover:bg-primary/15" href="./feed.html">
+          <span class="material-symbols-outlined text-base">west</span>
+          Back To Feed
+        </a>
+        <p class="mt-4 text-[11px] font-bold uppercase tracking-[0.22em] text-violet-300/80">Post Studio</p>
+        <h1 class="mt-2 text-3xl font-black tracking-tight text-white md:text-4xl">Create a live post that actually ships</h1>
+        <p class="mt-2 max-w-2xl text-sm text-slate-300">
+          Write your update, upload real media, and publish straight into the WorkPal feed.
+        </p>
+      </div>
+      <div class="flex flex-col items-start gap-2 sm:flex-row sm:items-center">
+        <p class="text-xs text-slate-400" id="draftState">Draft not saved yet.</p>
+        <div class="flex gap-2">
+          <button class="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-xs font-bold uppercase tracking-[0.16em] text-slate-200 hover:bg-white/10" id="discardBtn" type="button">Discard</button>
+          <button class="rounded-xl border border-primary/25 bg-primary/10 px-4 py-3 text-xs font-bold uppercase tracking-[0.16em] text-violet-100 hover:bg-primary/15" id="previewBtn" type="button">Preview</button>
+          <button class="rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-500 px-5 py-3 text-xs font-black uppercase tracking-[0.18em] text-white shadow-[0_14px_35px_rgba(127,19,236,0.35)] hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60" id="publishBtn" type="submit" form="createPostForm">Publish Post</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="hidden rounded-2xl border px-4 py-3 text-sm" id="createPostBanner"></div>
+
+    <form class="mt-6 grid gap-6 xl:grid-cols-[minmax(0,1.6fr)_minmax(320px,0.9fr)]" id="createPostForm">
+      <section class="space-y-6">
+        <div class="glass-card rounded-[1.5rem] p-5">
+          <div class="mb-5 flex flex-wrap gap-3" id="postFormatTabs">
+            <button class="rounded-2xl border px-4 py-3 text-sm font-bold transition-all" data-post-format="status" type="button"><span class="material-symbols-outlined mr-2 align-middle text-base">dynamic_feed</span>Status Update</button>
+            <button class="rounded-2xl border px-4 py-3 text-sm font-bold transition-all" data-post-format="portfolio" type="button"><span class="material-symbols-outlined mr-2 align-middle text-base">workspaces</span>Portfolio Project</button>
+            <button class="rounded-2xl border px-4 py-3 text-sm font-bold transition-all" data-post-format="availability" type="button"><span class="material-symbols-outlined mr-2 align-middle text-base">campaign</span>Open For Work</button>
+          </div>
+
+          <div class="rounded-2xl border border-white/5 bg-surface-container-low p-4">
+            <label class="text-[11px] font-bold uppercase tracking-[0.18em] text-violet-200" for="postTitleInput">Post Title</label>
+            <input class="mt-3 w-full border-0 bg-transparent px-0 text-3xl font-black tracking-tight text-white placeholder:text-slate-600 focus:ring-0" id="postTitleInput" maxlength="90" placeholder="What are you sharing today?" type="text" />
+
+            <label class="mt-6 block text-[11px] font-bold uppercase tracking-[0.18em] text-violet-200" for="postBodyInput">Post Body</label>
+            <textarea class="mt-3 min-h-[280px] w-full resize-y border-0 bg-transparent px-0 text-sm leading-7 text-slate-200 placeholder:text-slate-600 focus:ring-0" id="postBodyInput" maxlength="2200" placeholder="Share progress, context, materials, or the kind of work you want clients to notice..."></textarea>
+
+            <div class="mt-6 rounded-2xl border border-primary/10 bg-[#120c1c] p-4">
+              <div class="flex flex-wrap items-center gap-3">
+                <label class="text-[11px] font-bold uppercase tracking-[0.18em] text-violet-200" for="tagInput">Tags</label>
+                <p class="text-xs text-slate-400">Press Enter or comma to add skills, materials, or specialties.</p>
+              </div>
+              <div class="mt-3 flex flex-wrap gap-2" id="tagsList"></div>
+              <div class="mt-3 flex flex-col gap-3 sm:flex-row">
+                <input class="w-full rounded-2xl border border-primary/20 bg-surface-container-lowest px-4 py-3 text-sm text-slate-100 outline-none focus:border-violet-300 focus:ring-0" id="tagInput" maxlength="24" placeholder="Add a tag" type="text" />
+                <button class="rounded-2xl border border-primary/25 bg-primary/10 px-4 py-3 text-xs font-bold uppercase tracking-[0.16em] text-violet-100 hover:bg-primary/15" id="addTagBtn" type="button">Add Tag</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-[1.5rem] p-5">
+          <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <div>
+              <h2 class="text-lg font-black tracking-tight text-white">Media Uploads</h2>
+              <p class="mt-1 text-sm text-slate-400">Attach up to 6 images. These will show on the live feed and in your profile.</p>
+            </div>
+            <label class="inline-flex cursor-pointer items-center justify-center rounded-2xl border border-primary/25 bg-primary/10 px-4 py-3 text-xs font-bold uppercase tracking-[0.16em] text-violet-100 hover:bg-primary/15">
+              <span class="material-symbols-outlined mr-2 text-base">upload</span>
+              Add Images
+              <input accept="image/*" class="hidden" id="mediaInput" multiple type="file" />
+            </label>
+          </div>
+          <p class="mt-3 text-xs text-slate-500" id="mediaHint">No media selected yet.</p>
+          <div class="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3" id="mediaGrid"></div>
+        </div>
+      </section>
+
+      <aside class="space-y-6">
+        <section class="glass-card sticky top-24 rounded-[1.5rem] p-5">
+          <div class="flex items-center gap-3 border-b border-white/5 pb-5">
+            <img alt="Your avatar" class="h-12 w-12 rounded-2xl border border-primary/20 object-cover" data-shell-avatar src="https://via.placeholder.com/96x96.png?text=W" />
+            <div class="min-w-0">
+              <p class="truncate text-sm font-bold text-white" id="composerName">Loading profile...</p>
+              <p class="truncate text-xs uppercase tracking-[0.18em] text-slate-500" id="composerRole">Artisan workspace</p>
+            </div>
+          </div>
+
+          <div class="mt-5 space-y-5">
+            <div>
+              <label class="text-[11px] font-bold uppercase tracking-[0.18em] text-violet-200" for="categoryInput">Category</label>
+              <input class="mt-2 w-full rounded-2xl border border-primary/20 bg-surface-container-lowest px-4 py-3 text-sm text-slate-100 outline-none focus:border-violet-300 focus:ring-0" id="categoryInput" list="categoryOptions" placeholder="Select or type a category" type="text" />
+              <datalist id="categoryOptions"></datalist>
+            </div>
+
+            <div>
+              <label class="text-[11px] font-bold uppercase tracking-[0.18em] text-violet-200" for="visibilitySelect">Visibility</label>
+              <select class="mt-2 w-full rounded-2xl border border-primary/20 bg-surface-container-lowest px-4 py-3 text-sm text-slate-100 focus:border-violet-300 focus:ring-0" id="visibilitySelect">
+                <option value="public">Public - everyone</option>
+                <option value="network">Network - followers only</option>
+                <option value="private">Private - only me</option>
+              </select>
+            </div>
+
+            <div class="space-y-4 rounded-2xl border border-primary/10 bg-[#120c1c] p-4">
+              <div class="flex items-center justify-between gap-4">
+                <div>
+                  <p class="text-sm font-bold text-white">Enable comments</p>
+                  <p class="text-xs text-slate-500">People can reply directly from the feed.</p>
+                </div>
+                <button aria-pressed="true" class="group relative h-7 w-12 rounded-full transition-colors" id="commentsToggle" type="button"><span class="pointer-events-none absolute left-1 top-1 h-5 w-5 rounded-full bg-white transition-transform" data-toggle-knob></span></button>
+              </div>
+
+              <div class="flex items-center justify-between gap-4">
+                <div>
+                  <p class="text-sm font-bold text-white">Showcase on portfolio</p>
+                  <p class="text-xs text-slate-500">Highlights this work in your profile collection.</p>
+                </div>
+                <button aria-pressed="true" class="group relative h-7 w-12 rounded-full transition-colors" id="portfolioToggle" type="button"><span class="pointer-events-none absolute left-1 top-1 h-5 w-5 rounded-full bg-white transition-transform" data-toggle-knob></span></button>
+              </div>
+
+              <div class="flex items-center justify-between gap-4">
+                <div>
+                  <p class="text-sm font-bold text-white">Share first image to stories</p>
+                  <p class="text-xs text-slate-500">Useful for quick extra reach when you upload media.</p>
+                </div>
+                <button aria-pressed="false" class="group relative h-7 w-12 rounded-full transition-colors" id="storyToggle" type="button"><span class="pointer-events-none absolute left-1 top-1 h-5 w-5 rounded-full bg-white transition-transform" data-toggle-knob></span></button>
+              </div>
+            </div>
+
+            <div class="rounded-2xl border border-primary/10 bg-[#120c1c] p-4">
+              <div class="flex items-center justify-between gap-4">
+                <div>
+                  <p class="text-sm font-bold text-white">Live Preview</p>
+                  <p class="text-xs text-slate-500">This updates as you type.</p>
+                </div>
+                <span class="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-violet-100" id="liveFormatBadge">Status Update</span>
+              </div>
+              <div class="mt-4 rounded-2xl border border-white/5 bg-surface-container-low p-4">
+                <p class="text-lg font-black tracking-tight text-white" id="liveTitle">Your post title will appear here.</p>
+                <p class="mt-3 whitespace-pre-wrap text-sm leading-6 text-slate-300" id="liveBody">Write something meaningful so clients and collaborators can see what you do.</p>
+                <div class="mt-4 flex flex-wrap gap-2" id="liveTags"></div>
+                <div class="mt-4 grid gap-2 text-xs text-slate-400">
+                  <p id="liveMeta">Public post</p>
+                  <p id="liveMediaCount">0 images selected</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </aside>
+    </form>
+  </main>
+
+  <div class="fixed inset-0 z-[80] hidden items-center justify-center bg-black/75 p-4 backdrop-blur-sm" id="previewModal">
+    <div class="glass-card preview-scroll max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-[1.75rem] p-5 md:p-6">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <p class="text-[11px] font-bold uppercase tracking-[0.2em] text-violet-300/80">Preview</p>
+          <h2 class="mt-2 text-2xl font-black tracking-tight text-white">Ready to publish</h2>
+        </div>
+        <button class="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-200 hover:bg-white/10" id="previewCloseBtn" type="button"><span class="material-symbols-outlined">close</span></button>
+      </div>
+
+      <div class="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1.3fr)_minmax(250px,0.7fr)]">
+        <div class="rounded-[1.5rem] border border-white/5 bg-surface-container-low p-5">
+          <p class="text-3xl font-black tracking-tight text-white" id="previewTitle">Untitled post</p>
+          <p class="mt-4 whitespace-pre-wrap text-sm leading-7 text-slate-200" id="previewBody">Your preview will appear here.</p>
+          <div class="mt-5 flex flex-wrap gap-2" id="previewTags"></div>
+          <div class="mt-5 grid gap-3 sm:grid-cols-2" id="previewMedia"></div>
+        </div>
+
+        <div class="space-y-4 rounded-[1.5rem] border border-primary/10 bg-[#120c1c] p-5">
+          <div>
+            <p class="text-[11px] font-bold uppercase tracking-[0.2em] text-violet-300/80">Publishing as</p>
+            <p class="mt-2 text-lg font-bold text-white" id="previewAuthorName">Artisan</p>
+            <p class="text-sm text-slate-500" id="previewAuthorRole">Workspace</p>
+          </div>
+          <div class="grid gap-3 text-sm text-slate-300">
+            <p id="previewFormat">Format: Status Update</p>
+            <p id="previewVisibility">Visibility: Public</p>
+            <p id="previewCategory">Category: Not set</p>
+            <p id="previewComments">Comments: Enabled</p>
+            <p id="previewPortfolio">Portfolio: Enabled</p>
+            <p id="previewStory">Stories: Disabled</p>
+          </div>
+          <button class="w-full rounded-2xl bg-gradient-to-r from-violet-600 to-fuchsia-500 px-5 py-3 text-xs font-black uppercase tracking-[0.18em] text-white hover:brightness-110" id="previewPublishBtn" type="button">Publish Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="../js/app-shell.js"></script>
+  <script type="module" src="../js/create-post-page.js"></script>
+</body>
+</html>

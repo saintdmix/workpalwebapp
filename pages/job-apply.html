@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>WorkPal - Job Application</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "surface-dim": "#150e1c",
+          "on-error": "#690005",
+          "error-container": "#93000a",
+          "surface": "#191022",
+          "surface-tint": "#7f13ec",
+          "on-background": "#f7f6f8",
+          "secondary": "#2d1b4d",
+          "inverse-surface": "#f7f6f8",
+          "secondary-fixed": "#eddcff",
+          "surface-variant": "#2d1b4d",
+          "on-surface": "#f7f6f8",
+          "tertiary": "#ffb68b",
+          "surface-container-highest": "#382f44",
+          "on-secondary": "#ffffff",
+          "on-primary-container": "#e5ceff",
+          "tertiary-fixed-dim": "#ffb68b",
+          "tertiary-fixed": "#ffdbc8",
+          "secondary-container": "#3d2a5e",
+          "inverse-on-surface": "#191022",
+          "on-surface-variant": "#cec2d8",
+          "background": "#191022",
+          "on-tertiary-fixed-variant": "#753400",
+          "on-tertiary": "#522300",
+          "on-primary-fixed": "#290055",
+          "tertiary-container": "#984600",
+          "on-tertiary-container": "#ffcdb1",
+          "error": "#ffb4ab",
+          "surface-container-lowest": "#0d0814",
+          "primary-container": "#2d1b4d",
+          "surface-container": "#231b2e",
+          "outline-variant": "#4c4355",
+          "secondary-fixed-dim": "#d8b9ff",
+          "primary-fixed": "#eddcff",
+          "primary": "#7f13ec",
+          "on-error-container": "#ffdad6",
+          "surface-container-high": "#2d2438",
+          "on-tertiary-fixed": "#321200",
+          "on-primary": "#ffffff",
+          "surface-container-low": "#1c1426",
+          "primary-fixed-dim": "#d8b9ff",
+          "on-primary-fixed-variant": "#6200bc",
+          "surface-bright": "#2d1b4d",
+          "inverse-primary": "#d8b9ff",
+          "outline": "#7f13ec",
+          "on-secondary-container": "#eddcff",
+          "on-secondary-fixed-variant": "#59308f",
+          "on-secondary-fixed": "#290055"
+        },
+        fontFamily: { "headline": ["Inter"], "body": ["Inter"], "label": ["Inter"] },
+        borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+      },
+    },
+  }
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    vertical-align: middle;
+  }
+  body { background-color: #191022; color: #f7f6f8; font-family: 'Inter', sans-serif; }
+</style>
+</head>
+<body class="antialiased">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-[#191022] backdrop-blur-md bg-opacity-95 border-b border-[#7f13ec]/10 shadow-md flex justify-between items-center px-4 md:px-6 h-16">
+  <div class="flex items-center gap-4">
+    <button class="p-2 text-slate-400 hover:bg-[#7f13ec]/10 rounded-full transition-all" onclick="history.back()" type="button">
+      <span class="material-symbols-outlined">arrow_back</span>
+    </button>
+    <span class="text-[#7f13ec] font-black text-xl italic">WorkPal</span>
+  </div>
+  <div class="flex items-center gap-4">
+    <button class="p-2 text-slate-400 hover:bg-[#7f13ec]/10 rounded-full transition-all" data-shell-link="notifications" type="button">
+      <span class="material-symbols-outlined">notifications</span>
+    </button>
+    <button class="h-8 w-8 rounded-full overflow-hidden border border-[#7f13ec]/30" data-shell-link="profiles" type="button">
+      <img alt="Profile" class="w-full h-full object-cover" data-shell-avatar src="https://via.placeholder.com/72x72.png?text=W"/>
+    </button>
+  </div>
+</header>
+
+<div class="flex pt-16 min-h-screen">
+  <!-- SideNavBar -->
+  <aside class="fixed left-0 top-16 h-[calc(100vh-64px)] hidden md:flex" data-app-sidebar></aside>
+
+  <!-- Main Content Canvas -->
+  <main class="flex-1 p-4 md:p-6 lg:p-8 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8" data-app-shell-shift>
+    <!-- Left Column: Job Details -->
+    <div class="lg:col-span-8 flex flex-col gap-8">
+      <!-- Hero Header -->
+      <div class="relative h-48 sm:h-64 rounded-xl overflow-hidden shadow-md group">
+        <img alt="Job cover" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" id="jobCoverImg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8ZYu7U_MOEB6Orp7ScJydOIojjkYFc1pzPgMEwLe-Q55icGDowoU_Us9KzJrYQqFm9uC1bL08YOWX4d8O46_CHjVXTsQPfZedkA_tCGiFuJv3wuzCPJB61hKUbYgvMGUVs31ZqCKlCaL6htCrFWK8JhLykyTgMvKt4N4Qepk3aRvc9f0N9reRn4pUNSEa4k3iJn3gdO30Pr2RMesM_RyhX-33b5F7GPkwUifDMNRMBIpNBAeb4pS7COTBauCFdySmwE42Tb9G0SdO"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#191022] via-[#191022]/40 to-transparent"></div>
+        <div class="absolute bottom-6 left-6 right-6">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="px-2 py-0.5 bg-[#7f13ec] text-white text-[10px] font-bold uppercase tracking-wider rounded">Open Gig</span>
+          </div>
+          <h1 class="text-xl sm:text-3xl font-black text-white tracking-tight mb-1" id="jobTitle">Job Title</h1>
+          <p class="text-slate-300 flex items-center gap-2">
+            <span class="material-symbols-outlined text-[18px] text-[#7f13ec]">location_on</span>
+            <span id="jobLocation">Location</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Bento Grid Content -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Project Requirements -->
+        <div class="bg-[#2d1b4d] p-6 rounded-xl shadow-md">
+          <h3 class="text-white font-bold mb-4 flex items-center gap-2">
+            <span class="material-symbols-outlined text-[#7f13ec]">list_alt</span>
+            Project Requirements
+          </h3>
+          <ul class="space-y-3 text-slate-300 text-sm">
+            <li class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-[#7f13ec] text-sm mt-1">check_circle</span>
+              Relevant experience in the requested trade or skill.
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-[#7f13ec] text-sm mt-1">check_circle</span>
+              Portfolio or proof of previous work required.
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-[#7f13ec] text-sm mt-1">check_circle</span>
+              Availability to start within the agreed timeline.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Budget Info -->
+        <div class="bg-[#2d1b4d] p-6 rounded-xl shadow-md flex flex-col justify-center items-center text-center gap-2">
+          <span class="material-symbols-outlined text-[#7f13ec] text-4xl">payments</span>
+          <p class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Posted Budget</p>
+          <span class="text-3xl font-black text-[#7f13ec]" id="jobBudget">Negotiable</span>
+        </div>
+
+        <!-- Description Full Width -->
+        <div class="md:col-span-2 bg-[#2d1b4d] p-6 rounded-xl shadow-md">
+          <h3 class="text-white font-bold mb-4">About This Job</h3>
+          <p class="text-slate-300 text-sm leading-relaxed" id="jobDesc">
+            Review the job details and submit your quote below. The client will review your application and reach out through WorkPal's secure messaging system.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Application Form -->
+    <div class="lg:col-span-4 flex flex-col gap-6">
+      <div class="bg-[#2d1b4d] p-5 sm:p-8 rounded-xl shadow-lg sticky top-20 border border-[#7f13ec]/10">
+        <h2 class="text-xl font-black text-white mb-6 tracking-tight">Submit Quote</h2>
+        <form class="space-y-5" id="applyForm">
+          <!-- Bid Amount -->
+          <div>
+            <label class="block text-[10px] font-bold uppercase text-slate-400 mb-2 tracking-widest">Proposed Bid</label>
+            <input class="w-full bg-[#191022] border-none text-white rounded-lg px-4 py-3 focus:ring-2 focus:ring-[#7f13ec] transition-all" id="bidAmount" placeholder="e.g. 4500" type="number"/>
+          </div>
+          <!-- Timeline -->
+          <div>
+            <label class="block text-[10px] font-bold uppercase text-slate-400 mb-2 tracking-widest">Estimated Timeline</label>
+            <select class="w-full bg-[#191022] border-none text-white rounded-lg px-4 py-3 focus:ring-2 focus:ring-[#7f13ec] transition-all" id="timeline">
+              <option>2-4 Weeks</option>
+              <option>4-8 Weeks</option>
+              <option>3+ Months</option>
+            </select>
+          </div>
+          <!-- Cover Note -->
+          <div>
+            <label class="block text-[10px] font-bold uppercase text-slate-400 mb-2 tracking-widest">Introduction</label>
+            <textarea class="w-full bg-[#191022] border-none text-white rounded-lg px-4 py-3 focus:ring-2 focus:ring-[#7f13ec] transition-all text-sm" id="coverNote" placeholder="Briefly describe your approach to this specific job..." rows="4"></textarea>
+          </div>
+          <div class="hidden text-sm text-red-300 rounded-lg bg-red-500/10 px-3 py-2" id="applyError"></div>
+          <div class="hidden text-sm text-emerald-300 rounded-lg bg-emerald-500/10 px-3 py-2" id="applySuccess"></div>
+          <button class="w-full bg-[#7f13ec] hover:bg-[#6200bc] text-white font-bold py-4 rounded-xl shadow-lg shadow-[#7f13ec]/30 transition-all active:scale-[0.98] flex items-center justify-center gap-2" type="submit">
+            <span>Send Application</span>
+            <span class="material-symbols-outlined text-sm">send</span>
+          </button>
+        </form>
+
+        <div class="mt-6 pt-6 border-t border-[#7f13ec]/10">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs text-slate-400">Platform Fee (5%)</span>
+            <span class="text-xs text-white" id="feeDisplay">—</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-white text-sm">Expected Payout</span>
+            <span class="font-bold text-[#7f13ec] text-lg" id="payoutDisplay">—</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trusted Badge -->
+      <div class="bg-white/5 p-4 rounded-xl border border-white/10 flex items-center gap-4">
+        <span class="material-symbols-outlined text-yellow-400" style="font-variation-settings: 'FILL' 1;">verified</span>
+        <div>
+          <p class="text-xs font-bold text-white">WorkPal Secure Payment</p>
+          <p class="text-[10px] text-slate-400">Funds are held in escrow until milestone approval.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script type="module" src="../js/app-shell.js"></script>
+<script type="module">
+  import { auth } from "../js/firebase-init.js";
+  import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+  import { db } from "../js/firebase-init.js";
+  import { collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+
+  const params = new URLSearchParams(window.location.search);
+  const postId = params.get("postId") || "";
+  const title = params.get("title") || "Job";
+  const location = params.get("location") || "Remote";
+  const budget = params.get("budget") || "Negotiable";
+
+  document.getElementById("jobTitle").textContent = title;
+  document.getElementById("jobLocation").textContent = location;
+  document.getElementById("jobBudget").textContent = budget;
+
+  const bidInput = document.getElementById("bidAmount");
+  const feeDisplay = document.getElementById("feeDisplay");
+  const payoutDisplay = document.getElementById("payoutDisplay");
+
+  bidInput?.addEventListener("input", () => {
+    const val = parseFloat(bidInput.value);
+    if (!isNaN(val) && val > 0) {
+      const fee = (val * 0.05).toFixed(2);
+      const payout = (val * 0.95).toFixed(2);
+      feeDisplay.textContent = `${payout.includes(".") ? "" : ""}${fee}`;
+      payoutDisplay.textContent = payout;
+    } else {
+      feeDisplay.textContent = "—";
+      payoutDisplay.textContent = "—";
+    }
+  });
+
+  let currentUser = null;
+  onAuthStateChanged(auth, (user) => { currentUser = user; });
+
+  document.getElementById("applyForm")?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const errEl = document.getElementById("applyError");
+    const successEl = document.getElementById("applySuccess");
+    errEl.classList.add("hidden");
+    successEl.classList.add("hidden");
+
+    if (!currentUser) {
+      errEl.textContent = "You must be signed in to apply.";
+      errEl.classList.remove("hidden");
+      return;
+    }
+
+    const bid = bidInput.value.trim();
+    const timeline = document.getElementById("timeline").value;
+    const note = document.getElementById("coverNote").value.trim();
+
+    if (!bid) {
+      errEl.textContent = "Please enter a bid amount.";
+      errEl.classList.remove("hidden");
+      return;
+    }
+
+    try {
+      await addDoc(collection(db, "jobApplications"), {
+        postId,
+        jobTitle: title,
+        applicantId: currentUser.uid,
+        bid: parseFloat(bid),
+        timeline,
+        coverNote: note,
+        createdAt: serverTimestamp(),
+        status: "pending",
+      });
+      successEl.textContent = "Application sent! The client will review your quote.";
+      successEl.classList.remove("hidden");
+      e.target.reset();
+      feeDisplay.textContent = "—";
+      payoutDisplay.textContent = "—";
+    } catch (err) {
+      errEl.textContent = err?.message || "Failed to submit application. Please try again.";
+      errEl.classList.remove("hidden");
+    }
+  });
+</script>
+</body></html>

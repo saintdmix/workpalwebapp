@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>WorkPal | Category Artisans</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              background: "#191022",
+              surface: "#191022",
+              primary: "#7f13ec",
+              secondary: "#2d1b4d",
+              "surface-container": "#231b2e",
+              "surface-container-high": "#2d2438",
+              "surface-container-lowest": "#0d0814",
+              "on-background": "#f7f6f8",
+              "on-surface": "#f7f6f8",
+              "on-surface-variant": "#cec2d8"
+            }
+          }
+        }
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        background:
+          radial-gradient(circle at top, rgba(127, 19, 236, 0.18), transparent 28%),
+          linear-gradient(180deg, #1b1025 0%, #191022 100%);
+        color: #f7f6f8;
+        font-family: 'Inter', sans-serif;
+      }
+      .glass-card {
+        background: rgba(45, 27, 77, 0.4);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+      .artisan-card {
+        display: grid;
+        grid-template-columns: 84px minmax(0, 1fr) auto;
+        gap: 1rem;
+        align-items: center;
+        padding: 1rem;
+        border-radius: 1.25rem;
+        border: 1px solid rgba(127, 19, 236, 0.12);
+        background: rgba(45, 27, 77, 0.5);
+      }
+      .artisan-card > img {
+        width: 84px;
+        height: 84px;
+        border-radius: 999px;
+        object-fit: cover;
+        border: 1px solid rgba(127, 19, 236, 0.22);
+        background: rgba(127, 19, 236, 0.1);
+      }
+      .artisan-card .meta h3 {
+        font-size: 1rem;
+        font-weight: 800;
+        color: #ffffff;
+      }
+      .artisan-card .meta p {
+        margin-top: 0.25rem;
+        color: #cec2d8;
+        font-size: 0.87rem;
+      }
+      .view-artisan-btn {
+        min-width: 6.5rem;
+        border-radius: 999px;
+        padding: 0.8rem 1rem;
+        background: rgba(127, 19, 236, 0.16);
+        color: #d8b9ff;
+        font-size: 0.75rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        transition: background 160ms ease, color 160ms ease;
+      }
+      .view-artisan-btn:hover {
+        background: #7f13ec;
+        color: #ffffff;
+      }
+      @media (max-width: 768px) {
+        .artisan-card {
+          grid-template-columns: 1fr;
+        }
+        .view-artisan-btn {
+          width: 100%;
+        }
+      }
+    </style>
+</head>
+<body class="bg-background text-on-background">
+<nav class="fixed top-0 z-50 flex h-16 w-full items-center justify-between border-b border-[#7f13ec]/10 bg-[#191022]/95 px-6 shadow-md backdrop-blur-md" data-app-shell-fixed-header>
+<div class="flex items-center gap-8">
+<button class="text-xl font-black tracking-tight text-white" data-shell-link="home" type="button">Workpal</button>
+<div class="hidden items-center rounded-full border border-primary/10 bg-surface-container px-4 py-1.5 lg:flex">
+<span class="material-symbols-outlined text-sm text-slate-400">search</span>
+<input class="w-64 border-none bg-transparent text-sm text-on-surface placeholder:text-slate-500 focus:ring-0" id="categorySearch" placeholder="Search artisans in this category..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-slate-400 transition-colors hover:text-white" data-shell-link="notifications" type="button">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-slate-400 transition-colors hover:text-white" data-shell-link="communication" type="button">
+<span class="material-symbols-outlined">mail</span>
+</button>
+<button class="h-9 w-9 overflow-hidden rounded-full border border-primary/20 bg-secondary" data-shell-link="profiles" type="button">
+<img alt="User profile" class="h-full w-full object-cover" data-shell-avatar src="https://via.placeholder.com/72x72.png?text=W"/>
+</button>
+</div>
+</nav>
+<aside class="fixed left-0 top-16 hidden h-[calc(100vh-64px)] md:flex" data-app-sidebar></aside>
+<main class="px-6 pb-12 pt-24" data-app-shell-shift>
+<section class="mx-auto max-w-6xl">
+<div class="mb-8 rounded-[1.75rem] border border-white/5 bg-gradient-to-br from-surface-container to-surface-container-high p-8 shadow-2xl shadow-black/20">
+<div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+<div>
+<p class="mb-3 text-[11px] font-black uppercase tracking-[0.28em] text-primary">Live category directory</p>
+<h1 class="text-3xl font-black tracking-tight text-white md:text-4xl" id="categoryTitle">Category Artisans</h1>
+<p class="mt-3 max-w-2xl text-sm text-on-surface-variant">These results come directly from your backend and update from the selected category instead of the old demo list.</p>
+</div>
+<button class="inline-flex items-center justify-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-3 text-xs font-black uppercase tracking-[0.2em] text-primary transition-colors hover:bg-primary hover:text-white" id="refreshLocationBtn" type="button">
+<span class="material-symbols-outlined text-base">my_location</span>
+<span>Refresh Location</span>
+</button>
+</div>
+</div>
+
+<div class="mb-5 hidden rounded-xl border border-red-500/40 bg-red-500/10 px-4 py-3 text-sm text-red-200" id="categoryError"></div>
+
+<div class="mb-6 grid gap-4 rounded-2xl border border-white/5 bg-surface-container p-4 md:grid-cols-4">
+<label class="block text-sm text-on-surface-variant">
+<span class="mb-2 block text-[11px] font-black uppercase tracking-[0.2em] text-primary">Search</span>
+<input class="w-full rounded-xl border border-primary/10 bg-[#191022]/70 px-4 py-3 text-sm text-on-surface placeholder:text-slate-500 focus:border-primary focus:ring-primary/20 lg:hidden" id="categorySearchMobile" placeholder="Search artisans in this category..." type="text"/>
+</label>
+<label class="flex items-center gap-3 rounded-xl border border-primary/10 bg-[#191022]/55 px-4 py-3 text-sm text-on-surface-variant">
+<input class="rounded border-primary/40 bg-surface-container text-primary focus:ring-primary/30" id="filterWithin10km" type="checkbox"/>
+<span>Within 10km</span>
+</label>
+<label class="flex items-center gap-3 rounded-xl border border-primary/10 bg-[#191022]/55 px-4 py-3 text-sm text-on-surface-variant">
+<input class="rounded border-primary/40 bg-surface-container text-primary focus:ring-primary/30" id="filterOpenToWork" type="checkbox"/>
+<span>Open to work only</span>
+</label>
+<label class="block text-sm text-on-surface-variant">
+<span class="mb-2 block text-[11px] font-black uppercase tracking-[0.2em] text-primary">Sort by</span>
+<select class="w-full rounded-xl border border-primary/10 bg-[#191022]/70 px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-primary/20" id="filterSortBy">
+<option value="top_rated">Top rated</option>
+<option value="distance">Nearest first</option>
+</select>
+</label>
+</div>
+
+<div class="space-y-4" data-profile-page="./profiles.html" id="categoryArtisansList"></div>
+<div class="space-y-4" id="categoryLoading">
+<div class="glass-card rounded-3xl border border-primary/10 p-5">
+<div class="flex items-center gap-4">
+<div class="shimmer-line h-20 w-20 rounded-full"></div>
+<div class="flex-1 space-y-3">
+<div class="shimmer-line h-5 w-40 rounded-full"></div>
+<div class="shimmer-line h-4 w-56 rounded-full"></div>
+<div class="shimmer-line h-4 w-full rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="glass-card rounded-3xl border border-primary/10 p-5">
+<div class="flex items-center gap-4">
+<div class="shimmer-line h-20 w-20 rounded-full"></div>
+<div class="flex-1 space-y-3">
+<div class="shimmer-line h-5 w-36 rounded-full"></div>
+<div class="shimmer-line h-4 w-52 rounded-full"></div>
+<div class="shimmer-line h-4 w-full rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="glass-card rounded-3xl border border-primary/10 p-5">
+<div class="flex items-center gap-4">
+<div class="shimmer-line h-20 w-20 rounded-full"></div>
+<div class="flex-1 space-y-3">
+<div class="shimmer-line h-5 w-44 rounded-full"></div>
+<div class="shimmer-line h-4 w-48 rounded-full"></div>
+<div class="shimmer-line h-4 w-full rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<p class="hidden rounded-2xl border border-white/5 bg-surface-container px-4 py-5 text-sm text-slate-400" id="categoryEmpty">No artisans matched this category yet.</p>
+</section>
+</main>
+<script type="module" src="../js/app-shell.js"></script>
+<script type="module" src="../js/pages/category-page.js"></script>
+<script>
+      const desktopSearch = document.getElementById("categorySearch");
+      const mobileSearch = document.getElementById("categorySearchMobile");
+      if (desktopSearch && mobileSearch) {
+        desktopSearch.addEventListener("input", () => {
+          mobileSearch.value = desktopSearch.value;
+        });
+        mobileSearch.addEventListener("input", () => {
+          desktopSearch.value = mobileSearch.value;
+          desktopSearch.dispatchEvent(new Event("input", { bubbles: true }));
+        });
+      }
+    </script>
+</body>
+</html>

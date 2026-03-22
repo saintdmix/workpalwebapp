@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WorkPal Auth UI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-1: #0f172a;
+      --bg-2: #1e3a8a;
+      --bg-3: #0ea5e9;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --line: #e2e8f0;
+      --primary: #0f766e;
+      --primary-2: #14b8a6;
+      --danger: #dc2626;
+      --success: #15803d;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Sora", sans-serif;
+      background: radial-gradient(circle at 10% 10%, var(--bg-3), transparent 35%),
+                  radial-gradient(circle at 90% 80%, #2563eb, transparent 35%),
+                  linear-gradient(140deg, var(--bg-1), var(--bg-2));
+      min-height: 100vh;
+      color: var(--text);
+      display: grid;
+      place-items: center;
+      padding: 20px;
+    }
+
+    .auth-shell {
+      width: min(1100px, 100%);
+      min-height: 680px;
+      border-radius: 24px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.25);
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(6px);
+    }
+
+    .hero {
+      padding: 48px;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .hero h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 2.8vw, 3rem);
+      line-height: 1.1;
+    }
+
+    .hero p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 1rem;
+      max-width: 420px;
+    }
+
+    .hero-badge {
+      width: fit-content;
+      padding: 10px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .card {
+      background: var(--card);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    .toggle-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      background: #f1f5f9;
+      padding: 6px;
+      border-radius: 14px;
+      margin-bottom: 20px;
+    }
+
+    .toggle-btn {
+      border: 0;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-weight: 700;
+      cursor: pointer;
+      background: transparent;
+      color: #334155;
+    }
+
+    .toggle-btn.active {
+      background: #fff;
+      color: var(--primary);
+      box-shadow: 0 6px 16px rgba(2, 6, 23, 0.08);
+    }
+
+    .head-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .head-row h2 {
+      margin: 0;
+      font-size: 1.4rem;
+    }
+
+    .link-btn {
+      border: 0;
+      background: transparent;
+      color: var(--primary);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .auth-msg {
+      min-height: 24px;
+      margin: 0 0 12px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .auth-msg.is-error {
+      color: var(--danger);
+    }
+
+    .auth-msg.is-success {
+      color: var(--success);
+    }
+
+    .grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .field {
+      display: grid;
+      gap: 6px;
+    }
+
+    .field label {
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: #334155;
+    }
+
+    .field input,
+    .field textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px 14px;
+      font: inherit;
+      outline: none;
+      transition: border-color 0.2s ease;
+      resize: vertical;
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      border-color: var(--primary-2);
+    }
+
+    .forgot {
+      text-align: right;
+      margin-top: -4px;
+      margin-bottom: 2px;
+    }
+
+    .forgot button {
+      border: 0;
+      background: transparent;
+      color: var(--primary);
+      font-size: 0.84rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .skills-wrap {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      max-height: 130px;
+      overflow: auto;
+    }
+
+    .chip {
+      border: 1px solid #cbd5e1;
+      background: #f8fafc;
+      color: #334155;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 0.77rem;
+      font-weight: 600;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .chip.active {
+      border-color: var(--primary);
+      background: #ccfbf1;
+      color: #115e59;
+    }
+
+    .submit {
+      margin-top: 8px;
+      border: 0;
+      border-radius: 12px;
+      padding: 13px 16px;
+      color: #fff;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      background: linear-gradient(90deg, var(--primary), var(--primary-2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: opacity 0.2s;
+    }
+
+    .submit:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    .spinner {
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(255,255,255,0.4);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      display: none;
+    }
+
+    .submit.loading .spinner { display: block; }
+    .submit.loading .btn-label { display: none; }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .hidden { display: none !important; }
+
+    @media (max-width: 940px) {
+      .auth-shell {
+        grid-template-columns: 1fr;
+        min-height: 100%;
+      }
+
+      .hero {
+        padding: 26px 22px;
+      }
+
+      .card {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="auth-shell">
+    <aside class="hero">
+      <div>
+        <div class="hero-badge" id="heroBadge">Customer Portal</div>
+        <h1 id="heroTitle">Find trusted professionals near you</h1>
+        <p id="heroText">Connect with skilled artisans for home, business, and personal services.</p>
+      </div>
+      <p>WorkPal Web</p>
+    </aside>
+
+    <main class="card">
+      <div class="toggle-row">
+        <button class="toggle-btn active" id="roleCustomerBtn" type="button">Find Services</button>
+        <button class="toggle-btn" id="roleArtisanBtn" type="button">Join as Artisan</button>
+      </div>
+
+      <div class="head-row">
+        <h2 id="formTitle">Welcome Back</h2>
+        <button class="link-btn" id="modeSwitchBtn" type="button">Sign Up</button>
+      </div>
+
+      <p class="auth-msg" id="authMessage"></p>
+
+      <form id="authForm" class="grid" novalidate>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" type="email" placeholder="Enter your email" autocomplete="email" />
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <input id="password" type="password" placeholder="Enter your password" autocomplete="current-password" />
+        </div>
+
+        <div class="forgot" id="forgotWrap">
+          <button id="forgotPasswordBtn" type="button">Forgot Password?</button>
+        </div>
+
+        <div id="signupFields" class="grid hidden">
+          <div class="field">
+            <label for="fullName">Full Name</label>
+            <input id="fullName" type="text" placeholder="Enter your full name" />
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone Number</label>
+            <input id="phone" type="text" placeholder="Enter your phone number" />
+          </div>
+
+          <div class="field">
+            <label for="address">Address</label>
+            <input id="address" type="text" placeholder="Enter your address" />
+          </div>
+
+          <div id="artisanFields" class="grid hidden">
+            <div class="field">
+              <label for="title">Professional Title</label>
+              <input id="title" type="text" placeholder="e.g. Professional Electrician" />
+            </div>
+
+            <div class="field">
+              <label for="bio">Bio</label>
+              <textarea id="bio" rows="3" placeholder="Tell customers about yourself"></textarea>
+            </div>
+
+            <div class="field">
+              <label>Skills</label>
+              <div class="skills-wrap" id="skillsWrap"></div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="referral">Referral Code (Optional)</label>
+            <input id="referral" type="text" placeholder="Enter referral code" />
+          </div>
+        </div>
+
+        <button class="submit" id="submitBtn" type="submit"><span class="spinner"></span><span class="btn-label">Login</span></button>
+      </form>
+    </main>
+  </section>
+
+  <script type="module" src="./js/auth-page.js"></script>
+</body>
+</html>

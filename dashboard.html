@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Redirecting...</title>
+</head>
+<body>
+  <p>Redirecting to your dashboard...</p>
+  <script>
+    (function () {
+      var role = localStorage.getItem("workpalUserRole") || "artisan";
+      if (role === "customer") {
+        window.location.replace("./pages/customers.html");
+        return;
+      }
+      window.location.replace("./index.html");
+    })();
+  </script>
+</body>
+</html>

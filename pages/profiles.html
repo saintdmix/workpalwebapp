@@ -1,0 +1,286 @@
+﻿<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Workpal - Professional Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "on-secondary-fixed": "#290055",
+                "error": "#ffb4ab",
+                "on-primary-fixed-variant": "#6200bc",
+                "error-container": "#93000a",
+                "surface-container-highest": "#382f44",
+                "outline": "#7f13ec",
+                "on-surface": "#f7f6f8",
+                "tertiary-fixed": "#ffdbc8",
+                "tertiary-container": "#984600",
+                "secondary-container": "#3d2a5e",
+                "inverse-surface": "#f7f6f8",
+                "on-tertiary": "#522300",
+                "on-primary-container": "#e5ceff",
+                "inverse-on-surface": "#191022",
+                "tertiary-fixed-dim": "#ffb68b",
+                "on-background": "#f7f6f8",
+                "surface": "#191022",
+                "on-tertiary-fixed-variant": "#753400",
+                "surface-variant": "#2d1b4d",
+                "on-error-container": "#ffdad6",
+                "on-tertiary-fixed": "#321200",
+                "outline-variant": "#4c4355",
+                "primary-fixed": "#eddcff",
+                "tertiary": "#ffb68b",
+                "surface-dim": "#150e1c",
+                "primary-fixed-dim": "#d8b9ff",
+                "on-error": "#690005",
+                "surface-container": "#231b2e",
+                "on-primary-fixed": "#290055",
+                "secondary": "#2d1b4d",
+                "on-secondary-fixed-variant": "#59308f",
+                "surface-container-high": "#2d2438",
+                "on-secondary-container": "#eddcff",
+                "surface-container-lowest": "#0d0814",
+                "surface-container-low": "#1c1426",
+                "secondary-fixed-dim": "#d8b9ff",
+                "inverse-primary": "#d8b9ff",
+                "surface-bright": "#2d1b4d",
+                "on-tertiary-container": "#ffcdb1",
+                "on-primary": "#ffffff",
+                "primary": "#7f13ec",
+                "secondary-fixed": "#eddcff",
+                "surface-tint": "#7f13ec",
+                "on-secondary": "#ffffff",
+                "on-surface-variant": "#cec2d8",
+                "primary-container": "#2d1b4d",
+                "background": "#191022"
+              },
+              fontFamily: {
+                "headline": ["Inter"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #191022;
+        }
+        .chip {
+          border: 1px solid rgba(127, 19, 236, 0.25);
+          border-radius: 9999px;
+          padding: 0.2rem 0.6rem;
+          font-size: 0.75rem;
+          background: rgba(127, 19, 236, 0.12);
+          color: #d8b9ff;
+          font-weight: 600;
+        }
+        .post-card {
+          border-radius: 0.75rem;
+          overflow: hidden;
+          background: #2d1b4d;
+          border: 1px solid rgba(127, 19, 236, 0.15);
+        }
+        .post-card img {
+          width: 100%;
+          height: 180px;
+          object-fit: cover;
+          display: block;
+        }
+        .post-body {
+          padding: 0.8rem;
+        }
+        .post-body h4 {
+          color: #ffffff;
+          font-size: 0.95rem;
+          font-weight: 700;
+          line-height: 1.3;
+          margin-bottom: 0.35rem;
+        }
+        .post-body p {
+          color: #f7f6f8;
+          font-size: 0.9rem;
+          line-height: 1.3;
+        }
+        .post-body small {
+          color: #cec2d8;
+          font-size: 0.75rem;
+        }
+        .empty {
+          color: #cec2d8;
+          font-size: 0.9rem;
+          font-style: italic;
+        }
+    </style>
+</head>
+<body class="font-body text-on-surface bg-background antialiased">
+<!-- TopAppBar Shell -->
+<header class="bg-violet-950/95 dark:bg-slate-950/95 backdrop-blur-md fixed top-0 w-full z-50 border-b border-violet-500/10 shadow-md">
+<div class="flex items-center justify-between px-4 md:px-6 h-16 w-full">
+<div class="flex items-center gap-4">
+<span class="text-xl font-bold tracking-tighter text-white font-headline">Workpal</span>
+<nav class="hidden md:flex gap-6 h-16 items-center">
+<a class="font-inter tracking-tight text-white border-b-2 border-violet-500 h-full flex items-center px-2" href="#">Portfolio</a>
+</nav>
+</div>
+<div class="flex items-center gap-2">
+<div class="hidden md:flex items-center gap-1">
+<button class="p-2 text-violet-300/70 hover:bg-violet-500/10 transition-colors cursor-pointer active:scale-95 rounded-full" data-shell-link="notifications" type="button">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-violet-300/70 hover:bg-violet-500/10 transition-colors cursor-pointer active:scale-95 rounded-full" data-shell-link="communication" type="button">
+<span class="material-symbols-outlined">mail</span>
+</button>
+<a aria-label="Open account settings" class="p-2 text-violet-300/70 hover:bg-violet-500/10 transition-colors cursor-pointer active:scale-95 rounded-full inline-flex" href="./account-settings.html">
+<span class="material-symbols-outlined">settings</span>
+</a>
+</div>
+<button class="h-8 w-8 rounded-full bg-surface-container-highest overflow-hidden border border-violet-500/20" data-shell-link="profiles" type="button">
+<img alt="Artisan Profile" data-alt="Close up portrait of a professional artisan" data-shell-avatar src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKNYVRvCUy9TcpqaiYU9diUOm7xZ9JyvdzLi85O8ab3QLcCMIGKt-E88gfzkcUuw6Z2Ty6PF4zIQs2yP-egLiWtYfSiztDau-VSwwh66YrDn4mI3NoU0jNYnev2t1oQXVi5M9icZiAUmC3MH7qdHYrTwn90U2U-id3e0jH2I7Pvp6j8p-z36IlWtMG8RwEUkuBXsrq3jwaRCZUfAQkPYkvdI1p51NLxlxr9BGXsyIBbLpzvTXS7OKbFOMgMiMtCzZjBlz0TFVsqhfT"/>
+</button>
+</div>
+</div>
+</header>
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] hidden md:flex z-40" data-app-sidebar></aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-64 mt-16 min-h-screen" data-app-shell-shift>
+<!-- Hero Section -->
+<section class="relative h-40 sm:h-64 w-full bg-surface-variant overflow-hidden">
+<img id="coverImage" alt="Cover" class="w-full h-full object-cover opacity-50" data-alt="Atmospheric workshop interior with leather tools" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='600'%3E%3Crect width='100%25' height='100%25' fill='%23231b2e'/%3E%3C/svg%3E"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
+<div class="absolute bottom-3 left-4 sm:bottom-6 sm:left-8 flex items-end gap-3 sm:gap-6">
+<div class="w-20 h-20 sm:w-32 sm:h-32 rounded-xl border-4 border-background overflow-hidden bg-surface shadow-xl">
+<img id="profileImage" alt="Artisan Avatar" class="w-full h-full object-cover" data-alt="Portrait of a master leather artisan" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect width='100%25' height='100%25' fill='%23231b2e'/%3E%3C/svg%3E"/>
+</div>
+<div class="mb-2">
+<div class="flex items-center gap-2">
+<h1 class="text-xl sm:text-3xl font-bold tracking-tight text-white font-headline" id="profileName"></h1>
+<span class="hidden text-[10px] font-bold uppercase tracking-widest bg-emerald-500/20 text-emerald-400 px-2 py-1 rounded" id="verifiedBadge">Verified</span>
+</div>
+<p class="text-primary font-semibold" id="profileTitle"></p>
+<p class="text-on-surface-variant text-sm" id="profileRole"></p>
+</div>
+</div>
+<div class="absolute bottom-3 right-4 sm:bottom-6 sm:right-8 flex items-center gap-2">
+<button class="bg-primary/20 hover:bg-primary/30 text-white px-3 py-2 sm:px-5 sm:py-3 rounded-xl font-bold transition-all active:scale-95 text-sm" id="editProfileBtn" data-href="./edit-profile.html">
+                    Edit Profile
+                </button>
+<button class="bg-red-500/20 hover:bg-red-500/30 text-red-200 px-3 py-2 sm:px-5 sm:py-3 rounded-xl font-bold transition-all active:scale-95 text-sm" id="headerSignOutBtn" onclick="document.getElementById('signOutBtn')?.click()">
+                    Sign Out
+                </button>
+</div>
+</section>
+
+<div class="max-w-7xl mx-auto px-4 sm:px-8 pt-6">
+<div class="hidden text-sm rounded-lg border border-violet-500/20 bg-violet-500/10 text-violet-200 px-4 py-3" id="profileLoading">Loading profile...</div>
+<div class="hidden text-sm rounded-lg border border-red-500/30 bg-red-500/10 text-red-300 px-4 py-3 mt-3" id="profileError"></div>
+</div>
+
+<!-- Content Grid -->
+<div class="max-w-7xl mx-auto px-4 sm:px-8 py-6 sm:py-10 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8">
+<!-- Sidebar Stats -->
+<aside class="lg:col-span-3 space-y-6">
+<div class="bg-surface-container rounded-xl p-6 space-y-6">
+<div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-violet-400">Ratings</span>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-2xl font-bold text-white" id="profileRating"></span>
+<span class="text-xs text-on-surface-variant" id="profileRatingCount"></span>
+</div>
+<p class="text-xs text-on-surface-variant" id="subscriptionStatus"></p>
+</div>
+
+<div class="grid grid-cols-2 gap-3">
+<div class="bg-background/40 p-3 rounded-lg">
+<span class="text-[10px] font-bold text-violet-400 block mb-1 uppercase">Posts</span>
+<span class="text-sm font-semibold" id="postsCount"></span>
+</div>
+<div class="bg-background/40 p-3 rounded-lg">
+<span class="text-[10px] font-bold text-violet-400 block mb-1 uppercase">Likes</span>
+<span class="text-sm font-semibold" id="likesCount"></span>
+</div>
+</div>
+
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<span class="text-sm font-medium" id="profileLocation"></span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">call</span>
+<span class="text-sm font-medium" id="profilePhone"></span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">mail</span>
+<span class="text-sm font-medium break-all" id="profileEmail"></span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">home</span>
+<span class="text-sm font-medium" id="profileAddress"></span>
+</div>
+</div>
+<div class="pt-6 border-t border-violet-500/10">
+<span class="text-[10px] font-bold uppercase tracking-widest text-violet-400 block mb-3">Skills</span>
+<div class="flex flex-wrap gap-2" id="skillsWrap"></div>
+</div>
+</div>
+
+<div class="bg-surface-container-high rounded-xl p-6 hidden" id="customerSection">
+<h3 class="font-bold text-white mb-4">Customer Stats</h3>
+<div class="grid grid-cols-2 gap-3">
+<div class="bg-background/40 p-3 rounded-lg">
+<span class="text-[10px] font-bold text-violet-400 block mb-1 uppercase">Saved</span>
+<span class="text-sm font-semibold" id="savedCount"></span>
+</div>
+<div class="bg-background/40 p-3 rounded-lg">
+<span class="text-[10px] font-bold text-violet-400 block mb-1 uppercase">Jobs</span>
+<span class="text-sm font-semibold" id="jobsCount"></span>
+</div>
+</div>
+<div class="mt-4" id="profileSavedList"></div>
+</div>
+</aside>
+
+<!-- Main Workspace -->
+<div class="lg:col-span-9" id="artisanSection">
+<!-- Navigation Tabs -->
+<div class="flex gap-6 sm:gap-10 border-b border-violet-500/10 mb-8 overflow-x-auto whitespace-nowrap scrollbar-hide">
+<button class="pb-4 text-white font-bold border-b-2 border-primary text-sm tracking-tight transition-all" data-tab="portfolio">Portfolio</button>
+<button class="pb-4 text-on-surface-variant hover:text-white font-medium text-sm tracking-tight transition-all" data-tab="reviews">Reviews</button>
+<button class="pb-4 text-on-surface-variant hover:text-white font-medium text-sm tracking-tight transition-all" data-tab="about">About</button>
+<button class="pb-4 text-on-surface-variant hover:text-white font-medium text-sm tracking-tight transition-all" data-tab="materials">Materials</button>
+<a class="hidden pb-4 text-on-surface-variant hover:text-white font-medium text-sm tracking-tight transition-all items-center gap-1" href="./analytics.html" id="profileAnalyticsTab">
+<span class="material-symbols-outlined text-base">insights</span>Analytics
+</a>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6" id="profilePostsList"></div>
+
+<div class="mt-12 bg-surface-container rounded-xl p-8 border border-violet-500/5">
+<div class="flex items-center gap-4 mb-6">
+<span class="material-symbols-outlined text-primary">history_edu</span>
+<h2 class="text-xl font-bold text-white">The Artisan's Journey</h2>
+</div>
+<p class="text-on-surface-variant leading-relaxed" id="profileBio"></p>
+</div>
+</div>
+</div>
+</main>
+
+<script type="module" src="../js/app-shell.js"></script>
+<script type="module" src="../js/pages/profile-page.js"></script>
+</body></html>

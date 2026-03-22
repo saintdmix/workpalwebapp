@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About Us | WorkPal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#7f13ec",
+          "background": "#191022",
+          "surface": "#191022",
+          "surface-container": "#231b2e",
+          "surface-container-low": "#1c1426",
+          "secondary": "#2d1b4d",
+          "on-surface": "#f7f6f8",
+          "on-surface-variant": "#cec2d8",
+          "tertiary": "#ffb68b",
+        },
+        fontFamily: { "body": ["Inter"] },
+        borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+      },
+    },
+  }
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  body { background-color: #191022; color: #f7f6f8; font-family: 'Inter', sans-serif; }
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="fixed top-0 z-50 w-full bg-[#191022]/95 backdrop-blur-md border-b border-[#7f13ec]/10 shadow-md">
+  <div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto text-sm">
+    <a class="text-2xl font-black text-white tracking-tighter" href="./onboarding.html">WorkPal</a>
+    <div class="hidden md:flex items-center gap-8">
+      <a class="text-slate-300 hover:text-white transition-colors" href="./onboarding.html">Home</a>
+      <a class="text-[#7f13ec] font-semibold border-b-2 border-[#7f13ec] pb-1" href="./about.html">About Us</a>
+      <a class="text-slate-300 hover:text-white transition-colors" href="https://wa.me/2349138567705" target="_blank">Contact</a>
+    </div>
+    <div class="flex items-center gap-4">
+      <a class="px-4 py-2 text-slate-300 hover:text-white text-sm font-bold uppercase tracking-widest" href="./signin.html?mode=login">Login</a>
+      <a class="bg-primary text-white px-6 py-2 rounded-xl font-bold text-sm shadow-lg hover:scale-95 duration-150" href="./signin.html?mode=signup">Sign Up</a>
+    </div>
+  </div>
+</nav>
+
+<main class="pt-20">
+
+  <!-- Hero -->
+  <section class="py-24 px-6 text-center relative overflow-hidden">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/10 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="relative max-w-3xl mx-auto">
+      <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-primary bg-primary/10 px-4 py-1.5 rounded-full inline-block mb-6">Our Story</span>
+      <h1 class="text-4xl md:text-6xl font-black text-white tracking-tighter mb-6">Built for the People <br/>Who Build Things</h1>
+      <p class="text-on-surface-variant text-lg max-w-2xl mx-auto">WorkPal was created to bridge the gap between skilled artisans and the clients who need them — making it easier to find work, get paid, and grow a professional reputation in Nigeria and beyond.</p>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section class="py-20 px-6 bg-surface-container">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <span class="text-[10px] font-bold uppercase tracking-widest text-primary mb-4 block">Our Mission</span>
+        <h2 class="text-3xl font-black text-white tracking-tight mb-6">Empowering Every Artisan</h2>
+        <p class="text-on-surface-variant leading-relaxed mb-4">We believe every skilled person deserves a professional platform — not just the ones with connections. WorkPal gives electricians, plumbers, tailors, photographers, developers, and hundreds of other professionals the tools to showcase their work, connect with clients, and build a sustainable business.</p>
+        <p class="text-on-surface-variant leading-relaxed">Whether you're a customer looking for reliable help or an artisan ready to grow, WorkPal is your home.</p>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="bg-secondary rounded-xl p-6 border border-primary/10">
+          <span class="material-symbols-outlined text-primary text-3xl mb-3 block">handshake</span>
+          <h4 class="font-bold text-white mb-1">Trust First</h4>
+          <p class="text-xs text-on-surface-variant">Verified profiles and ratings you can rely on.</p>
+        </div>
+        <div class="bg-secondary rounded-xl p-6 border border-primary/10">
+          <span class="material-symbols-outlined text-primary text-3xl mb-3 block">location_on</span>
+          <h4 class="font-bold text-white mb-1">Local Focus</h4>
+          <p class="text-xs text-on-surface-variant">Find artisans near you, wherever you are.</p>
+        </div>
+        <div class="bg-secondary rounded-xl p-6 border border-primary/10">
+          <span class="material-symbols-outlined text-primary text-3xl mb-3 block">payments</span>
+          <h4 class="font-bold text-white mb-1">Fair Pay</h4>
+          <p class="text-xs text-on-surface-variant">Transparent pricing and secure transactions.</p>
+        </div>
+        <div class="bg-secondary rounded-xl p-6 border border-primary/10">
+          <span class="material-symbols-outlined text-primary text-3xl mb-3 block">trending_up</span>
+          <h4 class="font-bold text-white mb-1">Growth Tools</h4>
+          <p class="text-xs text-on-surface-variant">Portfolio, analytics, and visibility features.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="py-20 px-6" id="how-it-works">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-[10px] font-bold uppercase tracking-widest text-primary mb-4 block">Simple Process</span>
+        <h2 class="text-3xl md:text-4xl font-black text-white tracking-tight">How WorkPal Works</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="w-14 h-14 bg-primary/10 border border-primary/20 rounded-full flex items-center justify-center mx-auto mb-6">
+            <span class="text-primary font-black text-xl">1</span>
+          </div>
+          <h3 class="font-bold text-white text-lg mb-3">Create Your Profile</h3>
+          <p class="text-on-surface-variant text-sm leading-relaxed">Sign up as an artisan or client. Add your skills, portfolio, and location to get discovered.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-14 h-14 bg-primary/10 border border-primary/20 rounded-full flex items-center justify-center mx-auto mb-6">
+            <span class="text-primary font-black text-xl">2</span>
+          </div>
+          <h3 class="font-bold text-white text-lg mb-3">Connect & Communicate</h3>
+          <p class="text-on-surface-variant text-sm leading-relaxed">Browse the work feed, post jobs, or reach out directly to artisans near you via chat.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-14 h-14 bg-primary/10 border border-primary/20 rounded-full flex items-center justify-center mx-auto mb-6">
+            <span class="text-primary font-black text-xl">3</span>
+          </div>
+          <h3 class="font-bold text-white text-lg mb-3">Get the Job Done</h3>
+          <p class="text-on-surface-variant text-sm leading-relaxed">Complete the work, leave a review, and build your reputation on the platform.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="py-20 px-6 bg-surface-container" id="features">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-[10px] font-bold uppercase tracking-widest text-primary mb-4 block">Platform Features</span>
+        <h2 class="text-3xl md:text-4xl font-black text-white tracking-tight">Everything You Need</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="flex gap-4 p-6 bg-secondary rounded-xl border border-primary/10">
+          <span class="material-symbols-outlined text-primary shrink-0">grid_view</span>
+          <div><h4 class="font-bold text-white mb-1">Work Feed</h4><p class="text-sm text-on-surface-variant">A live stream of posts, jobs, and updates from artisans and clients in your area.</p></div>
+        </div>
+        <div class="flex gap-4 p-6 bg-secondary rounded-xl border border-primary/10">
+          <span class="material-symbols-outlined text-primary shrink-0">chat_bubble</span>
+          <div><h4 class="font-bold text-white mb-1">Direct Messaging</h4><p class="text-sm text-on-surface-variant">Chat directly with artisans or clients to discuss projects and agree on terms.</p></div>
+        </div>
+        <div class="flex gap-4 p-6 bg-secondary rounded-xl border border-primary/10">
+          <span class="material-symbols-outlined text-primary shrink-0">verified</span>
+          <div><h4 class="font-bold text-white mb-1">Verified Profiles</h4><p class="text-sm text-on-surface-variant">Ratings, reviews, and portfolio proof so you always know who you're hiring.</p></div>
+        </div>
+        <div class="flex gap-4 p-6 bg-secondary rounded-xl border border-primary/10">
+          <span class="material-symbols-outlined text-primary shrink-0">notifications</span>
+          <div><h4 class="font-bold text-white mb-1">Real-time Notifications</h4><p class="text-sm text-on-surface-variant">Get instant alerts for likes, messages, job requests, and platform updates.</p></div>
+        </div>
+        <div class="flex gap-4 p-6 bg-secondary rounded-xl border border-primary/10">
+          <span class="material-symbols-outlined text-primary shrink-0">work</span>
+          <div><h4 class="font-bold text-white mb-1">Job Posting</h4><p class="text-sm text-on-surface-variant">Clients can post open gigs with budgets and requirements for artisans to apply.</p></div>
+        </div>
+        <div class="flex gap-4 p-6 bg-secondary rounded-xl border border-primary/10">
+          <span class="material-symbols-outlined text-primary shrink-0">location_on</span>
+          <div><h4 class="font-bold text-white mb-1">Location-Based Discovery</h4><p class="text-sm text-on-surface-variant">Find artisans within your radius using GPS-powered proximity matching.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="py-20 px-6" id="contact">
+    <div class="max-w-2xl mx-auto text-center">
+      <span class="text-[10px] font-bold uppercase tracking-widest text-primary mb-4 block">Get In Touch</span>
+      <h2 class="text-3xl font-black text-white tracking-tight mb-6">We're Here to Help</h2>
+      <p class="text-on-surface-variant mb-10">Have a question, feedback, or need support? Reach us directly on WhatsApp — we respond fast.</p>
+      <a class="inline-flex items-center gap-3 bg-green-600 hover:bg-green-500 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg transition-colors" href="https://wa.me/2349138567705" target="_blank">
+        <span class="material-symbols-outlined">chat</span>
+        Chat on WhatsApp — 09138567705
+      </a>
+    </div>
+  </section>
+
+  <!-- Terms & Privacy -->
+  <section class="py-20 px-6 bg-surface-container" id="terms">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl font-black text-white mb-8" id="privacy">Terms & Privacy</h2>
+      <div class="space-y-6 text-on-surface-variant text-sm leading-relaxed">
+        <div>
+          <h3 class="text-white font-bold mb-2">Terms of Use</h3>
+          <p>By using WorkPal, you agree to use the platform lawfully and respectfully. You are responsible for the accuracy of your profile information. WorkPal reserves the right to suspend accounts that violate community standards or engage in fraudulent activity.</p>
+        </div>
+        <div>
+          <h3 class="text-white font-bold mb-2">Privacy Policy</h3>
+          <p>We collect only the information necessary to operate the platform — your name, email, phone number, location, and profile content. We do not sell your data to third parties. Your location is used solely to match you with nearby artisans or clients. You can request deletion of your account and data at any time by contacting us on WhatsApp.</p>
+        </div>
+        <div>
+          <h3 class="text-white font-bold mb-2">Payments</h3>
+          <p>WorkPal facilitates connections between artisans and clients. Payment terms are agreed between the two parties. WorkPal is not liable for disputes arising from transactions conducted outside the platform.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Careers -->
+  <section class="py-20 px-6" id="careers">
+    <div class="max-w-3xl mx-auto text-center">
+      <span class="text-[10px] font-bold uppercase tracking-widest text-primary mb-4 block">Join the Team</span>
+      <h2 class="text-3xl font-black text-white tracking-tight mb-6">Careers at WorkPal</h2>
+      <p class="text-on-surface-variant mb-8">We're a small, passionate team building something meaningful for Nigerian artisans. If you're a developer, designer, or community builder who believes in this mission, we'd love to hear from you.</p>
+      <a class="inline-flex items-center gap-2 bg-primary text-white px-8 py-3 rounded-xl font-bold shadow-lg hover:scale-95 transition-transform" href="https://wa.me/2349138567705?text=Hi%2C%20I%27m%20interested%20in%20joining%20the%20WorkPal%20team" target="_blank">
+        <span class="material-symbols-outlined">send</span>
+        Send Us a Message
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-[#191022] border-t border-[#7f13ec]/10 py-10 px-6 text-center">
+  <a class="text-xl font-black text-white block mb-3" href="./onboarding.html">WorkPal</a>
+  <p class="text-[11px] uppercase tracking-widest font-bold text-slate-600">© 2024 WorkPal. Built for the Modern Artisan.</p>
+</footer>
+
+</body>
+</html>

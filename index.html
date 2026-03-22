@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Workpal | The Atelier</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-fixed-dim": "#ffb68b",
+              "surface-container-low": "#1c1426",
+              "on-background": "#f7f6f8",
+              "surface": "#191022",
+              "on-surface-variant": "#cec2d8",
+              "primary-fixed": "#eddcff",
+              "error": "#ffb4ab",
+              "tertiary": "#ffb68b",
+              "outline-variant": "#4c4355",
+              "secondary-fixed": "#eddcff",
+              "on-primary-fixed": "#290055",
+              "background": "#191022",
+              "on-secondary-fixed": "#290055",
+              "on-error-container": "#ffdad6",
+              "secondary": "#2d1b4d",
+              "on-primary-fixed-variant": "#6200bc",
+              "on-tertiary": "#522300",
+              "tertiary-fixed": "#ffdbc8",
+              "on-secondary": "#ffffff",
+              "primary-fixed-dim": "#d8b9ff",
+              "inverse-primary": "#d8b9ff",
+              "outline": "#7f13ec",
+              "tertiary-container": "#984600",
+              "on-secondary-fixed-variant": "#59308f",
+              "on-secondary-container": "#eddcff",
+              "error-container": "#93000a",
+              "surface-container": "#231b2e",
+              "on-primary-container": "#e5ceff",
+              "on-error": "#690005",
+              "surface-tint": "#7f13ec",
+              "surface-container-lowest": "#0d0814",
+              "surface-container-high": "#2d2438",
+              "inverse-surface": "#f7f6f8",
+              "secondary-fixed-dim": "#d8b9ff",
+              "primary-container": "#2d1b4d",
+              "on-primary": "#ffffff",
+              "on-tertiary-fixed": "#321200",
+              "on-tertiary-container": "#ffcdb1",
+              "surface-container-highest": "#382f44",
+              "surface-bright": "#2d1b4d",
+              "on-surface": "#f7f6f8",
+              "surface-variant": "#2d1b4d",
+              "surface-dim": "#150e1c",
+              "secondary-container": "#3d2a5e",
+              "primary": "#7f13ec",
+              "on-tertiary-fixed-variant": "#753400",
+              "inverse-on-surface": "#191022"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        background-color: #191022;
+        color: #f7f6f8;
+        font-family: 'Inter', sans-serif;
+      }
+      .glass-card {
+        background: rgba(45, 27, 77, 0.4);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+    </style>
+</head>
+<body class="bg-background text-on-background">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#191022]/95 backdrop-blur-md border-b border-[#7f13ec]/10 shadow-md flex justify-between items-center px-4 md:px-6 h-16">
+<div class="flex items-center gap-8">
+<span class="text-xl font-black text-white font-['Inter'] tracking-tight">Workpal</span>
+
+</div>
+<div class="flex items-center gap-3">
+<div class="hidden md:flex items-center gap-4">
+<button class="text-slate-400 hover:text-white transition-colors" data-shell-link="notifications" type="button">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-slate-400 hover:text-white transition-colors" data-shell-link="communication" type="button">
+<span class="material-symbols-outlined">mail</span>
+</button>
+</div>
+<button class="hidden bg-primary text-on-primary px-5 py-2 rounded-full font-bold text-sm shadow-lg hover:opacity-90 transition-opacity" hidden id="homeHireBtn" type="button">
+                Hire Artisan
+            </button>
+<button class="hidden md:block bg-surface-container text-slate-200 px-4 py-2 rounded-full font-bold text-xs shadow-lg hover:text-white transition-colors" id="logoutBtn">
+                Logout
+            </button>
+<button class="h-8 w-8 rounded-full overflow-hidden bg-secondary border border-primary/20" data-shell-link="profiles" type="button">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="Portrait of a creative professional man" data-shell-avatar src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3BRCb7id6kfETEMA5cfn0xqaNQQERaMC84AeA1gFmf-k8vKze5Ed0zdtuFg8rs6PvB8_tEgAgciJxSG0JDMuOnZ4i381grZ04OcW6exytB6wyxcYTeeqH5QFuZgKoNn4I06ahgofCkiCwGGOz9mqtf05GyNCm_hItc2ZdENQh80xXm61YYtfBcYvvg9yLvDQEr4X6fSkk0qfGjX4L7DYieze_f5zb8X0-XjsfrbRSspps5PH4q8J3lOz0Apj_zfUTYji8XSkteeFj"/>
+</button>
+</div>
+</nav>
+<!-- Sidebar Navigation -->
+<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] hidden md:flex" data-app-sidebar></aside>
+<!-- Main Content Canvas -->
+<main class="pt-20 px-4 md:px-6 pb-12" data-app-shell-shift>
+<div class="hidden mb-6 rounded-xl border border-red-500/40 bg-red-500/10 text-red-200 px-4 py-3 text-sm" id="homeError"></div>
+<!-- Hero Section -->
+<section class="relative h-[220px] sm:h-[300px] rounded-2xl overflow-hidden mb-8 md:mb-12 flex items-center px-6 md:px-12">
+<div class="absolute inset-0 bg-gradient-to-r from-[#191022] via-[#191022]/60 to-transparent z-10"></div>
+<img alt="Workshop background" class="absolute inset-0 w-full h-full object-cover" data-alt="High-tech workshop with purple neon lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVAIjHuQ97c9-F8iw1R5LeCdDb-MPETAoHFiMR5MpjfH7DLytZH3ycEHGl0nAFkvinHwyBGzzASf7eaOEXkYQ6JZz5g2Uek8kPlb9Nk-7gs4yo3AE1BKeQQ8jPjmT7lSyC4y4Myo7jfCs6-IWNzXkOKquI-KGdOjX4tNsIyDkocOBFbRZCTHJx_Lqx41bICk3syfUkMmlTE17fWA0C7actQyYn7YEuk61tiTyDc1Ze8Zy4RRGVyifV1eD7v6MvRHbvp0y23X92sD_l"/>
+<div class="relative z-20 max-w-lg">
+<span class="bg-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest text-white mb-4 inline-block">Featured Today</span>
+<h1 class="text-2xl sm:text-4xl md:text-5xl font-black text-white leading-tight mb-3 tracking-tight"><span id="homeGreetingText">Welcome</span>, <span class="text-primary" id="homeGreetingName">Creator</span>.</h1>
+<p class="text-on-surface-variant text-base mb-6 min-h-[1.5rem] transition-opacity duration-500" id="homeQuote">The Future of Bespoke Craft starts with your next collaboration.</p>
+</div>
+</section>
+<!-- News Slider -->
+<section class="mb-12">
+<div class="flex justify-between items-end mb-6">
+<div>
+<h3 class="text-2xl font-bold text-white">Platform News</h3>
+<p class="text-slate-400 text-sm">Latest updates from your WorkPal network.</p>
+</div>
+</div>
+<div class="relative overflow-hidden rounded-2xl" id="newsCarouselWrap">
+  <div class="flex transition-transform duration-500 ease-in-out" id="newsSlider">
+  </div>
+  <div class="flex justify-center gap-2 mt-4" id="newsDots"></div>
+</div>
+</section>
+<!-- Categories Section -->
+<section class="mb-12">
+<div class="flex justify-between items-end mb-6">
+<div>
+<h3 class="text-2xl font-bold text-white">Guilds &amp; Crafts</h3>
+<p class="text-slate-400 text-sm">Specialized expertise at your fingertips</p>
+</div>
+<a class="text-[11px] font-bold uppercase tracking-widest text-primary hover:text-white transition-colors" href="pages/directory.html">View All Categories</a>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4" id="homeCategoriesList">
+</div>
+</section>
+<!-- Artisans Near You - Grid Layout -->
+<section>
+<div class="flex justify-between items-center mb-8">
+<div>
+<h3 class="text-2xl font-bold text-white tracking-tight">Artisans Near You</h3>
+<p class="text-xs text-slate-400 mt-1" id="homeLocationText">Locating nearby artisans...</p>
+<p class="text-[11px] text-primary mt-1 font-bold uppercase tracking-widest" id="homeSortText">Showing nearest artisans first</p>
+</div>
+<div class="flex gap-2">
+<button class="p-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-slate-400" id="homeFilterBtn" type="button">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+<button class="p-2 rounded-lg bg-primary/10 text-primary" id="homeGridBtn" type="button">
+<span class="material-symbols-outlined">grid_view</span>
+</button>
+<button class="p-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-slate-400" id="homeListBtn" type="button">
+<span class="material-symbols-outlined">view_list</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="topArtisansList">
+</div>
+</section>
+</main>
+<script type="module" src="./js/app-shell.js"></script>
+<script type="module" src="./js/home-page.js"></script>
+</body></html>

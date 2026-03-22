@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-on-surface": "#191022",
+              "on-surface-variant": "#cec2d8",
+              "on-primary-fixed": "#290055",
+              "surface-container-low": "#1c1426",
+              "outline-variant": "#4c4355",
+              "secondary-fixed-dim": "#d8b9ff",
+              "primary": "#7f13ec",
+              "error": "#ffb4ab",
+              "tertiary-container": "#984600",
+              "primary-container": "#2d1b4d",
+              "on-secondary-fixed": "#290055",
+              "secondary": "#2d1b4d",
+              "surface": "#191022",
+              "on-error": "#690005",
+              "primary-fixed-dim": "#d8b9ff",
+              "on-surface": "#f7f6f8",
+              "inverse-primary": "#d8b9ff",
+              "surface-variant": "#2d1b4d",
+              "surface-container-lowest": "#0d0814",
+              "on-background": "#f7f6f8",
+              "background": "#191022",
+              "surface-container-highest": "#382f44",
+              "on-tertiary-fixed-variant": "#753400",
+              "on-secondary-fixed-variant": "#59308f",
+              "tertiary-fixed-dim": "#ffb68b",
+              "on-primary": "#ffffff",
+              "surface-container-high": "#2d2438",
+              "on-primary-container": "#e5ceff",
+              "on-secondary-container": "#eddcff",
+              "on-secondary": "#ffffff",
+              "surface-bright": "#2d1b4d",
+              "inverse-surface": "#f7f6f8",
+              "on-tertiary-fixed": "#321200",
+              "surface-tint": "#7f13ec",
+              "surface-container": "#231b2e",
+              "secondary-fixed": "#eddcff",
+              "on-tertiary": "#522300",
+              "on-primary-fixed-variant": "#6200bc",
+              "tertiary": "#ffb68b",
+              "on-error-container": "#ffdad6",
+              "secondary-container": "#3d2a5e",
+              "outline": "#7f13ec",
+              "surface-dim": "#150e1c",
+              "on-tertiary-container": "#ffcdb1",
+              "tertiary-fixed": "#ffdbc8",
+              "primary-fixed": "#eddcff",
+              "error-container": "#93000a"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        background-color: #191022;
+        color: #f7f6f8;
+      }
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #191022;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #2d1b4d;
+        border-radius: 10px;
+      }
+    </style>
+</head>
+<body class="font-body selection:bg-primary/30">
+<!-- SideNavBar Shell -->
+<nav class="fixed left-0 top-0 h-full hidden md:flex z-50" data-app-sidebar></nav>
+<!-- TopAppBar Shell -->
+<header class="flex justify-between items-center w-full px-8 py-4 ml-64 max-w-[calc(100%-16rem)] bg-[#191022]/95 backdrop-blur-md docked full-width top-0 z-40 border-b border-[#7f13ec]/10 fixed" data-app-shell-fixed-header>
+<div class="flex items-center gap-8 flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-lg">search</span>
+<input class="w-full bg-[#2d1b4d]/30 border-none rounded-full py-2 pl-10 pr-4 text-sm focus:ring-1 focus:ring-primary/50 text-on-surface placeholder:text-gray-500" placeholder="Search artisan network..." type="text"/>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-[#7f13ec] border-b-2 border-[#7f13ec] pb-1 text-[10px] font-bold uppercase tracking-widest" href="#">Activity</a>
+<a class="text-gray-400 hover:text-white transition-colors text-[10px] font-bold uppercase tracking-widest" href="#">Jobs</a>
+<a class="text-gray-400 hover:text-white transition-colors text-[10px] font-bold uppercase tracking-widest" href="#">Saved</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 text-gray-400">
+<div class="relative">
+<button class="material-symbols-outlined cursor-pointer hover:text-[#7f13ec] transition-colors bg-transparent border-0 p-0" data-shell-link="notifications" type="button">notifications</button>
+<span class="hidden absolute -top-1.5 -right-1.5 min-w-[1rem] h-4 px-1 rounded-full bg-primary text-white text-[9px] font-black items-center justify-center" id="notifBadge">0</span>
+</div>
+<button class="material-symbols-outlined cursor-pointer hover:text-[#7f13ec] transition-colors bg-transparent border-0 p-0" data-shell-link="communication" type="button">mail</button>
+</div>
+<button class="bg-primary text-white px-5 py-2 rounded-lg font-bold text-xs uppercase tracking-wider shadow-md hover:brightness-110" data-shell-create-link data-artisan-label="New Post" data-customer-label="Post a Job" type="button">
+                New Post
+            </button>
+<button class="w-10 h-10 rounded-full border-2 border-primary/30 p-0.5 overflow-hidden" data-shell-link="profiles" type="button">
+<img alt="User Avatar" class="w-full h-full rounded-full object-cover" data-alt="Female designer avatar profile" data-shell-avatar src="https://lh3.googleusercontent.com/aida-public/AB6AXuDL-MZTs5BOho9ii71nWLmFsX3tYrbFm9Tl7pcM0ocXhM8qphDI5RU-nXz5S_LHRo1SfqfVs4tkrIV6TWoKVbBTjdBUOm1PNfzBWfd9QTcYOJ1iFrErVBLyWtFHN6iCiQkMTRDH1cMcsrCfnuvYR949-HfdwQDdkb6Fw_pUZx2UIpon91rNEG0V3TDeHwpwyAN4CZWfngmYV4J0WiDy5EwX5kGo34d2mk2qnD965V-oxpUHH9R7LYuf8HnWt_TOdWEKzBugrIyJq2oz"/>
+</button>
+</div>
+</header>
+<!-- Main Content Layout -->
+<main class="ml-64 pt-24 px-8 pb-12 grid grid-cols-12 gap-8 min-h-screen" data-app-shell-shift>
+<div class="col-span-12 lg:col-span-8 space-y-6">
+<div class="flex items-end justify-between">
+<div>
+<h1 class="text-3xl font-black tracking-tight text-on-surface">Notifications</h1>
+<p class="text-sm text-gray-400 mt-1">Stay updated with your latest artisan interactions</p>
+</div>
+<button class="text-[11px] font-bold uppercase text-primary tracking-widest hover:underline decoration-2 underline-offset-4" id="markAllReadBtn">
+                    Mark all as read
+                </button>
+</div>
+<div class="text-xs text-gray-400" id="notificationsLoading">Loading notifications...</div>
+<div class="hidden text-xs text-red-300" id="notificationsError"></div>
+<div class="hidden text-sm text-gray-500 italic py-2" id="notificationsEmpty">No notifications yet.</div>
+<div class="flex gap-4 border-b border-primary/10">
+<button class="pb-3 border-b-2 border-primary text-on-surface text-[11px] font-bold uppercase tracking-widest transition-all">Activity</button>
+<button class="pb-3 border-b-2 border-transparent text-gray-500 hover:text-gray-300 text-[11px] font-bold uppercase tracking-widest transition-all">Jobs</button>
+<button class="pb-3 border-b-2 border-transparent text-gray-500 hover:text-gray-300 text-[11px] font-bold uppercase tracking-widest transition-all">AI Insights</button>
+</div>
+<div class="flex flex-col gap-4" id="notificationsList"></div>
+</div>
+<aside class="col-span-12 lg:col-span-4">
+<section class="bg-[#2d1b4d] rounded-xl p-6 border border-[#7f13ec]/10 shadow-lg">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary">notifications_active</span>
+<h2 class="text-sm font-bold uppercase tracking-widest text-white">Live Inbox</h2>
+</div>
+<p class="text-sm text-gray-300 leading-relaxed">Your notifications now load from the live activity stream. If there is no activity yet, this panel stays quiet instead of showing placeholder people or fake deadlines.</p>
+</section>
+</aside>
+</main>
+<script type="module" src="../js/app-shell.js"></script>
+<script type="module" src="../js/pages/notifications-page.js"></script>
+</body></html>

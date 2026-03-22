@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Account Settings | Workpal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "error-container": "#93000a",
+              "background": "#191022",
+              "on-tertiary-container": "#ffcdb1",
+              "on-error-container": "#ffdad6",
+              "on-secondary": "#ffffff",
+              "primary-fixed": "#eddcff",
+              "on-surface-variant": "#cec2d8",
+              "on-error": "#690005",
+              "surface-container-lowest": "#0d0814",
+              "tertiary": "#ffb68b",
+              "on-tertiary": "#522300",
+              "tertiary-container": "#984600",
+              "on-tertiary-fixed": "#321200",
+              "on-surface": "#f7f6f8",
+              "tertiary-fixed-dim": "#ffb68b",
+              "on-background": "#f7f6f8",
+              "primary-fixed-dim": "#d8b9ff",
+              "on-primary-fixed-variant": "#6200bc",
+              "on-primary-container": "#e5ceff",
+              "on-primary": "#ffffff",
+              "primary-container": "#2d1b4d",
+              "surface-container-low": "#1c1426",
+              "secondary": "#2d1b4d",
+              "surface": "#191022",
+              "on-secondary-fixed-variant": "#59308f",
+              "inverse-on-surface": "#191022",
+              "surface-bright": "#2d1b4d",
+              "surface-container": "#231b2e",
+              "outline-variant": "#4c4355",
+              "secondary-fixed": "#eddcff",
+              "surface-container-highest": "#382f44",
+              "primary": "#7f13ec",
+              "secondary-container": "#3d2a5e",
+              "error": "#ffb4ab",
+              "secondary-fixed-dim": "#d8b9ff",
+              "surface-dim": "#150e1c",
+              "surface-container-high": "#2d2438",
+              "outline": "#7f13ec",
+              "on-tertiary-fixed-variant": "#753400",
+              "surface-variant": "#2d1b4d",
+              "inverse-surface": "#f7f6f8",
+              "on-secondary-container": "#eddcff",
+              "on-secondary-fixed": "#290055",
+              "tertiary-fixed": "#ffdbc8",
+              "on-primary-fixed": "#290055",
+              "inverse-primary": "#d8b9ff",
+              "surface-tint": "#7f13ec"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #191022; }
+        ::-webkit-scrollbar-thumb { background: #2d1b4d; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #7f13ec; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body">
+<!-- TopAppBar -->
+<header class="bg-slate-950/95 backdrop-blur-md text-violet-600 font-['Inter'] font-bold tracking-tight docked full-width top-0 z-50 border-b border-violet-500/10 shadow-md flex justify-between items-center h-16 px-6 w-full fixed">
+<div class="flex items-center gap-4">
+<span class="text-xl font-black text-violet-500">Workpal</span>
+<div class="hidden md:flex ml-8 gap-6 text-sm">
+<a class="text-violet-500 font-bold" href="#">Workspace</a>
+<a class="text-slate-400 hover:bg-violet-500/10 hover:text-violet-400 transition-colors px-2 py-1 rounded" href="./analytics.html">Analytics</a>
+<a class="text-slate-400 hover:bg-violet-500/10 hover:text-violet-400 transition-colors px-2 py-1 rounded" href="#">Collections</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-slate-400 hover:text-violet-400 transition-colors">notifications</button>
+<button class="material-symbols-outlined text-slate-400 hover:text-violet-400 transition-colors">help</button>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-violet-500/20">
+<img alt="Artisan Profile Avatar" data-alt="Close up profile avatar of a creative designer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCk1tPbXeubel28aXYFPWBSqJzPY0A6BEHggegJ9z7kLjOhlsOMgwcoOlpfRpXX749DV_ba4LAoX-PhFMFhn9-FOEgQmBCeMeKphr70NgOJ5CI28plxvrb1q_kyr197v099beJpVLFQTvAsSFvMN7SuvVVd69AUvbt40sZzBOA5QtZd4H8rHWWJ-Yhmf50CR8YrH7JRdEnCCkht2YtlqKyJLryLW3U2XfkxBJUN5ybdsuhk6mtPVveyp6_sISmqoTtzfVPsffQJjdNF"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="bg-slate-900 font-['Inter'] text-sm font-medium h-screen w-64 fixed left-0 top-0 shadow-xl flex flex-col border-r border-violet-500/10 z-40">
+<div class="p-6 pt-20">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-white">brush</span>
+</div>
+<div>
+<h2 class="text-lg font-bold text-white leading-tight">The Atelier</h2>
+<p class="text-xs text-slate-400">Pro Creator</p>
+</div>
+</div>
+<nav class="space-y-1">
+<a class="text-slate-400 py-3 px-6 flex items-center gap-3 hover:bg-slate-800 hover:text-slate-100 transition-all ease-in-out duration-300" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="text-violet-400 bg-violet-500/10 border-r-4 border-violet-600 py-3 px-6 flex items-center gap-3 transition-all ease-in-out duration-300" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">manage_accounts</span>
+<span>Account Settings</span>
+</a>
+<a class="text-slate-400 py-3 px-6 flex items-center gap-3 hover:bg-slate-800 hover:text-slate-100 transition-all ease-in-out duration-300" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span>Security</span>
+</a>
+<a class="text-slate-400 py-3 px-6 flex items-center gap-3 hover:bg-slate-800 hover:text-slate-100 transition-all ease-in-out duration-300" href="#">
+<span class="material-symbols-outlined">notifications_active</span>
+<span>Notifications</span>
+</a>
+<a class="text-slate-400 py-3 px-6 flex items-center gap-3 hover:bg-slate-800 hover:text-slate-100 transition-all ease-in-out duration-300" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span>Payment Methods</span>
+</a>
+</nav>
+</div>
+<div class="mt-auto p-6">
+<button class="w-full bg-primary/10 text-primary font-bold py-3 rounded-xl hover:bg-primary hover:text-white transition-all active:scale-95">
+                View Live Store
+            </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-24 px-8 pb-12 min-h-screen bg-background">
+<div class="max-w-6xl mx-auto">
+<!-- Header Section -->
+<div class="mb-10">
+<span class="text-[10px] font-bold uppercase tracking-widest text-primary mb-2 block">Settings &amp; Preferences</span>
+<h1 class="text-3xl font-black text-white tracking-tight">Account Settings</h1>
+<p class="text-on-surface-variant mt-2 max-w-2xl">Manage your digital identity, security protocols, and subscription details within the Workpal workspace.</p>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Profile Management (Hero Card) -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container rounded-xl p-8 border border-primary/10 shadow-md">
+<div class="flex items-start justify-between mb-8">
+<div>
+<h3 class="text-xl font-bold text-white">Profile Management</h3>
+<p class="text-sm text-on-surface-variant">Update your public presence and contact info.</p>
+</div>
+<button class="bg-primary text-white px-6 py-2 rounded-lg font-bold shadow-lg shadow-primary/40 hover:scale-105 transition-transform active:scale-95">
+                            Save Changes
+                        </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-[10px] font-bold uppercase text-slate-400 ml-1">Display Name</label>
+<input class="w-full bg-primary/5 border border-primary/20 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" type="text" value="Workpal"/>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] font-bold uppercase text-slate-400 ml-1">Email Address</label>
+<input class="w-full bg-primary/5 border border-primary/20 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" type="email" value="creator@midnightartisan.com"/>
+</div>
+<div class="col-span-1 md:col-span-2 space-y-2">
+<label class="text-[10px] font-bold uppercase text-slate-400 ml-1">Biography</label>
+<textarea class="w-full bg-primary/5 border border-primary/20 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" rows="3">Digital craftsperson specializing in neon aesthetics and obsidian-themed interfaces.</textarea>
+</div>
+</div>
+</div>
+<!-- Subscription Tier (Glass Card) -->
+<div class="col-span-12 lg:col-span-4 bg-primary text-white rounded-xl p-8 shadow-[0_0_30px_rgba(127,19,236,0.3)] relative overflow-hidden flex flex-col">
+<div class="absolute -right-4 -top-4 w-32 h-32 bg-white/10 rounded-full blur-3xl"></div>
+<div class="relative z-10 h-full flex flex-col">
+<span class="bg-white/20 text-white text-[10px] font-bold uppercase px-2 py-1 rounded w-fit mb-4">Current Plan</span>
+<h3 class="text-2xl font-black mb-1">Artisan Pro</h3>
+<p class="text-white/70 text-sm mb-6">Billed monthly • $29/mo</p>
+<div class="mt-auto space-y-4">
+<div class="flex items-center gap-3 text-xs">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Unlimited Portfolio Items</span>
+</div>
+<div class="flex items-center gap-3 text-xs">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Custom Domain Integration</span>
+</div>
+<button class="w-full bg-white text-primary font-black py-3 rounded-lg mt-6 hover:bg-opacity-90 transition-all shadow-xl">
+                                Manage Plan
+                            </button>
+</div>
+</div>
+</div>
+<!-- Security Settings (List Block) -->
+<div class="col-span-12 lg:col-span-6 bg-surface-container rounded-xl p-8 border border-primary/10">
+<h3 class="text-xl font-bold text-white mb-6">Security &amp; Privacy</h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-4 bg-background/50 rounded-lg hover:bg-background transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<div class="p-2 rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined">password</span>
+</div>
+<div>
+<p class="font-bold text-sm text-white">Update Password</p>
+<p class="text-xs text-on-surface-variant">Last changed 3 months ago</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-500 group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+<div class="flex items-center justify-between p-4 bg-background/50 rounded-lg hover:bg-background transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<div class="p-2 rounded-lg bg-green-500/10 text-green-400">
+<span class="material-symbols-outlined">phonelink_lock</span>
+</div>
+<div>
+<p class="font-bold text-sm text-white">Two-Factor Auth</p>
+<p class="text-xs text-green-400 font-bold uppercase">Enabled</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-500 group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+<div class="flex items-center justify-between p-4 bg-background/50 rounded-lg hover:bg-background transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<div class="p-2 rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined">devices</span>
+</div>
+<div>
+<p class="font-bold text-sm text-white">Active Sessions</p>
+<p class="text-xs text-on-surface-variant">3 devices currently logged in</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-500 group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Notifications Grid (Modern Toggles) -->
+<div class="col-span-12 lg:col-span-6 bg-surface-container rounded-xl p-8 border border-primary/10">
+<h3 class="text-xl font-bold text-white mb-6">Email Notifications</h3>
+<div class="grid grid-cols-1 gap-4">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-sm font-bold text-white">New Sale Alerts</p>
+<p class="text-xs text-on-surface-variant">Get notified when someone buys your art.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="h-[1px] bg-primary/10 w-full"></div>
+<div class="flex items-center justify-between">
+<div>
+<p class="text-sm font-bold text-white">Product Updates</p>
+<p class="text-xs text-on-surface-variant">Stay updated with the latest Atelier features.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="h-[1px] bg-primary/10 w-full"></div>
+<div class="flex items-center justify-between">
+<div>
+<p class="text-sm font-bold text-white">Monthly Analytics Report</p>
+<p class="text-xs text-on-surface-variant">Performance metrics delivered to your inbox.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</div>
+<!-- Danger Zone -->
+<div class="col-span-12 bg-error-container/10 rounded-xl p-8 border border-error-container/30">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+<div>
+<h3 class="text-xl font-bold text-error">Danger Zone</h3>
+<p class="text-sm text-error/70">Permanently delete your account and all associated creative assets.</p>
+</div>
+<button class="bg-surface-container text-white px-8 py-3 rounded-lg font-bold hover:bg-surface-bright transition-all border border-primary/30 active:scale-95 whitespace-nowrap" data-logout id="logoutBtn">
+                            Logout
+                        </button>
+<button class="bg-error-container text-white px-8 py-3 rounded-lg font-bold hover:bg-opacity-80 transition-all border border-white/10 active:scale-95 whitespace-nowrap">
+                            Delete Account
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script type="module" src="../js/auth-page.js"></script>
+</body></html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>WorkPal | All Categories</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              background: "#191022",
+              surface: "#191022",
+              primary: "#7f13ec",
+              secondary: "#2d1b4d",
+              "surface-container": "#231b2e",
+              "surface-container-high": "#2d2438",
+              "surface-container-lowest": "#0d0814",
+              "on-background": "#f7f6f8",
+              "on-surface": "#f7f6f8",
+              "on-surface-variant": "#cec2d8"
+            }
+          }
+        }
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        background:
+          radial-gradient(circle at top, rgba(127, 19, 236, 0.18), transparent 30%),
+          linear-gradient(180deg, #1b1025 0%, #191022 100%);
+        color: #f7f6f8;
+        font-family: 'Inter', sans-serif;
+      }
+      .glass-card {
+        background: rgba(45, 27, 77, 0.4);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+      .category-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        width: 100%;
+        padding: 1rem 1.1rem;
+        border-radius: 1rem;
+        border: 1px solid rgba(127, 19, 236, 0.12);
+        background: rgba(45, 27, 77, 0.45);
+        color: #f7f6f8;
+        text-align: left;
+        transition: border-color 160ms ease, transform 160ms ease, background 160ms ease;
+      }
+      .category-item:hover {
+        border-color: rgba(127, 19, 236, 0.4);
+        background: rgba(61, 42, 94, 0.75);
+        transform: translateY(-1px);
+      }
+      .category-item .name {
+        font-size: 0.95rem;
+        font-weight: 700;
+      }
+      .category-item .count {
+        min-width: 2.5rem;
+        height: 2rem;
+        padding: 0 0.65rem;
+        border-radius: 999px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(127, 19, 236, 0.15);
+        color: #d8b9ff;
+        font-size: 0.78rem;
+        font-weight: 800;
+      }
+    </style>
+</head>
+<body class="bg-background text-on-background">
+<nav class="fixed top-0 z-50 flex h-16 w-full items-center justify-between border-b border-[#7f13ec]/10 bg-[#191022]/95 px-6 shadow-md backdrop-blur-md" data-app-shell-fixed-header>
+<div class="flex items-center gap-8">
+<button class="text-xl font-black tracking-tight text-white" data-shell-link="home" type="button">Workpal</button>
+<div class="hidden items-center rounded-full border border-primary/10 bg-surface-container px-4 py-1.5 md:flex">
+<span class="material-symbols-outlined text-sm text-slate-400">search</span>
+<input class="w-64 border-none bg-transparent text-sm text-on-surface placeholder:text-slate-500 focus:ring-0" id="allCategoriesSearch" placeholder="Search categories..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-slate-400 transition-colors hover:text-white" data-shell-link="notifications" type="button">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-slate-400 transition-colors hover:text-white" data-shell-link="communication" type="button">
+<span class="material-symbols-outlined">mail</span>
+</button>
+<button class="h-9 w-9 overflow-hidden rounded-full border border-primary/20 bg-secondary" data-shell-link="profiles" type="button">
+<img alt="User profile" class="h-full w-full object-cover" data-shell-avatar src="https://via.placeholder.com/72x72.png?text=W"/>
+</button>
+</div>
+</nav>
+<aside class="fixed left-0 top-16 hidden h-[calc(100vh-64px)] md:flex" data-app-sidebar></aside>
+<main class="px-6 pb-12 pt-24" data-app-shell-shift>
+<section class="mx-auto max-w-6xl">
+<div class="mb-8 rounded-[1.75rem] border border-white/5 bg-gradient-to-br from-surface-container to-surface-container-high p-8 shadow-2xl shadow-black/20">
+<p class="mb-3 text-[11px] font-black uppercase tracking-[0.28em] text-primary">Explore WorkPal</p>
+<h1 class="text-3xl font-black tracking-tight text-white md:text-4xl">All categories</h1>
+<p class="mt-3 max-w-2xl text-sm text-on-surface-variant">Browse live artisan categories from your backend and open each one to see the real professionals currently available.</p>
+<div class="mt-5 md:hidden">
+<input class="w-full rounded-2xl border border-primary/10 bg-[#191022]/70 px-4 py-3 text-sm text-on-surface placeholder:text-slate-500 focus:border-primary focus:ring-primary/20" id="allCategoriesSearchMobile" placeholder="Search categories..." type="text"/>
+</div>
+</div>
+
+<div class="mb-5 hidden rounded-xl border border-red-500/40 bg-red-500/10 px-4 py-3 text-sm text-red-200" id="allCategoriesError"></div>
+<div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-3" data-category-page="./woodworkers.html" id="allCategoriesList"></div>
+<div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-3" id="allCategoriesLoading">
+<div class="glass-card rounded-2xl border border-primary/10 p-4">
+<div class="shimmer-line mb-4 h-5 w-32 rounded-full"></div>
+<div class="shimmer-line h-10 rounded-2xl"></div>
+</div>
+<div class="glass-card rounded-2xl border border-primary/10 p-4">
+<div class="shimmer-line mb-4 h-5 w-28 rounded-full"></div>
+<div class="shimmer-line h-10 rounded-2xl"></div>
+</div>
+<div class="glass-card rounded-2xl border border-primary/10 p-4">
+<div class="shimmer-line mb-4 h-5 w-36 rounded-full"></div>
+<div class="shimmer-line h-10 rounded-2xl"></div>
+</div>
+<div class="glass-card rounded-2xl border border-primary/10 p-4">
+<div class="shimmer-line mb-4 h-5 w-24 rounded-full"></div>
+<div class="shimmer-line h-10 rounded-2xl"></div>
+</div>
+<div class="glass-card rounded-2xl border border-primary/10 p-4">
+<div class="shimmer-line mb-4 h-5 w-32 rounded-full"></div>
+<div class="shimmer-line h-10 rounded-2xl"></div>
+</div>
+<div class="glass-card rounded-2xl border border-primary/10 p-4">
+<div class="shimmer-line mb-4 h-5 w-20 rounded-full"></div>
+<div class="shimmer-line h-10 rounded-2xl"></div>
+</div>
+</div>
+<p class="hidden rounded-2xl border border-white/5 bg-surface-container px-4 py-5 text-sm text-slate-400" id="allCategoriesEmpty">No categories found yet.</p>
+</section>
+</main>
+<script type="module" src="../js/app-shell.js"></script>
+<script type="module" src="../js/pages/all-categories-page.js"></script>
+<script>
+      const desktopSearch = document.getElementById("allCategoriesSearch");
+      const mobileSearch = document.getElementById("allCategoriesSearchMobile");
+      if (desktopSearch && mobileSearch) {
+        desktopSearch.addEventListener("input", () => {
+          mobileSearch.value = desktopSearch.value;
+        });
+        mobileSearch.addEventListener("input", () => {
+          desktopSearch.value = mobileSearch.value;
+          desktopSearch.dispatchEvent(new Event("input", { bubbles: true }));
+        });
+      }
+    </script>
+</body>
+</html>

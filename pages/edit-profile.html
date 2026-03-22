@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>WorkPal | Edit Profile</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: Inter, sans-serif;
+      background:
+        radial-gradient(1000px 420px at 0% -10%, rgba(56, 189, 248, 0.14), transparent 48%),
+        radial-gradient(900px 420px at 100% -18%, rgba(168, 85, 247, 0.18), transparent 52%),
+        #0d0815;
+    }
+  </style>
+</head>
+<body class="text-slate-100">
+  <aside class="fixed left-0 top-16 h-[calc(100vh-64px)] hidden md:flex" data-app-sidebar></aside>
+  <main class="mx-auto max-w-4xl px-5 py-8" data-app-shell-shift>
+    <div class="mb-5 flex items-center justify-between">
+      <div>
+        <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-violet-300/80">Profile Studio</p>
+        <h1 class="mt-1 text-3xl font-black tracking-tight text-white">Edit Profile</h1>
+      </div>
+      <a href="./profiles.html" class="rounded-lg bg-violet-500/20 px-4 py-2 text-xs font-bold uppercase tracking-[0.15em] text-violet-200 hover:bg-violet-500/30">
+        Back To Profile
+      </a>
+    </div>
+
+    <form id="profileForm" class="space-y-5 rounded-2xl border border-violet-500/20 bg-[#181126] p-5">
+      <div class="grid gap-4 md:grid-cols-2">
+        <div class="field space-y-2">
+          <label for="nameInput" class="text-xs font-bold uppercase tracking-[0.15em] text-violet-200">Name</label>
+          <input id="nameInput" type="text" class="w-full rounded-xl border border-violet-500/30 bg-[#120c1c] px-4 py-3 text-sm text-slate-100 outline-none focus:border-cyan-300" />
+        </div>
+        <div class="field space-y-2">
+          <label for="phoneInput" class="text-xs font-bold uppercase tracking-[0.15em] text-violet-200">Phone</label>
+          <input id="phoneInput" type="text" class="w-full rounded-xl border border-violet-500/30 bg-[#120c1c] px-4 py-3 text-sm text-slate-100 outline-none focus:border-cyan-300" />
+        </div>
+      </div>
+
+      <div class="field space-y-2">
+        <label for="addressInput" class="text-xs font-bold uppercase tracking-[0.15em] text-violet-200">Address</label>
+        <input id="addressInput" type="text" class="w-full rounded-xl border border-violet-500/30 bg-[#120c1c] px-4 py-3 text-sm text-slate-100 outline-none focus:border-cyan-300" />
+      </div>
+
+      <div class="grid gap-4 md:grid-cols-2">
+        <div class="field space-y-2">
+          <label for="titleInput" class="text-xs font-bold uppercase tracking-[0.15em] text-violet-200">Professional Title</label>
+          <input id="titleInput" type="text" class="w-full rounded-xl border border-violet-500/30 bg-[#120c1c] px-4 py-3 text-sm text-slate-100 outline-none focus:border-cyan-300" />
+        </div>
+        <div class="field space-y-2">
+          <label for="skillsInput" class="text-xs font-bold uppercase tracking-[0.15em] text-violet-200">Skills (comma separated)</label>
+          <input id="skillsInput" type="text" class="w-full rounded-xl border border-violet-500/30 bg-[#120c1c] px-4 py-3 text-sm text-slate-100 outline-none focus:border-cyan-300" />
+        </div>
+      </div>
+
+      <div class="field space-y-2">
+        <label for="bioInput" class="text-xs font-bold uppercase tracking-[0.15em] text-violet-200">Bio</label>
+        <textarea id="bioInput" rows="4" class="w-full rounded-xl border border-violet-500/30 bg-[#120c1c] px-4 py-3 text-sm text-slate-100 outline-none focus:border-cyan-300"></textarea>
+      </div>
+
+      <div class="field space-y-2">
+        <label for="locationInput" class="text-xs font-bold uppercase tracking-[0.15em] text-violet-200">Location (lat, lng)</label>
+        <input id="locationInput" type="text" class="w-full rounded-xl border border-violet-500/30 bg-[#120c1c] px-4 py-3 text-sm text-slate-100 outline-none focus:border-cyan-300" />
+      </div>
+
+      <div class="grid gap-5 md:grid-cols-2">
+        <div class="space-y-2">
+          <label for="profileImageInput" class="text-xs font-bold uppercase tracking-[0.15em] text-violet-200">Profile Image</label>
+          <input id="profileImageInput" type="file" accept="image/*" class="block w-full rounded-xl border border-violet-500/30 bg-[#120c1c] px-3 py-2 text-sm text-slate-200 file:mr-4 file:rounded-lg file:border-0 file:bg-violet-500/20 file:px-3 file:py-2 file:text-xs file:font-bold file:uppercase file:tracking-[0.12em] file:text-violet-200 hover:file:bg-violet-500/30" />
+          <img id="profileImagePreview" alt="Profile preview" class="h-32 w-32 rounded-xl border border-violet-500/30 object-cover" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=300&q=80" />
+        </div>
+        <div class="space-y-2">
+          <label for="coverImageInput" class="text-xs font-bold uppercase tracking-[0.15em] text-violet-200">Cover Image</label>
+          <input id="coverImageInput" type="file" accept="image/*" class="block w-full rounded-xl border border-violet-500/30 bg-[#120c1c] px-3 py-2 text-sm text-slate-200 file:mr-4 file:rounded-lg file:border-0 file:bg-violet-500/20 file:px-3 file:py-2 file:text-xs file:font-bold file:uppercase file:tracking-[0.12em] file:text-violet-200 hover:file:bg-violet-500/30" />
+          <img id="coverImagePreview" alt="Cover preview" class="h-32 w-full rounded-xl border border-violet-500/30 object-cover" src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=900&q=80" />
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <p id="saveProfileStatus" class="text-sm text-slate-300"></p>
+        <button id="saveProfileBtn" type="submit" class="rounded-xl bg-gradient-to-r from-violet-600 to-cyan-500 px-6 py-3 text-xs font-black uppercase tracking-[0.18em] text-white hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60">
+          Save Profile
+        </button>
+      </div>
+    </form>
+  </main>
+
+  <script type="module" src="../js/app-shell.js"></script>
+  <script type="module" src="../js/pages/edit-profile-page.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+﻿.page-hero--compact {
+  padding-top: var(--space-10);
+  padding-bottom: var(--space-8);
+}
+
+.page-alt {
+  background: linear-gradient(180deg, rgba(10, 127, 120, 0.03), rgba(242, 139, 58, 0.04));
+}

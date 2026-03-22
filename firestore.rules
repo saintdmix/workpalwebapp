@@ -1,0 +1,56 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isKnownUser(uid) {
+      return exists(/databases/$(database)/documents/vendors/$(uid)) ||
+             exists(/databases/$(database)/documents/customers/$(uid));
+    }
+
+    function isOwner(userId) {
+      return signedIn() && request.auth.uid == userId;
+    }
+
+    function validNotificationCreate() {
+      return request.resource.data.keys().hasAll(['title', 'body', 'timestamp', 'isRead']) &&
+             request.resource.data.title is string &&
+             request.resource.data.body is string &&
+             request.resource.data.isRead is bool &&
+             request.resource.data.isRead == false &&
+             (
+               request.resource.data.timestamp is timestamp ||
+               request.resource.data.timestamp is string ||
+               request.resource.data.timestamp is int
+             ) &&
+             (!('type' in request.resource.data) || request.resource.data.type is string) &&
+             (!('sellerId' in request.resource.data) || request.resource.data.sellerId is string) &&
+             (!('postId' in request.resource.data) || request.resource.data.postId is string) &&
+             (!('commentId' in request.resource.data) || request.resource.data.commentId is string);
+    }
+
+    function validReadUpdate() {
+      return request.resource.data.diff(resource.data).changedKeys().hasOnly(['isRead']) &&
+             request.resource.data.isRead is bool;
+    }
+
+    match /NotificationWp/{userId}/notification/{notificationId} {
+      allow get, list: if isOwner(userId);
+      allow create: if signedIn() &&
+                    isKnownUser(request.auth.uid) &&
+                    isKnownUser(userId) &&
+                    validNotificationCreate();
+      allow update: if isOwner(userId) && validReadUpdate();
+      allow delete: if isOwner(userId);
+    }
+
+    match /notifications/{notificationId} {
+      allow read: if signedIn() && resource.data.userId == request.auth.uid;
+      allow create: if signedIn() && request.resource.data.userId is string;
+      allow update, delete: if signedIn() && resource.data.userId == request.auth.uid;
+    }
+  }
+}

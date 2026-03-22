@@ -1,0 +1,51 @@
+﻿:root {
+  --color-bg: #f4f2ec;
+  --color-bg-elevated: #fffdf8;
+  --color-surface: #ffffff;
+  --color-surface-soft: #f8faf8;
+  --color-ink: #10212b;
+  --color-ink-soft: #3f5563;
+  --color-brand: #0a7f78;
+  --color-brand-deep: #06655f;
+  --color-accent: #f28b3a;
+  --color-accent-soft: #fff1e5;
+  --color-line: #d9e2e5;
+  --color-success: #1d8c57;
+  --color-warning: #b06e21;
+
+  --font-display: 'Fraunces', 'Georgia', serif;
+  --font-sans: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
+
+  --size-step--1: clamp(0.83rem, 0.8rem + 0.12vw, 0.9rem);
+  --size-step-0: clamp(1rem, 0.95rem + 0.24vw, 1.1rem);
+  --size-step-1: clamp(1.2rem, 1.05rem + 0.6vw, 1.45rem);
+  --size-step-2: clamp(1.45rem, 1.2rem + 1vw, 1.9rem);
+  --size-step-3: clamp(1.8rem, 1.35rem + 1.8vw, 2.8rem);
+  --size-step-4: clamp(2.2rem, 1.6rem + 2.8vw, 3.8rem);
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-7: 2rem;
+  --space-8: 2.5rem;
+  --space-9: 3rem;
+  --space-10: 4rem;
+  --space-11: 5rem;
+
+  --radius-1: 10px;
+  --radius-2: 16px;
+  --radius-3: 24px;
+  --radius-pill: 999px;
+
+  --shadow-soft: 0 12px 24px rgba(14, 34, 46, 0.08);
+  --shadow-card: 0 18px 40px rgba(16, 33, 43, 0.12);
+
+  --container: 1160px;
+  --gutter: clamp(1rem, 2.6vw, 2rem);
+  --nav-height: 76px;
+
+  --transition-base: 180ms ease;
+}

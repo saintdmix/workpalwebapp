@@ -1,0 +1,249 @@
+﻿<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Post a Job | Workpal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "error": "#ffb4ab",
+                        "background": "#191022",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#753400",
+                        "on-secondary-fixed-variant": "#59308f",
+                        "inverse-on-surface": "#191022",
+                        "tertiary-fixed-dim": "#ffb68b",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#d8b9ff",
+                        "tertiary-fixed": "#ffdbc8",
+                        "surface-container-low": "#1c1426",
+                        "on-tertiary": "#522300",
+                        "surface-bright": "#2d1b4d",
+                        "on-tertiary-fixed": "#321200",
+                        "surface-tint": "#7f13ec",
+                        "tertiary-container": "#984600",
+                        "surface-container-highest": "#382f44",
+                        "on-surface-variant": "#cec2d8",
+                        "secondary": "#2d1b4d",
+                        "primary": "#7f13ec",
+                        "surface": "#191022",
+                        "outline-variant": "#4c4355",
+                        "on-secondary-container": "#eddcff",
+                        "inverse-primary": "#d8b9ff",
+                        "on-primary-fixed": "#290055",
+                        "on-primary-fixed-variant": "#6200bc",
+                        "tertiary": "#ffb68b",
+                        "primary-container": "#2d1b4d",
+                        "outline": "#7f13ec",
+                        "on-error": "#690005",
+                        "surface-variant": "#2d1b4d",
+                        "on-secondary-fixed": "#290055",
+                        "secondary-container": "#3d2a5e",
+                        "on-surface": "#f7f6f8",
+                        "surface-container-lowest": "#0d0814",
+                        "surface-dim": "#150e1c",
+                        "surface-container": "#231b2e",
+                        "on-primary-container": "#e5ceff",
+                        "surface-container-high": "#2d2438",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed": "#eddcff",
+                        "on-tertiary-container": "#ffcdb1",
+                        "error-container": "#93000a",
+                        "primary-fixed": "#eddcff",
+                        "inverse-surface": "#f7f6f8",
+                        "on-background": "#f7f6f8",
+                        "primary-fixed-dim": "#d8b9ff"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #191022;
+        }
+        .glass-panel {
+            background: rgba(45, 27, 77, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(127, 19, 236, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full flex justify-between items-center px-8 h-16 bg-[#191022]/95 backdrop-blur-md border-b border-[#7f13ec]/10 z-50 shadow-md">
+<div class="flex items-center gap-8">
+<span class="text-xl font-black text-white tracking-tighter">Workpal</span>
+<nav class="hidden md:flex items-center gap-6 font-bold tracking-tight text-sm">
+<a class="text-slate-400 hover:text-white transition-colors" href="#">Dashboard</a>
+<a class="text-white border-b-2 border-[#7f13ec] pb-1" href="#">Post a Job</a>
+<a class="text-slate-400 hover:text-white transition-colors" href="#">My Projects</a>
+<a class="text-slate-400 hover:text-white transition-colors" href="#">Talent</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-400 hover:bg-[#7f13ec]/10 rounded-full transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-[#7f13ec]/10 rounded-full transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-primary-container overflow-hidden border border-primary/20">
+<img class="h-full w-full object-cover" data-alt="User profile avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRZcVPoJf3sXTkwZ_8aD9bFowjpvD2LlSPPL2-FAyVdAWfZndIoBBkcsYygHEAOYYCRwLuJRhM0Euz7B1CcznOUew8aENTYayzC7UQhdbr_bIZNVX9WfFN1ELzWPrABXrQiB1IK70aLLdiDmmNXNm92Qt4uHIndksTXS4_cT8h1aok0q10cv2hOWrFEjwHNRrD3SqXnECyt4gQllq94scGbInyGO6YPWB5QY9nO3Rqy8htn5Fx1w2_H87N7aFMlisBPcTXfiMt_iH_"/>
+</div>
+</div>
+</header>
+<main class="flex-1 pt-24 pb-12 flex">
+<!-- SideNavBar (Contextual for Job Creation) -->
+<aside class="fixed left-0 top-0 h-full w-64 flex flex-col space-y-2 py-4 bg-[#2d1b4d] shadow-lg shadow-[#7f13ec]/10 pt-20 z-40 hidden lg:flex">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3 mb-1">
+<div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-sm" data-icon="add_task">add_task</span>
+</div>
+<h2 class="text-white font-bold text-sm">New Project</h2>
+</div>
+<p class="text-slate-400 text-[11px] font-bold uppercase tracking-wider">Drafting Stage</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 bg-[#7f13ec]/10 text-[#7f13ec] rounded-lg px-4 py-3 mx-2 font-bold text-[11px] uppercase tracking-wider transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+                    Overview
+                </a>
+<a class="flex items-center gap-3 text-slate-400 px-4 py-3 mx-2 font-bold text-[11px] uppercase tracking-wider hover:bg-white/5 hover:text-white transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="list_alt">list_alt</span>
+                    Details
+                </a>
+<a class="flex items-center gap-3 text-slate-400 px-4 py-3 mx-2 font-bold text-[11px] uppercase tracking-wider hover:bg-white/5 hover:text-white transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+                    Budget
+                </a>
+<a class="flex items-center gap-3 text-slate-400 px-4 py-3 mx-2 font-bold text-[11px] uppercase tracking-wider hover:bg-white/5 hover:text-white transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="upload_file">upload_file</span>
+                    Files
+                </a>
+<a class="flex items-center gap-3 text-slate-400 px-4 py-3 mx-2 font-bold text-[11px] uppercase tracking-wider hover:bg-white/5 hover:text-white transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="fact_check">fact_check</span>
+                    Review
+                </a>
+</nav>
+<div class="px-4 mt-auto">
+<button class="w-full py-3 bg-primary text-white rounded-xl font-bold text-xs uppercase tracking-widest shadow-lg shadow-primary/40 hover:scale-[1.02] transition-transform">
+                    Save Draft
+                </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<div class="flex-1 lg:ml-64 px-4 md:px-8">
+<div class="max-w-3xl mx-auto">
+<!-- Progress Header -->
+<div class="mb-12">
+<div class="flex items-center justify-between mb-4">
+<h1 class="text-3xl font-black text-white tracking-tighter">Project Overview</h1>
+<span class="text-primary font-bold text-[11px] uppercase tracking-widest bg-primary/10 px-3 py-1 rounded-full">Step 1 of 5</span>
+</div>
+<div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="w-1/5 h-full bg-primary shadow-[0_0_12px_rgba(127,19,236,0.8)]"></div>
+</div>
+</div>
+<!-- Form Card -->
+<div class="glass-panel rounded-xl p-8 space-y-10 shadow-lg">
+<!-- Title Input -->
+<div class="space-y-3">
+<label class="block text-[11px] font-bold text-slate-400 uppercase tracking-widest">Project Title</label>
+<input class="w-full bg-surface-container-lowest border-primary/20 border rounded-xl px-4 py-4 text-on-surface placeholder-slate-600 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="e.g. Brand Identity for Neon Studio" type="text"/>
+<p class="text-[10px] text-slate-500 font-medium">Keep it short and descriptive to attract the right artisans.</p>
+</div>
+<!-- Category Bento -->
+<div class="space-y-3">
+<label class="block text-[11px] font-bold text-slate-400 uppercase tracking-widest">Select Category</label>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+<button class="flex flex-col items-center justify-center p-4 rounded-xl border border-primary/40 bg-primary/10 text-primary transition-all">
+<span class="material-symbols-outlined mb-2" data-icon="brush">brush</span>
+<span class="text-[10px] font-bold uppercase">Design</span>
+</button>
+<button class="flex flex-col items-center justify-center p-4 rounded-xl border border-primary/10 bg-surface-container-low text-slate-400 hover:border-primary/40 hover:text-white transition-all">
+<span class="material-symbols-outlined mb-2" data-icon="code">code</span>
+<span class="text-[10px] font-bold uppercase">Dev</span>
+</button>
+<button class="flex flex-col items-center justify-center p-4 rounded-xl border border-primary/10 bg-surface-container-low text-slate-400 hover:border-primary/40 hover:text-white transition-all">
+<span class="material-symbols-outlined mb-2" data-icon="video_camera_front">video_camera_front</span>
+<span class="text-[10px] font-bold uppercase">Video</span>
+</button>
+<button class="flex flex-col items-center justify-center p-4 rounded-xl border border-primary/10 bg-surface-container-low text-slate-400 hover:border-primary/40 hover:text-white transition-all">
+<span class="material-symbols-outlined mb-2" data-icon="stylus">stylus</span>
+<span class="text-[10px] font-bold uppercase">Copy</span>
+</button>
+</div>
+</div>
+<!-- Description Area -->
+<div class="space-y-3">
+<div class="flex justify-between items-end">
+<label class="block text-[11px] font-bold text-slate-400 uppercase tracking-widest">Detailed Description</label>
+<span class="text-[10px] text-slate-500">Min 100 characters</span>
+</div>
+<textarea class="w-full bg-surface-container-lowest border-primary/20 border rounded-xl px-4 py-4 text-on-surface placeholder-slate-600 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all resize-none" placeholder="Describe the project scope, deliverables, and any technical requirements..." rows="8"></textarea>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center justify-between pt-6 border-t border-primary/10">
+<button class="flex items-center gap-2 text-slate-400 font-bold text-[11px] uppercase tracking-widest hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="arrow_back">arrow_back</span>
+                            Cancel
+                        </button>
+<a class="flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-full font-bold text-[11px] uppercase tracking-widest shadow-lg shadow-primary/30 hover:scale-105 active:scale-95 transition-all" href="./post-job-budget.html">
+                            Next Stage
+                            <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Guidance Cards (Asymmetric Layout) -->
+<div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-surface-container rounded-xl p-6 border-l-4 border-primary shadow-md">
+<div class="flex items-center gap-3 mb-3">
+<span class="material-symbols-outlined text-primary" data-icon="lightbulb">lightbulb</span>
+<h3 class="text-white font-bold text-sm">Artisan Tip</h3>
+</div>
+<p class="text-slate-400 text-xs leading-relaxed">Projects with specific technical requirements get 40% more qualified applications in the first 24 hours.</p>
+</div>
+<div class="bg-surface-container rounded-xl p-6 border-l-4 border-tertiary shadow-md">
+<div class="flex items-center gap-3 mb-3">
+<span class="material-symbols-outlined text-tertiary" data-icon="security">security</span>
+<h3 class="text-white font-bold text-sm">Escrow Secure</h3>
+</div>
+<p class="text-slate-400 text-xs leading-relaxed">Your project funds are held securely until you approve the final deliverables. No upfront risk.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full flex justify-between items-center px-8 py-6 bg-[#191022] border-t border-[#7f13ec]/10 mt-auto">
+<div class="flex items-center gap-6">
+<span class="text-sm font-bold text-white">Workpal</span>
+<span class="text-slate-500 font-medium text-[10px]">© 2024 Workpal. All rights reserved.</span>
+</div>
+<nav class="flex items-center gap-6">
+<a class="text-slate-500 hover:text-white transition-colors font-medium text-[10px]" href="#">Privacy Policy</a>
+<a class="text-slate-500 hover:text-white transition-colors font-medium text-[10px]" href="#">Terms of Service</a>
+<a class="text-slate-500 hover:text-white transition-colors font-medium text-[10px]" href="#">Support</a>
+</nav>
+</footer>
+</body></html>
