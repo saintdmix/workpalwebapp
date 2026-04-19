@@ -8,7 +8,7 @@ import {
   subscribeUnreadNotificationCount,
 } from "../services/notifications-service.js";
 
-const LOGIN_URL = "../signin.html?mode=login";
+const LOGIN_URL = "../index.html";
 const NOTIFICATIONS_CACHE_KEY = "workpalNotificationsSnapshotV1";
 
 const els = {

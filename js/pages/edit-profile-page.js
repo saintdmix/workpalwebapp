@@ -5,7 +5,7 @@ import {
   updateCurrentUserProfile,
 } from "../services/profile-service.js";
 
-const LOGIN_URL = "../signin.html?mode=login";
+const LOGIN_URL = "../index.html";
 
 const $ = (id) => document.getElementById(id);
 

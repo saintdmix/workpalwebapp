@@ -12,7 +12,7 @@ import {
 } from "./chat-service.js";
 import { renderChatMessagesSkeleton, renderChatRoomsSkeleton } from "./loading-skeletons.js";
 
-const LOGIN_PAGE = "../signin.html?mode=login";
+const LOGIN_PAGE = "../index.html";
 
 const el = {
   roomsList: document.getElementById("chatRoomsList"),
@@ -35,6 +35,9 @@ const el = {
   drawerContent: document.getElementById("quoteDrawerContent"),
   drawerClose: document.getElementById("contextClose"),
   backdrop: document.getElementById("contextBackdrop"),
+  chatBackBtn: document.getElementById("chatBackBtn"),
+  chatListSection: document.getElementById("chatListSection"),
+  activeChatMain: document.getElementById("activeChatMain"),
 };
 
 const state = {
@@ -398,6 +401,14 @@ async function openRoom(roomId) {
   setRoomsError("");
 
   if (el.activeName) el.activeName.textContent = room.otherUserName || "Conversation";
+  
+  if (window.innerWidth < 768) {
+    if (el.chatListSection) el.chatListSection.classList.add("hidden");
+    if (el.activeChatMain) {
+      el.activeChatMain.classList.remove("hidden");
+      el.activeChatMain.classList.add("flex");
+    }
+  }
   if (el.activeStatus) {
     el.activeStatus.textContent = room.unreadCount > 0 ? "Unread activity" : "Conversation open";
   }
@@ -474,11 +485,11 @@ async function initChat() {
       renderRooms();
 
       if (!state.selectedRoomId && rooms.length) {
-        openRoom(rooms[0].id);
+        if (window.innerWidth >= 768) openRoom(rooms[0].id);
       } else if (state.selectedRoomId && !rooms.some((r) => r.id === state.selectedRoomId)) {
         state.selectedRoomId = "";
         state.unsubMessages?.();
-        if (rooms.length) openRoom(rooms[0].id);
+        if (rooms.length && window.innerWidth >= 768) openRoom(rooms[0].id);
       }
 
       if (el.roomsStatus) el.roomsStatus.textContent = `${rooms.length} conversation(s)`;
@@ -517,6 +528,14 @@ el.messageInput?.addEventListener("keydown", (event) => {
   if (event.key === "Enter" && !event.shiftKey) {
     event.preventDefault();
     sendCurrentMessage();
+  }
+});
+
+el.chatBackBtn?.addEventListener("click", () => {
+  if (el.chatListSection) el.chatListSection.classList.remove("hidden");
+  if (el.activeChatMain) {
+    el.activeChatMain.classList.add("hidden");
+    el.activeChatMain.classList.remove("flex");
   }
 });
 

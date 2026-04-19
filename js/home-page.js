@@ -1,4 +1,4 @@
-﻿import { signOut } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+import { signOut } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
 import { auth } from "./firebase-init.js";
 import {
   DEFAULT_LOCATION,
@@ -14,8 +14,8 @@ import {
 import { getAllCategories } from "./services/categories-service.js";
 import { renderArtisansSkeleton, renderNewsSkeleton } from "./loading-skeletons.js";
 
-const LOGIN_PAGE = "./signin.html?mode=login";
-const ONBOARDING_PAGE = "./onboarding.html";
+const LOGIN_PAGE = "./index.html";
+const ONBOARDING_PAGE = "./index.html";
 const VENDOR_PROFILE_PAGE = "./pages/profiles.html";
 const CATEGORY_PAGE = "./pages/woodworkers.html";
 const HOME_CACHE_KEY = "workpalHomeSnapshotV1";

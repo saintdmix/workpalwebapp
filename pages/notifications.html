@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html class="dark" lang="en"><head>
 <meta charset="utf-8"/>
@@ -95,7 +95,7 @@
 <!-- SideNavBar Shell -->
 <nav class="fixed left-0 top-0 h-full hidden md:flex z-50" data-app-sidebar></nav>
 <!-- TopAppBar Shell -->
-<header class="flex justify-between items-center w-full px-8 py-4 ml-64 max-w-[calc(100%-16rem)] bg-[#191022]/95 backdrop-blur-md docked full-width top-0 z-40 border-b border-[#7f13ec]/10 fixed" data-app-shell-fixed-header>
+<header class="flex justify-between items-center w-full px-8 py-4 bg-[#191022]/95 backdrop-blur-md docked full-width top-0 z-40 border-b border-[#7f13ec]/10 fixed" data-app-shell-fixed-header>
 <div class="flex items-center gap-8 flex-1">
 <div class="relative w-full max-w-md">
 <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-lg">search</span>
@@ -124,8 +124,8 @@
 </div>
 </header>
 <!-- Main Content Layout -->
-<main class="ml-64 pt-24 px-8 pb-12 grid grid-cols-12 gap-8 min-h-screen" data-app-shell-shift>
-<div class="col-span-12 lg:col-span-8 space-y-6">
+<main class="pt-24 px-4 md:px-8 pb-12 grid grid-cols-1 gap-8 min-h-screen lg:grid-cols-12" data-app-shell-shift>
+<div class="col-span-1 lg:col-span-8 space-y-6">
 <div class="flex items-end justify-between">
 <div>
 <h1 class="text-3xl font-black tracking-tight text-on-surface">Notifications</h1>
@@ -145,7 +145,7 @@
 </div>
 <div class="flex flex-col gap-4" id="notificationsList"></div>
 </div>
-<aside class="col-span-12 lg:col-span-4">
+<aside class="col-span-1 lg:col-span-4">
 <section class="bg-[#2d1b4d] rounded-xl p-6 border border-[#7f13ec]/10 shadow-lg">
 <div class="flex items-center gap-3 mb-4">
 <span class="material-symbols-outlined text-primary">notifications_active</span>

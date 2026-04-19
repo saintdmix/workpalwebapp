@@ -1,11 +1,19 @@
-﻿<!DOCTYPE html>
-
+<!DOCTYPE html>
 <html class="dark" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Workpal | The Atelier</title>
+<title>WorkPal | Professional Artisans & Custom Services</title>
+<script type="module">
+  import { auth } from "./js/firebase-init.js";
+  import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      window.location.replace("./dashboard.html");
+    }
+  });
+</script>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
@@ -14,53 +22,53 @@
         theme: {
           extend: {
             colors: {
-              "tertiary-fixed-dim": "#ffb68b",
-              "surface-container-low": "#1c1426",
-              "on-background": "#f7f6f8",
-              "surface": "#191022",
-              "on-surface-variant": "#cec2d8",
-              "primary-fixed": "#eddcff",
-              "error": "#ffb4ab",
-              "tertiary": "#ffb68b",
-              "outline-variant": "#4c4355",
-              "secondary-fixed": "#eddcff",
-              "on-primary-fixed": "#290055",
-              "background": "#191022",
+              "inverse-on-surface": "#191022",
               "on-secondary-fixed": "#290055",
-              "on-error-container": "#ffdad6",
-              "secondary": "#2d1b4d",
-              "on-primary-fixed-variant": "#6200bc",
-              "on-tertiary": "#522300",
-              "tertiary-fixed": "#ffdbc8",
-              "on-secondary": "#ffffff",
-              "primary-fixed-dim": "#d8b9ff",
-              "inverse-primary": "#d8b9ff",
-              "outline": "#7f13ec",
-              "tertiary-container": "#984600",
-              "on-secondary-fixed-variant": "#59308f",
-              "on-secondary-container": "#eddcff",
-              "error-container": "#93000a",
-              "surface-container": "#231b2e",
-              "on-primary-container": "#e5ceff",
-              "on-error": "#690005",
-              "surface-tint": "#7f13ec",
-              "surface-container-lowest": "#0d0814",
-              "surface-container-high": "#2d2438",
-              "inverse-surface": "#f7f6f8",
-              "secondary-fixed-dim": "#d8b9ff",
-              "primary-container": "#2d1b4d",
-              "on-primary": "#ffffff",
-              "on-tertiary-fixed": "#321200",
-              "on-tertiary-container": "#ffcdb1",
-              "surface-container-highest": "#382f44",
               "surface-bright": "#2d1b4d",
-              "on-surface": "#f7f6f8",
-              "surface-variant": "#2d1b4d",
-              "surface-dim": "#150e1c",
-              "secondary-container": "#3d2a5e",
-              "primary": "#7f13ec",
+              "inverse-primary": "#d8b9ff",
               "on-tertiary-fixed-variant": "#753400",
-              "inverse-on-surface": "#191022"
+              "surface-variant": "#2d1b4d",
+              "on-secondary-fixed-variant": "#59308f",
+              "surface": "#191022",
+              "on-secondary-container": "#eddcff",
+              "secondary-fixed": "#eddcff",
+              "on-primary-fixed-variant": "#6200bc",
+              "on-primary-container": "#e5ceff",
+              "primary-fixed-dim": "#d8b9ff",
+              "primary": "#7f13ec",
+              "surface-dim": "#150e1c",
+              "tertiary-fixed": "#ffdbc8",
+              "secondary-fixed-dim": "#d8b9ff",
+              "tertiary-fixed-dim": "#ffb68b",
+              "on-primary-fixed": "#290055",
+              "on-background": "#f7f6f8",
+              "on-tertiary-container": "#ffcdb1",
+              "surface-container-high": "#2d2438",
+              "outline-variant": "#4c4355",
+              "on-surface": "#f7f6f8",
+              "tertiary": "#ffb68b",
+              "inverse-surface": "#f7f6f8",
+              "tertiary-container": "#984600",
+              "surface-container-lowest": "#0d0814",
+              "on-tertiary": "#522300",
+              "on-surface-variant": "#cec2d8",
+              "on-error-container": "#ffdad6",
+              "outline": "#7f13ec",
+              "surface-container-low": "#1c1426",
+              "on-primary": "#ffffff",
+              "surface-tint": "#7f13ec",
+              "surface-container-highest": "#382f44",
+              "on-error": "#690005",
+              "error-container": "#93000a",
+              "background": "#191022",
+              "primary-fixed": "#eddcff",
+              "on-tertiary-fixed": "#321200",
+              "primary-container": "#2d1b4d",
+              "secondary-container": "#3d2a5e",
+              "secondary": "#2d1b4d",
+              "on-secondary": "#ffffff",
+              "error": "#ffb4ab",
+              "surface-container": "#231b2e"
             },
             fontFamily: {
               "headline": ["Inter"],
@@ -73,113 +81,176 @@
       }
     </script>
 <style>
-      .material-symbols-outlined {
-        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-      }
-      body {
-        background-color: #191022;
-        color: #f7f6f8;
-        font-family: 'Inter', sans-serif;
-      }
-      .glass-card {
-        background: rgba(45, 27, 77, 0.4);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-      }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(45, 27, 77, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(127, 19, 236, 0.1);
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at top right, rgba(127, 19, 236, 0.15), transparent),
+                        radial-gradient(circle at bottom left, rgba(45, 27, 77, 0.5), transparent);
+        }
     </style>
 </head>
-<body class="bg-background text-on-background">
+<body data-auth-page="onboarding" class="bg-background text-on-background font-body antialiased">
 <!-- TopNavBar -->
-<nav class="fixed top-0 w-full z-50 bg-[#191022]/95 backdrop-blur-md border-b border-[#7f13ec]/10 shadow-md flex justify-between items-center px-4 md:px-6 h-16">
-<div class="flex items-center gap-8">
-<span class="text-xl font-black text-white font-['Inter'] tracking-tight">Workpal</span>
-
+<nav class="fixed top-0 z-50 w-full bg-[#191022] backdrop-blur-md bg-opacity-95 border-b border-[#7f13ec]/10 shadow-md">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto font-inter antialiased text-sm tracking-tight">
+<div class="text-2xl font-bold tracking-tighter text-white">WorkPal</div>
+<div class="hidden md:flex items-center space-gap-8 gap-8">
+<a class="text-[#7f13ec] font-semibold border-b-2 border-[#7f13ec] pb-1" href="#hero">Home</a>
+<a class="text-slate-300 hover:text-white transition-colors" href="./about.html">About Us</a>
+<a class="text-slate-300 hover:text-white transition-colors" href="https://wa.me/2349138567705" target="_blank">Contact</a>
 </div>
-<div class="flex items-center gap-3">
-<div class="hidden md:flex items-center gap-4">
-<button class="text-slate-400 hover:text-white transition-colors" data-shell-link="notifications" type="button">
-<span class="material-symbols-outlined">notifications</span>
-</button>
-<button class="text-slate-400 hover:text-white transition-colors" data-shell-link="communication" type="button">
-<span class="material-symbols-outlined">mail</span>
-</button>
+<div class="flex items-center gap-4">
+<a class="px-4 py-2 text-slate-300 hover:text-white transition-all text-sm font-bold uppercase tracking-widest" href="./signin.html?mode=login">Login</a>
+<a class="bg-primary text-on-primary px-6 py-2 rounded-xl font-bold text-sm shadow-lg hover:scale-95 duration-150 ease-in-out" href="./signin.html?mode=signup">Sign Up</a>
 </div>
-<button class="hidden bg-primary text-on-primary px-5 py-2 rounded-full font-bold text-sm shadow-lg hover:opacity-90 transition-opacity" hidden id="homeHireBtn" type="button">
-                Hire Artisan
-            </button>
-<button class="hidden md:block bg-surface-container text-slate-200 px-4 py-2 rounded-full font-bold text-xs shadow-lg hover:text-white transition-colors" id="logoutBtn">
-                Logout
-            </button>
-<button class="h-8 w-8 rounded-full overflow-hidden bg-secondary border border-primary/20" data-shell-link="profiles" type="button">
-<img alt="User profile" class="w-full h-full object-cover" data-alt="Portrait of a creative professional man" data-shell-avatar src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3BRCb7id6kfETEMA5cfn0xqaNQQERaMC84AeA1gFmf-k8vKze5Ed0zdtuFg8rs6PvB8_tEgAgciJxSG0JDMuOnZ4i381grZ04OcW6exytB6wyxcYTeeqH5QFuZgKoNn4I06ahgofCkiCwGGOz9mqtf05GyNCm_hItc2ZdENQh80xXm61YYtfBcYvvg9yLvDQEr4X6fSkk0qfGjX4L7DYieze_f5zb8X0-XjsfrbRSspps5PH4q8J3lOz0Apj_zfUTYji8XSkteeFj"/>
-</button>
 </div>
 </nav>
-<!-- Sidebar Navigation -->
-<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] hidden md:flex" data-app-sidebar></aside>
-<!-- Main Content Canvas -->
-<main class="pt-20 px-4 md:px-6 pb-12" data-app-shell-shift>
-<div class="hidden mb-6 rounded-xl border border-red-500/40 bg-red-500/10 text-red-200 px-4 py-3 text-sm" id="homeError"></div>
+<main class="pt-20">
 <!-- Hero Section -->
-<section class="relative h-[220px] sm:h-[300px] rounded-2xl overflow-hidden mb-8 md:mb-12 flex items-center px-6 md:px-12">
-<div class="absolute inset-0 bg-gradient-to-r from-[#191022] via-[#191022]/60 to-transparent z-10"></div>
-<img alt="Workshop background" class="absolute inset-0 w-full h-full object-cover" data-alt="High-tech workshop with purple neon lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVAIjHuQ97c9-F8iw1R5LeCdDb-MPETAoHFiMR5MpjfH7DLytZH3ycEHGl0nAFkvinHwyBGzzASf7eaOEXkYQ6JZz5g2Uek8kPlb9Nk-7gs4yo3AE1BKeQQ8jPjmT7lSyC4y4Myo7jfCs6-IWNzXkOKquI-KGdOjX4tNsIyDkocOBFbRZCTHJx_Lqx41bICk3syfUkMmlTE17fWA0C7actQyYn7YEuk61tiTyDc1Ze8Zy4RRGVyifV1eD7v6MvRHbvp0y23X92sD_l"/>
-<div class="relative z-20 max-w-lg">
-<span class="bg-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest text-white mb-4 inline-block">Featured Today</span>
-<h1 class="text-2xl sm:text-4xl md:text-5xl font-black text-white leading-tight mb-3 tracking-tight"><span id="homeGreetingText">Welcome</span>, <span class="text-primary" id="homeGreetingName">Creator</span>.</h1>
-<p class="text-on-surface-variant text-base mb-6 min-h-[1.5rem] transition-opacity duration-500" id="homeQuote">The Future of Bespoke Craft starts with your next collaboration.</p>
+<section class="relative min-h-[921px] flex items-center justify-center px-6 hero-gradient overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-1/4 right-1/4 w-64 h-64 bg-secondary/30 rounded-full blur-[100px]"></div>
+</div>
+<div class="relative z-10 max-w-5xl mx-auto text-center">
+<div class="inline-block mb-6 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/10">
+<span class="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">The Future of Craft</span>
+</div>
+<h1 class="text-5xl md:text-7xl font-bold tracking-tighter text-white mb-8 leading-[1.1]">
+                    Where Craftsmanship <br/> Meets <span class="text-primary">Opportunity</span>
+</h1>
+<p class="text-on-surface-variant text-lg md:text-xl max-w-2xl mx-auto mb-12">
+                    WorkPal is the premiere digital atelier connecting elite modern artisans with clients who value exceptional quality and human creativity.
+                </p>
+<div class="flex flex-col md:flex-row items-center justify-center gap-6">
+<div class="glass-card p-8 rounded-xl w-full md:w-80 group hover:border-primary/40 transition-all cursor-pointer">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="brush">brush</span>
+<h3 class="text-xl font-bold text-white mb-2">I'm an Artisan</h3>
+<p class="text-sm text-slate-400 mb-6">Build your portfolio, find high-value commissions, and scale your craft.</p>
+<a class="w-full py-3 bg-primary text-white rounded-lg font-bold text-sm shadow-lg group-hover:shadow-primary/20 transition-all text-center block" href="./signin.html?mode=signup&amp;role=artisan">Get Started</a>
+</div>
+<div class="glass-card p-8 rounded-xl w-full md:w-80 group hover:border-white/40 transition-all cursor-pointer">
+<span class="material-symbols-outlined text-white text-4xl mb-4" data-icon="handshake">handshake</span>
+<h3 class="text-xl font-bold text-white mb-2">I'm a Client</h3>
+<p class="text-sm text-slate-400 mb-6">Commission custom work from world-class creators across every discipline.</p>
+<a class="w-full py-3 bg-white text-midnight-purple rounded-lg font-bold text-sm shadow-lg text-[#191022] text-center block" href="./signin.html?mode=signup&amp;role=customer">Hire Talent</a>
+</div>
+</div>
 </div>
 </section>
-<!-- News Slider -->
-<section class="mb-12">
-<div class="flex justify-between items-end mb-6">
-<div>
-<h3 class="text-2xl font-bold text-white">Platform News</h3>
-<p class="text-slate-400 text-sm">Latest updates from your WorkPal network.</p>
-</div>
-</div>
-<div class="relative overflow-hidden rounded-2xl" id="newsCarouselWrap">
-  <div class="flex transition-transform duration-500 ease-in-out" id="newsSlider">
-  </div>
-  <div class="flex justify-center gap-2 mt-4" id="newsDots"></div>
+<!-- Social Proof Ticker -->
+<section class="py-12 bg-surface-container-lowest border-y border-primary/10">
+<div class="max-w-7xl mx-auto px-6 text-center">
+<p class="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-500 mb-4">Connecting skilled artisans with clients across Nigeria</p>
+<p class="text-slate-400 text-sm">Electricians &bull; Plumbers &bull; Carpenters &bull; Tailors &bull; Photographers &bull; Makeup Artists &bull; Web Developers &bull; Auto Mechanics &bull; Cleaners &bull; Tutors</p>
 </div>
 </section>
-<!-- Categories Section -->
-<section class="mb-12">
-<div class="flex justify-between items-end mb-6">
-<div>
-<h3 class="text-2xl font-bold text-white">Guilds &amp; Crafts</h3>
-<p class="text-slate-400 text-sm">Specialized expertise at your fingertips</p>
+<!-- Features Showcase -->
+<section class="py-24 px-6 bg-surface">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-20">
+<h2 class="text-3xl md:text-5xl font-bold tracking-tighter text-white mb-4">The WorkPal Advantage</h2>
+<p class="text-slate-400 max-w-xl mx-auto">Professional tools designed specifically for the unique workflow of independent creators.</p>
 </div>
-<a class="text-[11px] font-bold uppercase tracking-widest text-primary hover:text-white transition-colors" href="pages/directory.html">View All Categories</a>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Feature 1 -->
+<div class="bg-surface-container p-10 rounded-xl group hover:bg-surface-bright transition-all duration-300">
+<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-8 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-white" data-icon="grid_view">grid_view</span>
 </div>
-<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4" id="homeCategoriesList">
+<h3 class="text-xl font-bold text-white mb-4">Visual Portfolios</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">High-fidelity project galleries that showcase the depth of your craft with cinematic presentation and detail zooms.</p>
+<div class="mt-8 pt-8 border-t border-primary/10">
+<a class="text-[11px] font-bold uppercase tracking-widest text-primary flex items-center gap-2 group-hover:gap-3 transition-all" href="./signin.html?mode=signup">
+                                Explore Display <span class="material-symbols-outlined text-xs" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Feature 2 -->
+<div class="bg-surface-container p-10 rounded-xl group hover:bg-surface-bright transition-all duration-300 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full -mr-12 -mt-12 group-hover:bg-primary/10 transition-colors"></div>
+<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-8 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-white" data-icon="encrypted">encrypted</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-4">Secure Payments</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Integrated escrow and multi-stage billing ensure you get paid for every milestone, exactly when you expect it.</p>
+<div class="mt-8 pt-8 border-t border-primary/10">
+<a class="text-[11px] font-bold uppercase tracking-widest text-primary flex items-center gap-2 group-hover:gap-3 transition-all" href="./about.html#how-it-works">
+                                How it works <span class="material-symbols-outlined text-xs" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Feature 3 -->
+<div class="bg-surface-container p-10 rounded-xl group hover:bg-surface-bright transition-all duration-300">
+<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-8 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-white" data-icon="psychology">psychology</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-4">AI-Powered Tools</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Smart contract generation, automated scheduling, and pricing insights to let you focus purely on the creative work.</p>
+<div class="mt-8 pt-8 border-t border-primary/10">
+<a class="text-[11px] font-bold uppercase tracking-widest text-primary flex items-center gap-2 group-hover:gap-3 transition-all" href="./about.html#features">
+                                View Intelligence <span class="material-symbols-outlined text-xs" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
 </div>
 </section>
-<!-- Artisans Near You - Grid Layout -->
-<section>
-<div class="flex justify-between items-center mb-8">
-<div>
-<h3 class="text-2xl font-bold text-white tracking-tight">Artisans Near You</h3>
-<p class="text-xs text-slate-400 mt-1" id="homeLocationText">Locating nearby artisans...</p>
-<p class="text-[11px] text-primary mt-1 font-bold uppercase tracking-widest" id="homeSortText">Showing nearest artisans first</p>
-</div>
-<div class="flex gap-2">
-<button class="p-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-slate-400" id="homeFilterBtn" type="button">
-<span class="material-symbols-outlined">filter_list</span>
-</button>
-<button class="p-2 rounded-lg bg-primary/10 text-primary" id="homeGridBtn" type="button">
-<span class="material-symbols-outlined">grid_view</span>
-</button>
-<button class="p-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-slate-400" id="homeListBtn" type="button">
-<span class="material-symbols-outlined">view_list</span>
-</button>
+<!-- CTA Section -->
+<section class="py-24 px-6">
+<div class="max-w-5xl mx-auto bg-primary rounded-xl p-12 md:p-20 text-center relative overflow-hidden shadow-[0_20px_50px_rgba(127,19,236,0.3)]">
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1),transparent)]"></div>
+<div class="relative z-10">
+<h2 class="text-3xl md:text-5xl font-bold tracking-tight text-white mb-8">Start Your Journey Today</h2>
+<p class="text-white/80 text-lg mb-12 max-w-xl mx-auto">Join the new era of artisanal business. Your craft deserves a professional home that works as hard as you do.</p>
+<div class="flex flex-col md:flex-row items-center justify-center gap-4">
+<a class="w-full md:w-auto px-10 py-4 bg-white text-primary font-bold rounded-xl shadow-xl hover:scale-105 transition-transform text-center block" href="./signin.html?mode=signup&amp;role=artisan">Create Artisan Profile</a>
+<a class="w-full md:w-auto px-10 py-4 bg-primary-container/20 border border-white/20 text-white font-bold rounded-xl hover:bg-white/10 transition-colors text-center block" href="./signin.html?mode=signup&amp;role=customer">Sign Up as Client</a>
 </div>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="topArtisansList">
 </div>
 </section>
 </main>
-<script type="module" src="./js/app-shell.js"></script>
-<script type="module" src="./js/home-page.js"></script>
+<!-- Footer -->
+<footer class="bg-[#191022] border-t border-[#7f13ec]/10 full-width py-12 px-6">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
+<div class="col-span-2 md:col-span-1">
+<div class="text-lg font-black text-white mb-4">WorkPal</div>
+<p class="text-slate-500 text-xs leading-relaxed max-w-xs mb-6">Redefining the relationship between craft and digital commerce for the next generation of professional artisans.</p>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-inter text-[11px] uppercase font-bold tracking-widest text-primary">Company</h4>
+<a class="text-slate-500 hover:text-[#7f13ec] font-inter text-[11px] uppercase font-bold tracking-widest hover:translate-x-1 transition-transform duration-200" href="./about.html">About</a>
+<a class="text-slate-500 hover:text-[#7f13ec] font-inter text-[11px] uppercase font-bold tracking-widest hover:translate-x-1 transition-transform duration-200" href="./about.html#careers">Careers</a>
+<a class="text-slate-500 hover:text-[#7f13ec] font-inter text-[11px] uppercase font-bold tracking-widest hover:translate-x-1 transition-transform duration-200" href="./about.html#privacy">Privacy</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-inter text-[11px] uppercase font-bold tracking-widest text-primary">Resources</h4>
+<a class="text-slate-500 hover:text-[#7f13ec] font-inter text-[11px] uppercase font-bold tracking-widest hover:translate-x-1 transition-transform duration-200" href="https://wa.me/2349138567705" target="_blank">Support</a>
+<a class="text-slate-500 hover:text-[#7f13ec] font-inter text-[11px] uppercase font-bold tracking-widest hover:translate-x-1 transition-transform duration-200" href="./about.html#terms">Terms</a>
+<a class="text-slate-500 hover:text-[#7f13ec] font-inter text-[11px] uppercase font-bold tracking-widest hover:translate-x-1 transition-transform duration-200" href="https://wa.me/2349138567705" target="_blank">Contact Us</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-inter text-[11px] uppercase font-bold tracking-widest text-primary">Connect</h4>
+<a class="flex items-center gap-2 text-slate-500 hover:text-white transition-colors" href="https://wa.me/2349138567705" target="_blank">
+<span class="material-symbols-outlined">chat</span>
+<span class="text-[11px] font-bold">WhatsApp</span>
+</a>
+<a class="flex items-center gap-2 text-slate-500 hover:text-white transition-colors" href="tel:+2349138567705">
+<span class="material-symbols-outlined">call</span>
+<span class="text-[11px] font-bold">09138567705</span>
+</a>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-primary/5 text-center">
+<p class="font-inter text-[11px] uppercase font-bold tracking-widest text-slate-600">© 2024 WorkPal. Crafted for the Modern Artisan.</p>
+</div>
+</footer>
 </body></html>

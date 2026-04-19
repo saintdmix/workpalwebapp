@@ -48,7 +48,7 @@ async function runLogout() {
   localStorage.removeItem("workpalAuthUser");
   localStorage.removeItem("workpalUserRole");
   sessionStorage.clear();
-  window.location.href = `${rootPrefix}onboarding.html`;
+  window.location.href = `${rootPrefix}index.html`;
 }
 
 // LOGOUT BUTTONS (works on settings/home pages too)

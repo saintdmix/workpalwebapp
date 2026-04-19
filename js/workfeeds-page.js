@@ -14,7 +14,7 @@ import { renderWorkfeedsSkeleton } from "./loading-skeletons.js";
 import { onSnapshot, collection, query, where } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
 import { auth, db } from "./firebase-init.js";
 
-const LOGIN_PAGE = "../signin.html?mode=login";
+const LOGIN_PAGE = "../index.html";
 const JOB_APPLY_PAGE = "../pages/job-apply.html";
 const WORKFEEDS_CACHE_KEY = "workpalWorkfeedsSnapshotV1";
 const LOCATION_CACHE_KEY = "workpalLocationV1";

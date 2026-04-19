@@ -8,7 +8,7 @@ import {
 } from "./create-post-service.js";
 import { ALL_CATEGORIES } from "./services/categories-config.js";
 
-const LOGIN_URL = "../signin.html?mode=login";
+const LOGIN_URL = "../index.html";
 const POST_JOB_URL = "./post-job.html";
 
 const $ = (id) => document.getElementById(id);

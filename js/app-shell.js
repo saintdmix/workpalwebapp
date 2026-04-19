@@ -7,7 +7,7 @@ const SIDEBAR_STATE_KEY = "workpalSidebarCollapsed";
 const inPagesDir = window.location.pathname.replace(/\\/g, "/").includes("/pages/");
 const rootPrefix = inPagesDir ? "../" : "./";
 const routes = {
-  home: `${rootPrefix}index.html`,
+  home: `${rootPrefix}home.html`,
   feed: `${rootPrefix}pages/feed.html`,
   communication: `${rootPrefix}pages/communication.html`,
   notifications: `${rootPrefix}pages/notifications.html`,
@@ -15,6 +15,7 @@ const routes = {
   createPost: `${rootPrefix}pages/create-post.html`,
   postJob: `${rootPrefix}pages/post-job.html`,
   editProfile: `${rootPrefix}pages/edit-profile.html`,
+  landing: `${rootPrefix}index.html`,
   signin: `${rootPrefix}signin.html?mode=login`,
 };
 
@@ -82,10 +83,12 @@ function injectStyles() {
     /* Desktop: shift by sidebar width */
     @media (min-width: 768px) {
       [data-app-shell-shift] { margin-left: var(--workpal-sidebar-width) !important; }
+      [data-app-shell-fixed-header] { left: var(--workpal-sidebar-width) !important; width: calc(100% - var(--workpal-sidebar-width)) !important; max-width: none !important; }
     }
     /* Mobile: no left margin, add bottom padding for bottom nav */
     @media (max-width: 767px) {
       [data-app-shell-shift] { margin-left: 0 !important; padding-bottom: 5rem !important; }
+      [data-app-shell-fixed-header] { left: 0 !important; width: 100% !important; max-width: 100% !important; }
     }
 
     /* ── Bottom nav (mobile only) ── */
@@ -263,15 +266,6 @@ function applySidebarState(collapsed) {
   const width = collapsed ? "5rem" : "16rem";
   document.documentElement.style.setProperty("--workpal-sidebar-width", width);
   document.querySelectorAll("[data-app-sidebar]").forEach((h) => h.classList.toggle("collapsed", collapsed));
-  // Only apply JS margin on desktop; CSS handles mobile via media query
-  if (window.innerWidth >= 768) {
-    document.querySelectorAll("[data-app-shell-shift]").forEach((el) => { el.style.marginLeft = width; });
-    document.querySelectorAll("[data-app-shell-fixed-header]").forEach((el) => {
-      el.style.left = width;
-      el.style.width = `calc(100% - ${width})`;
-      el.style.maxWidth = "none";
-    });
-  }
 }
 
 function initSidebar() {
@@ -310,7 +304,7 @@ function bindLinks() {
     shellState.stopUnread?.();
     localStorage.removeItem("workpalAuthUser");
     localStorage.removeItem("workpalUserRole");
-    window.location.href = routes.signin;
+    window.location.href = `${rootPrefix}index.html`;
   });
 }
 
