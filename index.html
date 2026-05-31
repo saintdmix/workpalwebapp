@@ -1,316 +1,758 @@
 <!DOCTYPE html>
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>WorkPal | Professional Artisans & Custom Services</title>
-<script type="module">
-  import { auth } from "./js/firebase-init.js";
-  import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      window.location.replace("./dashboard.html");
-    }
-  });
-</script>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "inverse-on-surface": "#191022",
-              "on-secondary-fixed": "#290055",
-              "surface-bright": "#2d1b4d",
-              "inverse-primary": "#d8b9ff",
-              "on-tertiary-fixed-variant": "#753400",
-              "surface-variant": "#2d1b4d",
-              "on-secondary-fixed-variant": "#59308f",
-              "surface": "#191022",
-              "on-secondary-container": "#eddcff",
-              "secondary-fixed": "#eddcff",
-              "on-primary-fixed-variant": "#6200bc",
-              "on-primary-container": "#e5ceff",
-              "primary-fixed-dim": "#d8b9ff",
-              "primary": "#7f13ec",
-              "surface-dim": "#150e1c",
-              "tertiary-fixed": "#ffdbc8",
-              "secondary-fixed-dim": "#d8b9ff",
-              "tertiary-fixed-dim": "#ffb68b",
-              "on-primary-fixed": "#290055",
-              "on-background": "#f7f6f8",
-              "on-tertiary-container": "#ffcdb1",
-              "surface-container-high": "#2d2438",
-              "outline-variant": "#4c4355",
-              "on-surface": "#f7f6f8",
-              "tertiary": "#ffb68b",
-              "inverse-surface": "#f7f6f8",
-              "tertiary-container": "#984600",
-              "surface-container-lowest": "#0d0814",
-              "on-tertiary": "#522300",
-              "on-surface-variant": "#cec2d8",
-              "on-error-container": "#ffdad6",
-              "outline": "#7f13ec",
-              "surface-container-low": "#1c1426",
-              "on-primary": "#ffffff",
-              "surface-tint": "#7f13ec",
-              "surface-container-highest": "#382f44",
-              "on-error": "#690005",
-              "error-container": "#93000a",
-              "background": "#191022",
-              "primary-fixed": "#eddcff",
-              "on-tertiary-fixed": "#321200",
-              "primary-container": "#2d1b4d",
-              "secondary-container": "#3d2a5e",
-              "secondary": "#2d1b4d",
-              "on-secondary": "#ffffff",
-              "error": "#ffb4ab",
-              "surface-container": "#231b2e"
-            },
-            fontFamily: {
-              "headline": ["Inter"],
-              "body": ["Inter"],
-              "label": ["Inter"]
-            },
-            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
-          },
-        },
-      }
-    </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkPal - Connect with Trusted Artisans & Service Professionals</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .glass-card {
-            background: rgba(45, 27, 77, 0.4);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(127, 19, 236, 0.1);
+
+        :root {
+            --primary: #7f13ec;
+            --primary-dark: #6200bc;
+            --primary-light: #9d4eff;
+            --dark: #0a0a0a;
+            --dark-soft: #1a1a1a;
+            --gray: #666;
+            --gray-light: #f5f5f5;
+            --white: #ffffff;
+            --accent: #ff6b35;
         }
-        .hero-gradient {
-            background: radial-gradient(circle at top right, rgba(127, 19, 236, 0.15), transparent),
-                        radial-gradient(circle at bottom left, rgba(45, 27, 77, 0.5), transparent);
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .btn {
+            padding: 0.75rem 1.75rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(127, 19, 236, 0.3);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 140px 2rem 100px;
+            background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(127, 19, 236, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .hero-content .highlight {
+            color: var(--primary);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .hero-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .hero-card p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+            background: var(--gray-light);
+            border-radius: 12px;
+        }
+
+        .stat-item h4 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-item p {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 2rem;
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--gray);
+        }
+
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            padding: 2.5rem;
+            background: var(--white);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 16px;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .service-card p {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 2rem;
+            background: var(--gray-light);
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-content h2 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .about-features {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+
+        .feature-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .feature-item p {
+            font-size: 0.95rem;
+            color: var(--gray);
+            margin: 0;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Founder Section */
+        .founder {
+            padding: 100px 2rem;
+            background: var(--white);
+        }
+
+        .founder-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .founder-card {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .founder-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            overflow: hidden;
+            border: 4px solid var(--primary);
+        }
+
+        .founder-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .founder-card h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .founder-card .title {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .founder-card p {
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        .founder-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 100px 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+        }
+
+        .btn-white {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        .btn-white:hover {
+            background: var(--gray-light);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 60px 2rem 30px;
+            background: var(--dark);
+            color: var(--white);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+        }
+
+        .footer-links h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-container,
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-header h2,
+            .about-content h2 {
+                font-size: 2rem;
+            }
+
+            .cta h2 {
+                font-size: 2rem;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
-<body data-auth-page="onboarding" class="bg-background text-on-background font-body antialiased">
-<!-- TopNavBar -->
-<nav class="fixed top-0 z-50 w-full bg-[#191022] backdrop-blur-md bg-opacity-95 border-b border-[#7f13ec]/10 shadow-md">
-<div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto font-inter antialiased text-sm tracking-tight">
-<div class="text-2xl font-bold tracking-tighter text-white">WorkPal</div>
-<div class="hidden md:flex items-center space-gap-8 gap-8">
-<a class="text-[#7f13ec] font-semibold border-b-2 border-[#7f13ec] pb-1" href="#hero">Home</a>
-<a class="text-slate-300 hover:text-white transition-colors" href="./about.html">About Us</a>
-<a class="text-slate-300 hover:text-white transition-colors" href="https://wa.me/2349138567705" target="_blank">Contact</a>
-</div>
-<div class="flex items-center gap-4">
-<a class="px-4 py-2 text-slate-300 hover:text-white transition-all text-sm font-bold uppercase tracking-widest" href="./signin.html?mode=login">Login</a>
-<a class="bg-primary text-on-primary px-6 py-2 rounded-xl font-bold text-sm shadow-lg hover:scale-95 duration-150 ease-in-out" href="./signin.html?mode=signup">Sign Up</a>
-</div>
-</div>
-</nav>
-<main class="pt-20">
-<!-- Hero Section -->
-<section class="relative min-h-[921px] flex items-center justify-center px-6 hero-gradient overflow-hidden">
-<div class="absolute inset-0 z-0">
-<div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[120px]"></div>
-<div class="absolute bottom-1/4 right-1/4 w-64 h-64 bg-secondary/30 rounded-full blur-[100px]"></div>
-</div>
-<div class="relative z-10 max-w-5xl mx-auto text-center">
-<div class="inline-block mb-6 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/10">
-<span class="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">The Future of Craft</span>
-</div>
-<h1 class="text-5xl md:text-7xl font-bold tracking-tighter text-white mb-8 leading-[1.1]">
-                    Where Craftsmanship <br/> Meets <span class="text-primary">Opportunity</span>
-</h1>
-<p class="text-on-surface-variant text-lg md:text-xl max-w-2xl mx-auto mb-12">
-                    WorkPal is the premiere digital atelier connecting elite modern artisans with clients who value exceptional quality and human creativity.
-                </p>
-<div class="flex flex-col md:flex-row items-center justify-center gap-6">
-<div class="glass-card p-8 rounded-xl w-full md:w-80 group hover:border-primary/40 transition-all cursor-pointer">
-<span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="brush">brush</span>
-<h3 class="text-xl font-bold text-white mb-2">I'm an Artisan</h3>
-<p class="text-sm text-slate-400 mb-6">Build your portfolio, find high-value commissions, and scale your craft.</p>
-<a class="w-full py-3 bg-primary text-white rounded-lg font-bold text-sm shadow-lg group-hover:shadow-primary/20 transition-all text-center block" href="./signin.html?mode=signup&amp;role=artisan">Get Started</a>
-</div>
-<div class="glass-card p-8 rounded-xl w-full md:w-80 group hover:border-white/40 transition-all cursor-pointer">
-<span class="material-symbols-outlined text-white text-4xl mb-4" data-icon="handshake">handshake</span>
-<h3 class="text-xl font-bold text-white mb-2">I'm a Client</h3>
-<p class="text-sm text-slate-400 mb-6">Commission custom work from world-class creators across every discipline.</p>
-<a class="w-full py-3 bg-white text-midnight-purple rounded-lg font-bold text-sm shadow-lg text-[#191022] text-center block" href="./signin.html?mode=signup&amp;role=customer">Hire Talent</a>
-</div>
-</div>
-</div>
-</section>
-<!-- Social Proof Ticker -->
-<section class="py-12 bg-surface-container-lowest border-y border-primary/10">
-<div class="max-w-7xl mx-auto px-6 text-center">
-<p class="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-500 mb-4">Connecting skilled artisans with clients across Nigeria</p>
-<p class="text-slate-400 text-sm">Electricians &bull; Plumbers &bull; Carpenters &bull; Tailors &bull; Photographers &bull; Makeup Artists &bull; Web Developers &bull; Auto Mechanics &bull; Cleaners &bull; Tutors</p>
-</div>
-</section>
-<!-- About Company Section -->
-<section class="py-24 px-6 bg-surface-container-low" id="about-company">
-<div class="max-w-7xl mx-auto grid gap-12 lg:grid-cols-[1.15fr_0.85fr] items-center">
-<div>
-<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/10 mb-6">
-<span class="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">About WorkPal</span>
-</div>
-<h2 class="text-3xl md:text-5xl font-bold tracking-tighter text-white mb-6">Built to help skilled people turn good work into lasting opportunity.</h2>
-<p class="text-on-surface-variant text-base md:text-lg leading-8 max-w-2xl mb-6">
-                    WorkPal is a digital platform created to connect trusted artisans with clients who need quality service quickly and confidently. We are focused on helping professionals showcase their craft, win jobs, and build real credibility in their communities.
-                </p>
-<p class="text-on-surface-variant text-base md:text-lg leading-8 max-w-2xl mb-8">
-                    From electricians and plumbers to creatives and technical specialists, WorkPal gives everyday experts a stronger online presence, easier communication, and a better path to growth.
-                </p>
-<div class="grid sm:grid-cols-3 gap-4">
-<div class="rounded-2xl border border-primary/10 bg-surface/70 p-5">
-<p class="text-2xl font-bold text-white mb-1">Trusted</p>
-<p class="text-sm text-slate-400">Profiles designed to highlight skill, reputation, and workmanship.</p>
-</div>
-<div class="rounded-2xl border border-primary/10 bg-surface/70 p-5">
-<p class="text-2xl font-bold text-white mb-1">Local</p>
-<p class="text-sm text-slate-400">Built for nearby discovery so clients can find the right help fast.</p>
-</div>
-<div class="rounded-2xl border border-primary/10 bg-surface/70 p-5">
-<p class="text-2xl font-bold text-white mb-1">Growth</p>
-<p class="text-sm text-slate-400">A platform that helps artisans get seen, contacted, and hired more often.</p>
-</div>
-</div>
-</div>
-<div class="glass-card rounded-[28px] p-5 md:p-7 border border-primary/15 shadow-[0_24px_60px_rgba(0,0,0,0.28)]">
-<div class="overflow-hidden rounded-[22px] mb-6">
-<img alt="Founder and company representative for WorkPal" class="w-full h-[380px] object-cover object-top" loading="lazy" src="./assets/img/ceoimage.jpeg"/>
-</div>
-<div class="flex items-center justify-between gap-4 mb-4">
-<div>
-<p class="text-xs font-bold uppercase tracking-[0.25em] text-primary mb-2">Leadership</p>
-<h3 class="text-2xl font-bold text-white">Founder &amp; CEO</h3>
-</div>
-<span class="inline-flex items-center rounded-full bg-primary/15 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-primary">WorkPal</span>
-</div>
-<p class="text-sm leading-7 text-slate-300 mb-6">
-                    Leading the vision behind WorkPal with a focus on making trusted artisan services more visible, accessible, and professional for clients across Nigeria.
-                </p>
-<div class="grid gap-3 text-sm text-slate-300">
-<div class="flex items-center justify-between gap-4 rounded-2xl bg-black/10 px-4 py-3">
-<span class="text-slate-400">Role</span>
-<span class="font-semibold text-white">Founder &amp; CEO</span>
-</div>
-<div class="flex items-center justify-between gap-4 rounded-2xl bg-black/10 px-4 py-3">
-<span class="text-slate-400">Phone</span>
-<a class="font-semibold text-white hover:text-primary transition-colors" href="tel:+2349138567705">09138567705</a>
-</div>
-<div class="flex items-center justify-between gap-4 rounded-2xl bg-black/10 px-4 py-3">
-<span class="text-slate-400">WhatsApp</span>
-<a class="font-semibold text-white hover:text-primary transition-colors" href="https://wa.me/2349138567705" target="_blank">Chat Directly</a>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Features Showcase -->
-<section class="py-24 px-6 bg-surface">
-<div class="max-w-7xl mx-auto">
-<div class="text-center mb-20">
-<h2 class="text-3xl md:text-5xl font-bold tracking-tighter text-white mb-4">The WorkPal Advantage</h2>
-<p class="text-slate-400 max-w-xl mx-auto">Professional tools designed specifically for the unique workflow of independent creators.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-<!-- Feature 1 -->
-<div class="bg-surface-container p-10 rounded-xl group hover:bg-surface-bright transition-all duration-300">
-<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-8 group-hover:bg-primary group-hover:text-white transition-colors">
-<span class="material-symbols-outlined text-primary group-hover:text-white" data-icon="grid_view">grid_view</span>
-</div>
-<h3 class="text-xl font-bold text-white mb-4">Visual Portfolios</h3>
-<p class="text-on-surface-variant text-sm leading-relaxed">High-fidelity project galleries that showcase the depth of your craft with cinematic presentation and detail zooms.</p>
-<div class="mt-8 pt-8 border-t border-primary/10">
-<a class="text-[11px] font-bold uppercase tracking-widest text-primary flex items-center gap-2 group-hover:gap-3 transition-all" href="./signin.html?mode=signup">
-                                Explore Display <span class="material-symbols-outlined text-xs" data-icon="arrow_forward">arrow_forward</span>
-</a>
-</div>
-</div>
-<!-- Feature 2 -->
-<div class="bg-surface-container p-10 rounded-xl group hover:bg-surface-bright transition-all duration-300 relative overflow-hidden">
-<div class="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full -mr-12 -mt-12 group-hover:bg-primary/10 transition-colors"></div>
-<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-8 group-hover:bg-primary group-hover:text-white transition-colors">
-<span class="material-symbols-outlined text-primary group-hover:text-white" data-icon="encrypted">encrypted</span>
-</div>
-<h3 class="text-xl font-bold text-white mb-4">Secure Payments</h3>
-<p class="text-on-surface-variant text-sm leading-relaxed">Integrated escrow and multi-stage billing ensure you get paid for every milestone, exactly when you expect it.</p>
-<div class="mt-8 pt-8 border-t border-primary/10">
-<a class="text-[11px] font-bold uppercase tracking-widest text-primary flex items-center gap-2 group-hover:gap-3 transition-all" href="./about.html#how-it-works">
-                                How it works <span class="material-symbols-outlined text-xs" data-icon="arrow_forward">arrow_forward</span>
-</a>
-</div>
-</div>
-<!-- Feature 3 -->
-<div class="bg-surface-container p-10 rounded-xl group hover:bg-surface-bright transition-all duration-300">
-<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-8 group-hover:bg-primary group-hover:text-white transition-colors">
-<span class="material-symbols-outlined text-primary group-hover:text-white" data-icon="psychology">psychology</span>
-</div>
-<h3 class="text-xl font-bold text-white mb-4">AI-Powered Tools</h3>
-<p class="text-on-surface-variant text-sm leading-relaxed">Smart contract generation, automated scheduling, and pricing insights to let you focus purely on the creative work.</p>
-<div class="mt-8 pt-8 border-t border-primary/10">
-<a class="text-[11px] font-bold uppercase tracking-widest text-primary flex items-center gap-2 group-hover:gap-3 transition-all" href="./about.html#features">
-                                View Intelligence <span class="material-symbols-outlined text-xs" data-icon="arrow_forward">arrow_forward</span>
-</a>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- CTA Section -->
-<section class="py-24 px-6">
-<div class="max-w-5xl mx-auto bg-primary rounded-xl p-12 md:p-20 text-center relative overflow-hidden shadow-[0_20px_50px_rgba(127,19,236,0.3)]">
-<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1),transparent)]"></div>
-<div class="relative z-10">
-<h2 class="text-3xl md:text-5xl font-bold tracking-tight text-white mb-8">Start Your Journey Today</h2>
-<p class="text-white/80 text-lg mb-12 max-w-xl mx-auto">Join the new era of artisanal business. Your craft deserves a professional home that works as hard as you do.</p>
-<div class="flex flex-col md:flex-row items-center justify-center gap-4">
-<a class="w-full md:w-auto px-10 py-4 bg-white text-primary font-bold rounded-xl shadow-xl hover:scale-105 transition-transform text-center block" href="./signin.html?mode=signup&amp;role=artisan">Create Artisan Profile</a>
-<a class="w-full md:w-auto px-10 py-4 bg-primary-container/20 border border-white/20 text-white font-bold rounded-xl hover:bg-white/10 transition-colors text-center block" href="./signin.html?mode=signup&amp;role=customer">Sign Up as Client</a>
-</div>
-</div>
-</div>
-</section>
-</main>
-<!-- Footer -->
-<footer class="bg-[#191022] border-t border-[#7f13ec]/10 full-width py-12 px-6">
-<div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
-<div class="col-span-2 md:col-span-1">
-<div class="text-lg font-black text-white mb-4">WorkPal</div>
-<p class="text-slate-500 text-xs leading-relaxed max-w-xs mb-6">Redefining the relationship between craft and digital commerce for the next generation of professional artisans.</p>
-</div>
-<div class="flex flex-col gap-4">
-<h4 class="font-inter text-[11px] uppercase font-bold tracking-widest text-primary">Company</h4>
-<a class="text-slate-500 hover:text-[#7f13ec] font-inter text-[11px] uppercase font-bold tracking-widest hover:translate-x-1 transition-transform duration-200" href="./about.html">About</a>
-<a class="text-slate-500 hover:text-[#7f13ec] font-inter text-[11px] uppercase font-bold tracking-widest hover:translate-x-1 transition-transform duration-200" href="./about.html#careers">Careers</a>
-<a class="text-slate-500 hover:text-[#7f13ec] font-inter text-[11px] uppercase font-bold tracking-widest hover:translate-x-1 transition-transform duration-200" href="./about.html#privacy">Privacy</a>
-</div>
-<div class="flex flex-col gap-4">
-<h4 class="font-inter text-[11px] uppercase font-bold tracking-widest text-primary">Resources</h4>
-<a class="text-slate-500 hover:text-[#7f13ec] font-inter text-[11px] uppercase font-bold tracking-widest hover:translate-x-1 transition-transform duration-200" href="https://wa.me/2349138567705" target="_blank">Support</a>
-<a class="text-slate-500 hover:text-[#7f13ec] font-inter text-[11px] uppercase font-bold tracking-widest hover:translate-x-1 transition-transform duration-200" href="./about.html#terms">Terms</a>
-<a class="text-slate-500 hover:text-[#7f13ec] font-inter text-[11px] uppercase font-bold tracking-widest hover:translate-x-1 transition-transform duration-200" href="https://wa.me/2349138567705" target="_blank">Contact Us</a>
-</div>
-<div class="flex flex-col gap-4">
-<h4 class="font-inter text-[11px] uppercase font-bold tracking-widest text-primary">Connect</h4>
-<a class="flex items-center gap-2 text-slate-500 hover:text-white transition-colors" href="https://wa.me/2349138567705" target="_blank">
-<span class="material-symbols-outlined">chat</span>
-<span class="text-[11px] font-bold">WhatsApp</span>
-</a>
-<a class="flex items-center gap-2 text-slate-500 hover:text-white transition-colors" href="tel:+2349138567705">
-<span class="material-symbols-outlined">call</span>
-<span class="text-[11px] font-bold">09138567705</span>
-</a>
-</div>
-</div>
-<div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-primary/5 text-center">
-<p class="font-inter text-[11px] uppercase font-bold tracking-widest text-slate-600">© 2024 WorkPal. Crafted for the Modern Artisan.</p>
-</div>
-</footer>
-</body></html>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#" class="logo">WorkPal</a>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#founder">Team</a></li>
+                <li><a href="./signin.html" class="btn btn-primary">Get Started</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Connect with <span class="highlight">Trusted Artisans</span> & Service Professionals</h1>
+                <p>WorkPal bridges the gap between skilled professionals and clients who need quality service. Find verified artisans, book services, and build lasting relationships.</p>
+                <div class="hero-buttons">
+                    <a href="./signin.html?mode=signup&role=customer" class="btn btn-primary">Find Artisans</a>
+                    <a href="./signin.html?mode=signup&role=artisan" class="btn btn-outline">Join as Professional</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-card">
+                    <h3>Why Choose WorkPal?</h3>
+                    <p>We connect you with verified professionals across Nigeria, ensuring quality service and peace of mind.</p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <h4>500+</h4>
+                            <p>Verified Artisans</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>1000+</h4>
+                            <p>Jobs Completed</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>4.8★</h4>
+                            <p>Average Rating</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>24/7</h4>
+                            <p>Support</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-header">
+            <h2>Professional Services at Your Fingertips</h2>
+            <p>From home repairs to creative services, find the right professional for every need</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Home Services</h3>
+                <p>Electricians, plumbers, carpenters, and more. Get your home repairs done by trusted professionals.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">✂️</div>
+                <h3>Personal Care</h3>
+                <p>Tailors, barbers, makeup artists, and beauty professionals ready to serve you.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📸</div>
+                <h3>Creative Services</h3>
+                <p>Photographers, videographers, graphic designers, and web developers for your projects.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚗</div>
+                <h3>Auto Services</h3>
+                <p>Mechanics, auto electricians, and car detailing experts to keep your vehicle running smoothly.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏠</div>
+                <h3>Cleaning Services</h3>
+                <p>Professional cleaners for homes, offices, and special events. Spotless results guaranteed.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📚</div>
+                <h3>Education</h3>
+                <p>Tutors and instructors across all subjects and skill levels. Learn from the best.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-container">
+            <div class="about-content">
+                <h2>Building Trust Between Professionals and Clients</h2>
+                <p>WorkPal is more than a platform—it's a community. We're dedicated to empowering skilled artisans while making it easier for clients to find reliable service providers.</p>
+                <p>Our mission is to create opportunities for professionals to grow their businesses and for clients to access quality services with confidence.</p>
+                <div class="about-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <div>
+                            <h4>Verified Professionals</h4>
+                            <p>Every artisan is vetted and verified to ensure quality and reliability.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <div>
+                            <h4>Secure Payments</h4>
+                            <p>Safe and transparent payment system protecting both parties.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <div>
+                            <h4>Real Reviews</h4>
+                            <p>Authentic feedback from real clients to help you make informed decisions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="./assets/img/ceoimage.jpeg" alt="WorkPal Team" onerror="this.style.display='none'">
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder Section -->
+    <section class="founder" id="founder">
+        <div class="founder-container">
+            <div class="section-header">
+                <h2>Meet Our Founder</h2>
+                <p>Driven by a vision to transform how services are delivered in Nigeria</p>
+            </div>
+            <div class="founder-card">
+                <div class="founder-image">
+                    <img src="./assets/img/ceoimage.jpeg" alt="Joseph Chukwuebuka - Founder & CEO" onerror="this.style.display='none'">
+                </div>
+                <h3>Joseph Chukwuebuka</h3>
+                <p class="title">Founder & CEO</p>
+                <p>With a passion for connecting people and creating opportunities, Joseph founded WorkPal to bridge the gap between skilled artisans and clients seeking quality services. His vision is to build a platform where trust, quality, and professionalism come together.</p>
+                <div class="founder-links">
+                    <a href="https://www.linkedin.com/in/joseph-chukwuebuka-940605362" target="_blank" class="btn btn-primary">Connect on LinkedIn</a>
+                    <a href="https://wa.me/2349138567705" target="_blank" class="btn btn-outline">WhatsApp</a>
+                    <a href="tel:+2349138567705" class="btn btn-outline">Call: 09138567705</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="cta-container">
+            <h2>Ready to Get Started?</h2>
+            <p>Join thousands of professionals and clients building better connections on WorkPal</p>
+            <div class="hero-buttons">
+                <a href="./signin.html?mode=signup&role=artisan" class="btn btn-white">Join as Artisan</a>
+                <a href="./signin.html?mode=signup&role=customer" class="btn btn-outline" style="border-color: white; color: white;">Find Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>WorkPal</h3>
+                <p>Connecting skilled professionals with clients who value quality service. Building trust, one job at a time.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="./about.html">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#founder">Team</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="https://wa.me/2349138567705" target="_blank">Contact Us</a></li>
+                    <li><a href="./about.html#faq">FAQ</a></li>
+                    <li><a href="./about.html#terms">Terms</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="https://www.linkedin.com/in/joseph-chukwuebuka-940605362" target="_blank">LinkedIn</a></li>
+                    <li><a href="https://wa.me/2349138567705" target="_blank">WhatsApp</a></li>
+                    <li><a href="tel:+2349138567705">Phone</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 WorkPal. All rights reserved. Built with care for Nigerian professionals.</p>
+        </div>
+    </footer>
+</body>
+</html>
