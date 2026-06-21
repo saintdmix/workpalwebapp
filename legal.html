@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Legal & Help | WorkPal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<script>
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          primary: "#7f13ec",
+          background: "#191022",
+          surface: "#191022",
+          "surface-container": "#231b2e",
+          "surface-container-low": "#1c1426",
+          secondary: "#2d1b4d",
+          "on-surface": "#f7f6f8",
+          "on-surface-variant": "#cec2d8",
+          tertiary: "#ffb68b",
+        },
+        fontFamily: { body: ["Inter"] },
+        borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+      },
+    },
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body {
+    background:
+      radial-gradient(circle at top left, rgba(127, 19, 236, 0.16), transparent 32%),
+      radial-gradient(circle at top right, rgba(255, 182, 139, 0.08), transparent 28%),
+      #191022;
+    color: #f7f6f8;
+    font-family: 'Inter', sans-serif;
+  }
+  section { scroll-margin-top: 96px; }
+  .legal-card {
+    background: linear-gradient(180deg, rgba(35, 27, 46, 0.96), rgba(28, 20, 38, 0.96));
+    border: 1px solid rgba(127, 19, 236, 0.14);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.22);
+  }
+  details summary::-webkit-details-marker { display: none; }
+  details[open] summary .chevron { transform: rotate(180deg); }
+</style>
+</head>
+<body class="font-body">
+
+<nav class="fixed top-0 z-50 w-full bg-[#191022]/95 backdrop-blur-md border-b border-[#7f13ec]/10 shadow-md">
+  <div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto text-sm">
+    <a class="text-2xl font-black text-white tracking-tighter" href="./index.html">WorkPal</a>
+    <div class="hidden md:flex items-center gap-8">
+      <a class="text-slate-300 hover:text-white transition-colors" href="./index.html">Home</a>
+      <a class="text-slate-300 hover:text-white transition-colors" href="./about.html">About Us</a>
+      <a class="text-[#7f13ec] font-semibold border-b-2 border-[#7f13ec] pb-1" href="./legal.html">Legal & Help</a>
+    </div>
+    <div class="flex items-center gap-4">
+      <a class="px-4 py-2 text-slate-300 hover:text-white text-sm font-bold uppercase tracking-widest" href="./signin.html?mode=login">Login</a>
+      <a class="bg-primary text-white px-6 py-2 rounded-xl font-bold text-sm shadow-lg hover:scale-95 duration-150" href="./signin.html?mode=signup">Sign Up</a>
+    </div>
+  </div>
+</nav>
+
+<main class="pt-24">
+  <section class="py-20 px-6">
+    <div class="max-w-5xl mx-auto text-center">
+      <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-primary bg-primary/10 px-4 py-1.5 rounded-full inline-block mb-6">Legal & Help Center</span>
+      <h1 class="text-4xl md:text-6xl font-black text-white tracking-tighter mb-6">Privacy Policy, Terms and FAQs</h1>
+      <p class="text-on-surface-variant text-lg max-w-3xl mx-auto leading-relaxed">
+        This page brings together the key information you need to use WorkPal responsibly and confidently.
+        If you need help beyond what is listed here, reach us directly on WhatsApp.
+      </p>
+      <div class="mt-10 flex flex-wrap justify-center gap-3">
+        <a href="#privacy" class="px-5 py-3 rounded-xl bg-white text-[#191022] font-bold hover:bg-slate-100 transition-colors">Privacy Policy</a>
+        <a href="#terms" class="px-5 py-3 rounded-xl bg-primary text-white font-bold hover:bg-[#6b0fcb] transition-colors">Terms & Conditions</a>
+        <a href="#faqs" class="px-5 py-3 rounded-xl border border-white/15 text-white font-bold hover:bg-white/5 transition-colors">FAQs</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 pb-20">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-[1.1fr_0.9fr] gap-6">
+      <div class="legal-card rounded-3xl p-8 md:p-10">
+        <span class="text-[10px] font-bold uppercase tracking-widest text-primary mb-3 block">Quick Summary</span>
+        <h2 class="text-3xl font-black text-white tracking-tight mb-6">The short version</h2>
+        <div class="grid md:grid-cols-2 gap-4 text-sm text-on-surface-variant">
+          <div class="bg-secondary rounded-2xl p-5">
+            <h3 class="text-white font-bold mb-2">Privacy</h3>
+            <p>We collect the information needed to create accounts, match services, and keep the platform working well.</p>
+          </div>
+          <div class="bg-secondary rounded-2xl p-5">
+            <h3 class="text-white font-bold mb-2">Terms</h3>
+            <p>Use WorkPal lawfully, keep your profile accurate, and respect other users while on the platform.</p>
+          </div>
+          <div class="bg-secondary rounded-2xl p-5">
+            <h3 class="text-white font-bold mb-2">Payments</h3>
+            <p>Payment agreements are made between clients and artisans unless a separate WorkPal process says otherwise.</p>
+          </div>
+          <div class="bg-secondary rounded-2xl p-5">
+            <h3 class="text-white font-bold mb-2">Support</h3>
+            <p>For account help, disputes, or data requests, contact us on WhatsApp using the link below.</p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="legal-card rounded-3xl p-8 md:p-10">
+        <span class="text-[10px] font-bold uppercase tracking-widest text-primary mb-3 block">Need Help?</span>
+        <h2 class="text-3xl font-black text-white tracking-tight mb-4">Contact WorkPal</h2>
+        <p class="text-on-surface-variant leading-relaxed mb-8">
+          If you have a privacy request, a legal question, or need help understanding these policies,
+          message us and we will respond as quickly as possible.
+        </p>
+        <div class="space-y-3">
+          <a class="flex items-center justify-center gap-3 w-full bg-green-600 hover:bg-green-500 text-white px-6 py-4 rounded-xl font-bold transition-colors" href="https://wa.me/2349138567705" target="_blank" rel="noopener noreferrer">
+            WhatsApp Support
+          </a>
+          <a class="flex items-center justify-center gap-3 w-full border border-white/15 text-white px-6 py-4 rounded-xl font-bold hover:bg-white/5 transition-colors" href="tel:+2349138567705">
+            Call 09138567705
+          </a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section id="privacy" class="px-6 py-20 bg-surface-container">
+    <div class="max-w-5xl mx-auto">
+      <div class="mb-10">
+        <span class="text-[10px] font-bold uppercase tracking-widest text-primary mb-3 block">Privacy Policy</span>
+        <h2 class="text-3xl md:text-4xl font-black text-white tracking-tight">How we collect and use information</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6 text-sm">
+        <div class="legal-card rounded-2xl p-6">
+          <h3 class="text-white font-bold mb-3">Information we collect</h3>
+          <p class="text-on-surface-variant leading-relaxed">
+            We may collect your name, phone number, email address, location, profile details, service listings,
+            messages, and any content you choose to share on the platform.
+          </p>
+        </div>
+        <div class="legal-card rounded-2xl p-6">
+          <h3 class="text-white font-bold mb-3">How we use it</h3>
+          <p class="text-on-surface-variant leading-relaxed">
+            We use your information to create accounts, connect clients with artisans, send notifications,
+            improve the service, and help keep WorkPal secure.
+          </p>
+        </div>
+        <div class="legal-card rounded-2xl p-6">
+          <h3 class="text-white font-bold mb-3">Sharing and access</h3>
+          <p class="text-on-surface-variant leading-relaxed">
+            We do not sell personal data. We may share limited information with service providers that help us run
+            the platform, or when required by law.
+          </p>
+        </div>
+        <div class="legal-card rounded-2xl p-6">
+          <h3 class="text-white font-bold mb-3">Your choices</h3>
+          <p class="text-on-surface-variant leading-relaxed">
+            You can request access, correction, or deletion of your account information by contacting support.
+            If you delete your account, we will handle your data according to our internal retention rules and legal duties.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="terms" class="px-6 py-20">
+    <div class="max-w-5xl mx-auto">
+      <div class="mb-10">
+        <span class="text-[10px] font-bold uppercase tracking-widest text-primary mb-3 block">Terms & Conditions</span>
+        <h2 class="text-3xl md:text-4xl font-black text-white tracking-tight">Rules for using WorkPal</h2>
+      </div>
+      <div class="space-y-6">
+        <div class="legal-card rounded-2xl p-6">
+          <h3 class="text-white font-bold mb-3">1. Account responsibilities</h3>
+          <p class="text-on-surface-variant leading-relaxed">
+            You are responsible for the accuracy of your profile, the security of your account, and any activity
+            that occurs under your login.
+          </p>
+        </div>
+        <div class="legal-card rounded-2xl p-6">
+          <h3 class="text-white font-bold mb-3">2. Acceptable use</h3>
+          <p class="text-on-surface-variant leading-relaxed">
+            Do not use WorkPal for fraud, harassment, impersonation, spam, illegal activity, or content that
+            violates other users' rights.
+          </p>
+        </div>
+        <div class="legal-card rounded-2xl p-6">
+          <h3 class="text-white font-bold mb-3">3. Payments and disputes</h3>
+          <p class="text-on-surface-variant leading-relaxed">
+            Unless a specific WorkPal feature says otherwise, clients and artisans agree on pricing, schedules,
+            and payment terms directly. We are not responsible for off-platform payment disputes.
+          </p>
+        </div>
+        <div class="legal-card rounded-2xl p-6">
+          <h3 class="text-white font-bold mb-3">4. Content and moderation</h3>
+          <p class="text-on-surface-variant leading-relaxed">
+            You keep ownership of your content, but you give WorkPal permission to display and process it as needed
+            to operate the platform. We may remove content or suspend accounts that violate these rules.
+          </p>
+        </div>
+        <div class="legal-card rounded-2xl p-6">
+          <h3 class="text-white font-bold mb-3">5. Service changes</h3>
+          <p class="text-on-surface-variant leading-relaxed">
+            We may update features, pricing, or policies from time to time. Continued use of WorkPal means you accept
+            the updated terms once they are posted.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faqs" class="px-6 py-20 bg-surface-container">
+    <div class="max-w-5xl mx-auto">
+      <div class="mb-10">
+        <span class="text-[10px] font-bold uppercase tracking-widest text-primary mb-3 block">FAQs</span>
+        <h2 class="text-3xl md:text-4xl font-black text-white tracking-tight">Common questions</h2>
+      </div>
+      <div class="space-y-4">
+        <details class="legal-card rounded-2xl p-6">
+          <summary class="cursor-pointer flex items-center justify-between gap-4 text-white font-bold list-none">
+            How does WorkPal work?
+            <span class="chevron transition-transform text-primary">v</span>
+          </summary>
+          <p class="mt-4 text-sm text-on-surface-variant leading-relaxed">
+            Clients can search for artisans, post jobs, or contact professionals directly. Artisans can build a profile,
+            showcase their work, and respond to requests that match their skills.
+          </p>
+        </details>
+        <details class="legal-card rounded-2xl p-6">
+          <summary class="cursor-pointer flex items-center justify-between gap-4 text-white font-bold list-none">
+            Is my personal information shared publicly?
+            <span class="chevron transition-transform text-primary">v</span>
+          </summary>
+          <p class="mt-4 text-sm text-on-surface-variant leading-relaxed">
+            Only the details you choose to include in your public profile are shown to other users. Sensitive account
+            information is used to operate the platform and is not shown publicly.
+          </p>
+        </details>
+        <details class="legal-card rounded-2xl p-6">
+          <summary class="cursor-pointer flex items-center justify-between gap-4 text-white font-bold list-none">
+            Do you handle payments between clients and artisans?
+            <span class="chevron transition-transform text-primary">v</span>
+          </summary>
+          <p class="mt-4 text-sm text-on-surface-variant leading-relaxed">
+            In most cases, WorkPal connects the two parties and payment terms are agreed directly between them.
+            If we introduce an in-app payment flow later, we will explain it clearly inside the product.
+          </p>
+        </details>
+        <details class="legal-card rounded-2xl p-6">
+          <summary class="cursor-pointer flex items-center justify-between gap-4 text-white font-bold list-none">
+            How do I delete my account?
+            <span class="chevron transition-transform text-primary">v</span>
+          </summary>
+          <p class="mt-4 text-sm text-on-surface-variant leading-relaxed">
+            Contact support on WhatsApp and request account deletion. We may ask you to confirm ownership before
+            removing the account and related data.
+          </p>
+        </details>
+        <details class="legal-card rounded-2xl p-6">
+          <summary class="cursor-pointer flex items-center justify-between gap-4 text-white font-bold list-none">
+            What should I do if I have a dispute?
+            <span class="chevron transition-transform text-primary">v</span>
+          </summary>
+          <p class="mt-4 text-sm text-on-surface-variant leading-relaxed">
+            Try to resolve the issue directly with the other party first. If you still need help, contact support
+            with the details and we will review the situation where appropriate.
+          </p>
+        </details>
+        <details class="legal-card rounded-2xl p-6">
+          <summary class="cursor-pointer flex items-center justify-between gap-4 text-white font-bold list-none">
+            How can I contact WorkPal?
+            <span class="chevron transition-transform text-primary">v</span>
+          </summary>
+          <p class="mt-4 text-sm text-on-surface-variant leading-relaxed">
+            The fastest option is WhatsApp at 09138567705. You can also call the number directly from the contact
+            buttons on this page.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 py-20">
+    <div class="max-w-5xl mx-auto">
+      <div class="legal-card rounded-3xl p-8 md:p-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-widest text-primary mb-3 block">Still need help?</span>
+          <h2 class="text-3xl font-black text-white tracking-tight mb-3">Reach out and we will help.</h2>
+          <p class="text-on-surface-variant leading-relaxed max-w-2xl">
+            For account support, policy questions, or anything not covered here, contact our team and we will point
+            you in the right direction.
+          </p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a href="./index.html" class="px-6 py-3 rounded-xl bg-white text-[#191022] font-bold text-center hover:bg-slate-100 transition-colors">Go Home</a>
+          <a href="./about.html" class="px-6 py-3 rounded-xl border border-white/15 text-white font-bold text-center hover:bg-white/5 transition-colors">About WorkPal</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="bg-[#191022] border-t border-[#7f13ec]/10 py-10 px-6 text-center">
+  <a class="text-xl font-black text-white block mb-3" href="./index.html">WorkPal</a>
+  <p class="text-[11px] uppercase tracking-widest font-bold text-slate-600">Legal and help information for WorkPal users.</p>
+</footer>
+
+</body>
+</html>
