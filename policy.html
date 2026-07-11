@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Privacy Policy | WorkPalNG</title>
+<meta name="description" content="Read WorkPalNG's Privacy Policy, Cookie Policy, Terms & Conditions, and Security Policy. Learn how we protect your data."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          primary: "#7f13ec",
+          background: "#191022",
+          surface: "#191022",
+          "surface-container": "#231b2e",
+          "surface-container-low": "#1c1426",
+          secondary: "#2d1b4d",
+          "on-surface": "#f7f6f8",
+          "on-surface-variant": "#cec2d8",
+          tertiary: "#ffb68b",
+        },
+        fontFamily: { body: ["Inter"] },
+      },
+    },
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body {
+    background:
+      radial-gradient(circle at top left, rgba(127, 19, 236, 0.16), transparent 32%),
+      radial-gradient(circle at top right, rgba(255, 182, 139, 0.08), transparent 28%),
+      #191022;
+    color: #f7f6f8;
+    font-family: 'Inter', sans-serif;
+  }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  section { scroll-margin-top: 96px; }
+  .policy-card {
+    background: linear-gradient(180deg, rgba(35, 27, 46, 0.96), rgba(28, 20, 38, 0.96));
+    border: 1px solid rgba(127, 19, 236, 0.14);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.22);
+  }
+  .tab-btn { transition: all 0.3s ease; }
+  .tab-btn.active { background: #7f13ec; color: #fff; }
+  .tab-btn:not(.active):hover { background: rgba(127, 19, 236, 0.15); }
+  .tab-panel { display: none; animation: fadeIn 0.4s ease; }
+  .tab-panel.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+  details summary::-webkit-details-marker { display: none; }
+  details[open] summary .chevron { transform: rotate(180deg); }
+  .policy-section h3 { color: #fff; font-weight: 700; font-size: 1.05rem; margin-bottom: 0.5rem; }
+  .policy-section p, .policy-section li { color: #cec2d8; font-size: 0.875rem; line-height: 1.75; }
+  .policy-section ul { list-style: disc; padding-left: 1.25rem; margin-top: 0.5rem; }
+</style>
+</head>
+<body class="font-body">
+
+<nav class="fixed top-0 z-50 w-full bg-[#191022]/95 backdrop-blur-md border-b border-[#7f13ec]/10 shadow-md">
+  <div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto text-sm">
+    <a class="text-2xl font-black text-white tracking-tighter" href="./index.html">WorkPal</a>
+    <div class="hidden md:flex items-center gap-8">
+      <a class="text-slate-300 hover:text-white transition-colors" href="./index.html">Home</a>
+      <a class="text-slate-300 hover:text-white transition-colors" href="./about.html">About Us</a>
+      <a class="text-[#7f13ec] font-semibold border-b-2 border-[#7f13ec] pb-1" href="./policy.html">Policy</a>
+    </div>
+    <div class="flex items-center gap-4">
+      <a class="px-4 py-2 text-slate-300 hover:text-white text-sm font-bold uppercase tracking-widest" href="./signin.html?mode=login">Login</a>
+      <a class="bg-primary text-white px-6 py-2 rounded-xl font-bold text-sm shadow-lg hover:scale-95 duration-150" href="./signin.html?mode=signup">Sign Up</a>
+    </div>
+  </div>
+</nav>
+
+<main class="pt-24">
+
+  <!-- Hero -->
+  <section class="py-20 px-6 text-center relative overflow-hidden">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/10 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="relative max-w-3xl mx-auto">
+      <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-primary bg-primary/10 px-4 py-1.5 rounded-full inline-block mb-6">Legal</span>
+      <h1 class="text-4xl md:text-6xl font-black text-white tracking-tighter mb-6">Policies & Legal Information</h1>
+      <p class="text-on-surface-variant text-lg max-w-2xl mx-auto leading-relaxed">
+        At WorkPalNG, your trust matters. This page explains how we collect, use, and protect your information,
+        and the rules that govern your use of our platform.
+      </p>
+      <p class="text-on-surface-variant/60 text-sm mt-4">Last updated: July 11, 2026</p>
+    </div>
+  </section>
+
+  <!-- Tabs Navigation -->
+  <section class="px-6">
+    <div class="max-w-5xl mx-auto flex flex-wrap justify-center gap-2">
+      <button onclick="switchTab('privacy')" class="tab-btn active px-5 py-3 rounded-xl font-bold text-sm" id="tab-privacy">Privacy Policy</button>
+      <button onclick="switchTab('cookies')" class="tab-btn px-5 py-3 rounded-xl font-bold text-sm border border-white/15 text-white" id="tab-cookies">Cookie Policy</button>
+      <button onclick="switchTab('terms')" class="tab-btn px-5 py-3 rounded-xl font-bold text-sm border border-white/15 text-white" id="tab-terms">Terms &amp; Conditions</button>
+      <button onclick="switchTab('security')" class="tab-btn px-5 py-3 rounded-xl font-bold text-sm border border-white/15 text-white" id="tab-security">Security Policy</button>
+    </div>
+  </section>
+
+  <!-- PRIVACY POLICY -->
+  <section class="px-6 py-16 tab-panel active" id="panel-privacy">
+    <div class="max-w-5xl mx-auto">
+      <div class="mb-10">
+        <span class="text-[10px] font-bold uppercase tracking-widest text-primary mb-3 block">Privacy Policy</span>
+        <h2 class="text-3xl md:text-4xl font-black text-white tracking-tight">How We Collect &amp; Use Your Information</h2>
+      </div>
+      <div class="space-y-6 policy-section">
+
+        <div class="policy-card rounded-2xl p-6">
+          <h3>1. Introduction</h3>
+          <p>WorkPalNG ("we", "our", or "us") operates a platform that connects skilled artisans and service professionals with clients who need their services across Nigeria. This Privacy Policy explains what information we collect, how we use it, and your rights regarding your data. By using WorkPalNG — including our website, mobile application, and all related services — you agree to the practices described in this policy.</p>
+        </div>
+
+        <div class="policy-card rounded-2xl p-6">
+          <h3>2. Information We Collect</h3>
+          <p>We collect information that you provide directly and information generated through your use of our platform:</p>
+          <ul>
+            <li><strong>Account Information:</strong> Full name, email address, phone number, password, and account type (artisan or client).</li>
+            <li><strong>Profile Information:</strong> Profile photo, bio, skills, service categories, portfolio images/videos, work experience, and certifications.</li>
+            <li><strong>Location Data:</strong> GPS coordinates or address used to match you with nearby artisans or clients through our location-based discovery feature.</li>
+            <li><strong>Job &amp; Service Data:</strong> Job postings, budgets, milestones, deliverables, applications, quotes, and project details.</li>
+            <li><strong>Communication Data:</strong> Messages sent through our direct messaging (chat) system, including text, images, and attachments.</li>
+            <li><strong>Content Data:</strong> Posts, stories, comments, likes, shares, and any media you upload to the work feed.</li>
+            <li><strong>Payment Information:</strong> Payment method preferences and transaction history related to services arranged on the platform.</li>
+            <li><strong>Device &amp; Usage Data:</strong> IP address, browser type, device identifiers, operating system, pages visited, and usage patterns.</li>
+            <li><strong>Notification Preferences:</strong> Your choices regarding push notifications, email alerts, and in-app notifications.</li>
+          </ul>
+        </div>
+
+        <div class="policy-card rounded-2xl p-6">
+          <h3>3. How We Use Your Information</h3>
+          <p>We use the collected information for the following purposes:</p>
+          <ul>
+            <li>Creating, verifying, and managing your WorkPalNG account and profile.</li>
+            <li>Matching clients with artisans based on location, skills, availability, and service categories.</li>
+            <li>Facilitating direct messaging and communication between users.</li>
+            <li>Displaying your posts, stories, and portfolio content on the work feed.</li>
+            <li>Processing and managing job postings, applications, quotes, and project workflows.</li>
+            <li>Sending real-time notifications about messages, job requests, likes, and platform updates.</li>
+            <li>Providing analytics and insights to artisans about their profile views, engagement, and performance.</li>
+            <li>Improving, personalizing, and optimizing the platform experience.</li>
+            <li>Enforcing our Terms &amp; Conditions, preventing fraud, and ensuring platform security.</li>
+            <li>Complying with legal obligations and responding to lawful requests.</li>
+          </ul>
+        </div>
+
+        <div class="policy-card rounded-2xl p-6">
+          <h3>4. Sharing &amp; Disclosure</h3>
+          <p>We do <strong>not sell</strong> your personal data. We may share limited information in the following circumstances:</p>
+          <ul>
+            <li><strong>With Other Users:</strong> Your public profile, portfolio, ratings, and reviews are visible to other platform users.</li>
+            <li><strong>Service Providers:</strong> We use trusted third-party services (e.g., Firebase, cloud hosting, analytics) to operate the platform. These providers access data only as needed to perform their functions.</li>
+            <li><strong>Legal Requirements:</strong> We may disclose information if required by Nigerian law, court order, or government regulation.</li>
+            <li><strong>Safety &amp; Protection:</strong> We may share information to protect the rights, property, or safety of WorkPalNG, our users, or the public.</li>
+          </ul>
+        </div>
+
+        <div class="policy-card rounded-2xl p-6">
+          <h3>5. Data Retention</h3>
+          <p>We retain your personal data for as long as your account is active or as needed to provide our services. If you delete your account, we will remove or anonymize your data within 90 days, unless we are required by law to retain it longer. Aggregated, non-identifiable data may be retained for analytics and platform improvement.</p>
+        </div>
+
+        <div class="policy-card rounded-2xl p-6">
+          <h3>6. Your Rights &amp; Choices</h3>
+          <p>You have the following rights regarding your personal data:</p>
+          <ul>
+            <li><strong>Access:</strong> Request a copy of the personal data we hold about you.</li>
+            <li><strong>Correction:</strong> Update or correct inaccurate profile information at any time via your account settings.</li>
+            <li><strong>Deletion:</strong> Request deletion of your account and associated data by contacting our support team.</li>
+            <li><strong>Opt-Out:</strong> Manage your notification preferences or unsubscribe from promotional communications.</li>
+            <li><strong>Data Portability:</strong> Request your data in a portable format where technically feasible.</li>
+          </ul>
+          <p class="mt-2">To exercise any of these rights, contact us via WhatsApp at <strong>09138567705</strong>.</p>
+        </div>
+
+        <div class="policy-card rounded-2xl p-6">
+          <h3>7. Children's Privacy</h3>
+          <p>WorkPalNG is not intended for users under the age of 16. We do not knowingly collect personal information from children. If we learn that we have collected data from a child under 16, we will delete it promptly. If you believe a child has provided us with personal data, please contact us immediately.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- COOKIE POLICY -->
+  <section class="px-6 py-16 tab-panel" id="panel-cookies">
+    <div class="max-w-5xl mx-auto">
+      <div class="mb-10">
+        <span class="text-[10px] font-bold uppercase tracking-widest text-primary mb-3 block">Cookie Policy</span>
+        <h2 class="text-3xl md:text-4xl font-black text-white tracking-tight">How We Use Cookies &amp; Similar Technologies</h2>
+      </div>
+      <div class="space-y-6 policy-section">
+
+        <div class="policy-card rounded-2xl p-6">
+          <h3>1. What Are Cookies?</h3>
+          <p>Cookies are small text files stored on your device when you visit our website or use our platform. They help us recognize your device, remember your preferences, and improve your experience. Similar technologies include local storage, session storage, and device identifiers used in our mobile application.</p>
+        </div>
+
+        <div class="policy-card rounded-2xl p-6">
+          <h3>2. Types of Cookies We Use</h3>
+          <ul>
+            <li><strong>Essential Cookies:</strong> Required for the platform to function — login sessions, security tokens, and authentication state. These cannot be disabled.</li>
+            <li><strong>Functional Cookies:</strong> Remember your preferences such as language, theme (dark mode), and notification settings.</li>
+            <li><strong>Analytics Cookies:</strong> Help us understand how users interact with WorkPalNG — which pages are visited, how long users spend on features, and where errors occur. We use this data to improve the platform.</li>
+            <li><strong>Performance Cookies:</strong> Monitor platform speed and performance to ensure a smooth experience for all users.</li>
+          </ul>
+        </div>
+
+        <div class="policy-card rounded-2xl p-6">
+          <h3>3. Third-Party Cookies</h3>
+          <p>We may use third-party services such as Google Analytics and Firebase that set their own cookies. These services help us analyze usage patterns and improve performance. Third-party cookies are governed by the respective provider's privacy policy. We do not allow third-party advertising cookies on our platform.</p>
+        </div>
+
+        <div class="policy-card rounded-2xl p-6">
+          <h3>4. Managing Cookies</h3>
+          <p>You can manage or delete cookies through your browser settings. Please note that disabling essential cookies may prevent you from using certain features of WorkPalNG. Most browsers allow you to:</p>
+          <ul>
+            <li>View and delete existing cookies.</li>
+            <li>Block all or specific cookies.</li>
+            <li>Set preferences for certain websites.</li>
+            <li>Enable "Do Not Track" signals (though not all services honor this).</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TERMS & CONDITIONS -->
+  <section class="px-6 py-16 tab-panel" id="panel-terms">
+    <div class="max-w-5xl mx-auto">
+      <div class="mb-10">
+        <span class="text-[10px] font-bold uppercase tracking-widest text-primary mb-3 block">Terms &amp; Conditions</span>
+        <h2 class="text-3xl md:text-4xl font-black text-white tracking-tight">Rules for Using WorkPalNG</h2>
+      </div>
+      <div class="space-y-6 policy-section">
+
+        <div class="policy-card rounded-2xl p-6">
+          <h3>1. Acceptance of Terms</h3>
+          <p>By accessing or using WorkPalNG — including our website, mobile application, and all associated services — you agree to be bound by these Terms &amp; Conditions. If you do not agree, you must not use the platform. We may update these terms from time to time, and continued use of WorkPalNG after changes are posted constitutes your acceptance of the revised terms.</p>
+        </div>
+
+        <div class="policy-card rounded-2xl p-6">
+          <h3>2. Account Responsibilities</h3>
+          <p>You are responsible for the accuracy of your profile information, the security of your login credentials, and all activity that occurs under your account. You must provide truthful information during registration. You may not create accounts for others without their consent or maintain multiple accounts. If you suspect unauthorized access to your account, contact us immediately.</p>
+        </div>
+
+        <div class="policy-card rounded-2xl p-6">
+          <h3>3. Acceptable Use</h3>
+          <p>You agree not to use WorkPalNG for any unlawful or prohibited activities, including but not limited to:</p>
+          <ul>
+            <li>Fraud, scams, impersonation, or misrepresentation of identity or qualifications.</li>
+            <li>Harassment, abuse, threats, or hate speech toward other users.</li>
+            <li>Spamming, unsolicited advertising, or posting misleading content.</li>
+            <li>Uploading malicious software, viruses, or any content that could harm the platform.</li>
+            <li>Scraping, data mining, or unauthorized automated access to the platform.</li>
+            <li>Circumventing security measures or exploiting platform vulnerabilities.</li>
+          </ul>
+        </div>
+
+        <div class="policy-card rounded-2xl p-6">
+          <h3>4. Payments &amp; Disputes</h3>
+          <p>WorkPalNG connects clients with artisans and service professionals. Unless a specific WorkPalNG feature states otherwise, payment terms — including pricing, schedules, and methods — are agreed upon directly between clients and artisans. WorkPalNG is not responsible for payment disputes, quality of work, or agreements made off-platform. If we introduce an in-app payment system in the future, separate terms will apply and be communicated clearly.</p>
+        </div>
+
+        <div class="policy-card rounded-2xl p-6">
+          <h3>5. Content &amp; Intellectual Property</h3>
+          <p>You retain ownership of the content you post on WorkPalNG, including portfolio items, posts, stories, and messages. However, by posting content, you grant WorkPalNG a non-exclusive, royalty-free license to display, distribute, and process your content as needed to operate and promote the platform. We may remove content that violates these terms or community standards without prior notice.</p>
+        </div>
+
+        <div class="policy-card rounded-2xl p-6">
+          <h3>6. Account Suspension &amp; Termination</h3>
+          <p>We reserve the right to suspend or terminate your account at any time if you violate these terms, engage in fraudulent or harmful activity, or if required by law. You may also delete your account voluntarily by contacting our support team. Upon termination, your right to use WorkPalNG ceases immediately, and we may retain certain data as required by law or for legitimate business purposes.</p>
+        </div>
+
+        <div class="policy-card rounded-2xl p-6">
+          <h3>7. Limitation of Liability</h3>
+          <p>WorkPalNG is provided "as is" without warranties of any kind. We do not guarantee the quality, reliability, or availability of services offered by artisans on the platform. To the fullest extent permitted by Nigerian law, WorkPalNG shall not be liable for any indirect, incidental, or consequential damages arising from your use of the platform.</p>
+        </div>
+
+        <div class="policy-card rounded-2xl p-6">
+          <h3>8. Governing Law</h3>
+          <p>These Terms &amp; Conditions are governed by and construed in accordance with the laws of the Federal Republic of Nigeria. Any disputes arising from these terms shall be subject to the exclusive jurisdiction of the courts in Nigeria.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECURITY POLICY -->
+  <section class="px-6 py-16 tab-panel" id="panel-security">
+    <div class="max-w-5xl mx-auto">
+      <div class="mb-10">
+        <span class="text-[10px] font-bold uppercase tracking-widest text-primary mb-3 block">Security Policy</span>
+        <h2 class="text-3xl md:text-4xl font-black text-white tracking-tight">How We Protect Your Data</h2>
+      </div>
+      <div class="space-y-6 policy-section">
+
+        <div class="policy-card rounded-2xl p-6">
+          <h3>1. Our Commitment to Security</h3>
+          <p>At WorkPalNG, we take the security of your personal information seriously. We implement industry-standard technical and organizational measures to protect your data from unauthorized access, alteration, disclosure, or destruction. Our security practices are regularly reviewed and updated to address emerging threats.</p>
+        </div>
+
+        <div class="policy-card rounded-2xl p-6">
+          <h3>2. Technical Safeguards</h3>
+          <ul>
+            <li><strong>Encryption:</strong> Data transmitted between your device and our servers is encrypted using TLS/SSL protocols.</li>
+            <li><strong>Authentication:</strong> We use Firebase Authentication with secure token-based sessions to protect your account.</li>
+            <li><strong>Database Security:</strong> Our Firestore database is protected by strict security rules that enforce access control based on user roles and ownership.</li>
+            <li><strong>Password Protection:</strong> User passwords are hashed and salted — they are never stored in plain text.</li>
+            <li><strong>Secure APIs:</strong> All API endpoints are authenticated and rate-limited to prevent abuse.</li>
+          </ul>
+        </div>
+
+        <div class="policy-card rounded-2xl p-6">
+          <h3>3. Access Controls</h3>
+          <p>Access to user data within WorkPalNG is strictly limited. Only authorized team members with a legitimate business need can access backend systems. We follow the principle of least privilege — team members are granted only the minimum level of access required to perform their duties.</p>
+        </div>
+
+        <div class="policy-card rounded-2xl p-6">
+          <h3>4. Data Breach Response</h3>
+          <p>In the unlikely event of a data breach, we will:</p>
+          <ul>
+            <li>Investigate and contain the breach as quickly as possible.</li>
+            <li>Notify affected users within 72 hours of becoming aware of the breach.</li>
+            <li>Report the incident to relevant Nigerian data protection authorities as required by law.</li>
+            <li>Take corrective action to prevent future occurrences.</li>
+          </ul>
+        </div>
+
+        <div class="policy-card rounded-2xl p-6">
+          <h3>5. Reporting Vulnerabilities</h3>
+          <p>If you discover a security vulnerability in WorkPalNG, please report it responsibly by contacting us on WhatsApp at <strong>09138567705</strong>. We appreciate the security research community's efforts and will work quickly to address any confirmed vulnerabilities. Please do not publicly disclose the issue until we have had an opportunity to address it.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / CTA -->
+  <section class="px-6 py-16">
+    <div class="max-w-5xl mx-auto">
+      <div class="policy-card rounded-3xl p-8 md:p-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-widest text-primary mb-3 block">Questions?</span>
+          <h2 class="text-3xl font-black text-white tracking-tight mb-3">Need help with our policies?</h2>
+          <p class="text-on-surface-variant leading-relaxed max-w-2xl">
+            If you have a privacy request, a legal question, or need help understanding any of these policies,
+            reach out to our team and we will respond as quickly as possible.
+          </p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-3 shrink-0">
+          <a href="https://wa.me/2349138567705" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-xl bg-green-600 hover:bg-green-500 text-white font-bold text-center transition-colors flex items-center gap-2">
+            <span class="material-symbols-outlined text-lg">chat</span>
+            WhatsApp Support
+          </a>
+          <a href="tel:+2349138567705" class="px-6 py-3 rounded-xl border border-white/15 text-white font-bold text-center hover:bg-white/5 transition-colors">
+            Call 09138567705
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="bg-[#191022] border-t border-[#7f13ec]/10 py-10 px-6 text-center">
+  <a class="text-xl font-black text-white block mb-3" href="./index.html">WorkPal</a>
+  <p class="text-[11px] uppercase tracking-widest font-bold text-slate-600">WorkPalNG &copy; 2026. All rights reserved.</p>
+</footer>
+
+<script>
+function switchTab(tab) {
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.classList.remove('active');
+    btn.classList.add('border', 'border-white/15', 'text-white');
+  });
+  document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
+
+  const activeBtn = document.getElementById('tab-' + tab);
+  activeBtn.classList.add('active');
+  activeBtn.classList.remove('border', 'border-white/15', 'text-white');
+
+  document.getElementById('panel-' + tab).classList.add('active');
+}
+
+// Handle direct linking via hash
+window.addEventListener('DOMContentLoaded', () => {
+  const hash = window.location.hash.replace('#', '');
+  if (['privacy', 'cookies', 'terms', 'security'].includes(hash)) {
+    switchTab(hash);
+  }
+});
+</script>
+
+</body>
+</html>
