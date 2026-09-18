@@ -1,0 +1,17 @@
+{
+  "name": "WorkPal",
+  "short_name": "WorkPal",
+  "description": "Connect with trusted artisans and service professionals.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#7f13ec",
+  "icons": [
+    {
+      "src": "./assets/img/AppIconn.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
